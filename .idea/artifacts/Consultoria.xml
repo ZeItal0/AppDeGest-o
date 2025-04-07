@@ -1,0 +1,32 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Consultoria">
+    <output-path>$PROJECT_DIR$/out/artifacts/Consultoria</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="software.consultoria.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Consultoria.jar">
+        <element id="module-output" name="Consultoria" />
+        <element id="module-output" name="Consultoria.main" />
+        <element id="library" level="project" name="Gradle: org.xerial:sqlite-jdbc:3.45.0.0" />
+        <element id="library" level="project" name="Gradle: org.slf4j:slf4j-simple:2.0.9" />
+        <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:2.0.9" />
+        <element id="library" level="project" name="Gradle: org.openjfx:javafx-graphics:win:23.0.1" />
+        <element id="library" level="project" name="Gradle: org.openjfx:javafx-graphics:23.0.1" />
+        <element id="library" level="project" name="Gradle: org.openjfx:javafx-fxml:win:23.0.1" />
+        <element id="library" level="project" name="Gradle: org.openjfx:javafx-controls:win:23.0.1" />
+        <element id="library" level="project" name="Gradle: org.openjfx:javafx-controls:23.0.1" />
+        <element id="library" level="project" name="Gradle: org.openjfx:javafx-base:win:23.0.1" />
+        <element id="library" level="project" name="Gradle: org.openjfx:javafx-base:23.0.1" />
+        <element id="library" level="project" name="Gradle: org.controlsfx:controlsfx:11.2.1" />
+      </element>
+    </root>
+  </artifact>
+</component>
