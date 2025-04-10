@@ -28,7 +28,49 @@
                   </ImageView>
                </children>
             </AnchorPane>
-          <AnchorPane id="anchortransparent" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: black;" stylesheets="@style.css" />
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: black;" stylesheets="@style.css">
+                <children>
+                    <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-194.0" layoutY="695.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+                        <image>
+                            <Image url="@img/details.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="626.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+                        <image>
+                            <Image url="@img/details.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="404.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" rotate="240.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+                        <image>
+                            <Image url="@img/detail2.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="50.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" rotate="118.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+                        <image>
+                            <Image url="@img/detail3.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="381.0" fitWidth="559.0" layoutX="-219.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true" rotate="40.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+                        <image>
+                            <Image url="@img/detail4.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="630.0" layoutY="700.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+                        <image>
+                            <Image url="@img/details5.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-195.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+                        <image>
+                            <Image url="@img/details5.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="381.0" fitWidth="559.0" layoutX="519.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true" rotate="-50.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+                        <image>
+                            <Image url="@img/detail6.png" />
+                        </image>
+                    </ImageView>
+                </children></AnchorPane>
         </items>
       </SplitPane>
       <Pane id="rectangle2" layoutX="21.0" layoutY="20.0" prefHeight="755.0" prefWidth="1455.0" stylesheets="@style.css">
