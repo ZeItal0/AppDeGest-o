@@ -190,6 +190,7 @@ public class LoginController {
     }
 
     public void cadastrarProduto(ActionEvent actionEvent) {
+        main.carregarCena("/CadastroProduto.fxml");
     }
 
     public void estoque(ActionEvent actionEvent) {

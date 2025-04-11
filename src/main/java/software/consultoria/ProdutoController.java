@@ -1,18 +1,14 @@
 package software.consultoria;
 
-import DAOclass.RegisterFornecedorDao;
-import DAOclass.RegisterUsuarioDao;
+import DAOclass.RegisterProdutoDao;
 import Models.Fornecedor;
-import Models.Usuario;
+import Models.entradasEsaidas;
 import javafx.application.Platform;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -21,22 +17,14 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Map;
 
-public class FornecedorController {
+public class ProdutoController {
+    RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
+    private entradasEsaidas status;
     private Main main;
     @FXML
-    private TableView<Fornecedor> fornecedorTableList;
+    private TableView<Fornecedor> FornecedorProdutoList;
     @FXML
-    private TableColumn<Fornecedor,String> nFornecedor;
-    @FXML
-    private TableColumn<Fornecedor,String> telFornecedor;
-    @FXML
-    private TableColumn<Fornecedor, String> email;
-    @FXML
-    private TableColumn<Fornecedor, String> cepFornecedor;
-    @FXML
-    private TableColumn<Fornecedor, String> endereco;
-    @FXML
-    private TableColumn<Fornecedor, LocalDate> dataDecadastro;
+    private TableColumn<Fornecedor,String> fornecedorList;
     @FXML
     private ImageView img1;
     @FXML
@@ -61,11 +49,21 @@ public class FornecedorController {
     private Button despesas;
     @FXML
     private Button videos;
-
+    @FXML
+    private MenuButton categoria;
+    @FXML
+    private TextField nomeProduto;
+    @FXML
+    private TextField quantidade;
+    @FXML
+    private TextField valorInvestido;
+    @FXML
+    private TextField valorDeVenda;
+    @FXML
+    private TextField detalhes;
 
     @FXML
     public void initialize() throws SQLException {
-
         if(funcionario!=null){
             Map<Button, ImageView> hoverMap = Map.of(
                     funcionario, img1,
@@ -86,24 +84,10 @@ public class FornecedorController {
                 }
             });
         }
-
-        nFornecedor.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        telFornecedor.setCellValueFactory(new PropertyValueFactory<>("telefone"));
-
-        cepFornecedor.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getEndereco().getCep())
-        );
-
-        endereco.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getEndereco().getRua())
-        );
-
-        email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        dataDecadastro.setCellValueFactory(new PropertyValueFactory<>("dataDeCadastro"));
-        RegisterFornecedorDao registerFornecedorDao = new RegisterFornecedorDao();
-        ObservableList<Fornecedor> observableList = FXCollections.observableArrayList(registerFornecedorDao.listarFornecedor());
-        fornecedorTableList.setItems(observableList);
-
+        fornecedorList.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
+        ObservableList<Fornecedor> observableList = FXCollections.observableArrayList(registerProdutoDao.fornecedorLIST());
+        FornecedorProdutoList.setItems(observableList);
         main = ScreenChange.getMainInstance();
     }
 
@@ -111,12 +95,15 @@ public class FornecedorController {
         Platform.exit();
     }
 
+    public void funcionario(ActionEvent actionEvent) {
+        main.carregarCena("/funcionariosOptions.fxml");
+    }
+
     public void venda(ActionEvent actionEvent) {
         main.carregarCena("/VendaOptions.fxml");
     }
 
     public void produtos(ActionEvent actionEvent) {
-        main.carregarCena("/produtosOptions.fxml");
     }
 
     public void fornecedores(ActionEvent actionEvent) {
@@ -140,17 +127,49 @@ public class FornecedorController {
         stage.setIconified(true);
     }
 
-    public void cadastrarFornecedor(ActionEvent actionEvent) {
-        main.carregarCena("/CadastroFornecedor.fxml");
+    public void cadastrarProduto(ActionEvent actionEvent) {
+        main.carregarCena("/CadastroProduto.fxml");
     }
 
-    public void listaFornecedores(ActionEvent actionEvent) {
+    public void estoque(ActionEvent actionEvent) {
     }
 
-    public void EditarFornecedor(ActionEvent actionEvent) {
+    public void Editarproduto(ActionEvent actionEvent) {
     }
 
-    public void funcionario(ActionEvent actionEvent) {
-        main.carregarCena("/funcionariosOptions.fxml");
+    public void selecionaranel(ActionEvent actionEvent) {
+        categoria.setText("Aneis");
+    }
+
+    public void selecionarcolar(ActionEvent actionEvent) {
+        categoria.setText("Colares");
+    }
+
+    public void selecionarBrinco(ActionEvent actionEvent) {
+        categoria.setText("Brincos");
+    }
+
+    public void selecionarRelogio(ActionEvent actionEvent) {
+        categoria.setText("Relogios");
+    }
+
+    public void selecionarperfume(ActionEvent actionEvent) {
+        categoria.setText("Perfumes");
+    }
+
+    public void Cadastrar_Produto_fornecedor(ActionEvent actionEvent) throws SQLException {
+        String Nome = nomeProduto.getText();
+        String Quantidade = quantidade.getText();
+        String ValorInvestido = valorInvestido.getText();
+        String ValorDeVenda = valorDeVenda.getText();
+        String Categoria = categoria.getText();
+        String Detalhes = detalhes.getText();
+
+
+        registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now());
+
+
+
+
     }
 }

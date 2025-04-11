@@ -16,7 +16,7 @@ public class DatabaseConnector {
 //    Essa parte faz a conexao com o banco alem de fazer uma copia do banco original para sua propia maquina
 
     private static final String DB_NAME = "Db_G.db";
-    private static final String APP_FOLDER = "MeuApp";
+    private static final String APP_FOLDER = "BdSQ";
 
     public Connection connect() {
         try {
