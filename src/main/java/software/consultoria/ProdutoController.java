@@ -19,12 +19,18 @@ import java.util.Map;
 
 public class ProdutoController {
     RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
+
     private entradasEsaidas status;
+
     private Main main;
+
+    private int idfornecedor;
+
     @FXML
     private TableView<Fornecedor> FornecedorProdutoList;
     @FXML
     private TableColumn<Fornecedor,String> fornecedorList;
+
     @FXML
     private ImageView img1;
     @FXML
@@ -88,7 +94,18 @@ public class ProdutoController {
         RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
         ObservableList<Fornecedor> observableList = FXCollections.observableArrayList(registerProdutoDao.fornecedorLIST());
         FornecedorProdutoList.setItems(observableList);
+
         main = ScreenChange.getMainInstance();
+
+        FornecedorProdutoList.setOnMouseClicked(event -> {
+            if (event.getClickCount()==1){
+                Fornecedor selecionado = FornecedorProdutoList.getSelectionModel().getSelectedItem();
+                if (selecionado != null){
+                    System.out.println("id: "+selecionado.getId());
+                    idfornecedor = selecionado.getId();
+                }
+            }
+        });
     }
 
     public void closed(ActionEvent actionEvent) {
@@ -166,10 +183,6 @@ public class ProdutoController {
         String Detalhes = detalhes.getText();
 
 
-        registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now());
-
-
-
-
+        registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now(),idfornecedor);
     }
 }

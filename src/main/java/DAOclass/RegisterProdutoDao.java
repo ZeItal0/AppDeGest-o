@@ -12,14 +12,16 @@ import java.time.LocalDate;
 public class RegisterProdutoDao {
     DatabaseConnector dbConnector = new DatabaseConnector();
 
-    private String sqlist = "SElECT nome FROM fornecedor";
+    private String sqlist = "SElECT id, nome FROM fornecedor";
     private String sqlProduto = "INSERT INTO produto(id_categoria, preco, Preco_de_Venda, nome_produto, detalhes_produto) VALUES (?,?,?,?,?)";
     private String sqlCategoria ="INSERT INTO categoria(tipo_produto) VALUES (?)";
     private String sqlEstoque = "INSERT INTO estoque(id_produto, quantidade) VALUES (?,?)";
     private String sqlMovimentacao= "INSERT INTO movimentacao_de_estoque(id_produto, tipo_movimentacao, quantidade, data_movimentacao) VALUES (?,?,?,?)";
+    private String sqlProdutoFornecedor = "INSERT INTO produto_fornecedor(id_fornecedor, id_produto, data_de_cadastro) VALUES (?,?,?)";
 
 
-    public void salvarProduto(String Nome, Integer Quantidade, Double ValorInvestido, Double ValorDeVenda, String Categoria, String Detalhes, String entrada, LocalDate data) throws SQLException {
+
+    public void salvarProduto(String Nome, Integer Quantidade, Double ValorInvestido, Double ValorDeVenda, String Categoria, String Detalhes, String entrada, LocalDate data, Integer idfornecedor) throws SQLException {
         Connection conn = dbConnector.connect();
         PreparedStatement pstmtCategoria = conn.prepareStatement(sqlCategoria,Statement.RETURN_GENERATED_KEYS);
         pstmtCategoria.setString(1,Categoria);
@@ -57,6 +59,13 @@ public class RegisterProdutoDao {
         pstmtMovimentacao.setDate(4, Date.valueOf(data));
         pstmtMovimentacao.executeUpdate();
 
+        PreparedStatement pstmtProdutoFornecedor =  conn.prepareStatement(sqlProdutoFornecedor);
+        pstmtProdutoFornecedor.setInt(1,idfornecedor);
+        pstmtProdutoFornecedor.setInt(2,idProduto);
+        pstmtProdutoFornecedor.setDate(3, Date.valueOf(data));
+        pstmtProdutoFornecedor.executeUpdate();
+
+
 
     }
 
@@ -67,6 +76,7 @@ public class RegisterProdutoDao {
         ResultSet rs = stmt.executeQuery(sqlist);
         while (rs.next()){
             Fornecedor fornecedor = new Fornecedor();
+            fornecedor.setId(rs.getInt("id"));
             fornecedor.setNome(rs.getString("nome"));
             lista.add(fornecedor);
         }
