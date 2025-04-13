@@ -17,6 +17,7 @@ public class RegisterUsuarioDao {
     private String sqlUsario = "INSERT INTO usuario (id_endereco, nome, senha, loginUser, telefone, data_de_nascimento, data_de_cadastro) VALUES (?,?,?,?,?,?,?)";
     private String sqlFuncionario = "INSERT INTO funcionario (id_usuario, cargo) VALUES (?,?)";
     private String sqlist = "SELECT u.id, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro, " + "e.Rua, e.cep " + "FROM usuario u " + "JOIN endereco e ON u.id_endereco = e.id";
+
     public void salvarusuario(String nome, String telefone, String cep, String rua, String Cidade, String bairro, String User, String senha, String buttonMenu, LocalDate DataNas, LocalDate DataReg) throws SQLException {
 
         Connection conn = dbConnector.connect();

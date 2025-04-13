@@ -194,6 +194,7 @@ public class LoginController {
     }
 
     public void estoque(ActionEvent actionEvent) {
+        main.carregarCena("/Estoque.fxml");
     }
 
     public void Editarproduto(ActionEvent actionEvent) {

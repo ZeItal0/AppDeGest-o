@@ -1,14 +1,20 @@
 package software.consultoria;
 
 import DAOclass.RegisterProdutoDao;
+import Models.Categoria;
 import Models.Fornecedor;
-import Models.entradasEsaidas;
+import Models.Produto;
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.css.SimpleStyleableIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -17,20 +23,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Map;
 
-public class ProdutoController {
-    RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
-
-    private entradasEsaidas status;
-
+public class EstoqueController {
     private Main main;
-
-    private int idfornecedor;
-
-    @FXML
-    private TableView<Fornecedor> FornecedorProdutoList;
-    @FXML
-    private TableColumn<Fornecedor,String> fornecedorList;
-
     @FXML
     private ImageView img1;
     @FXML
@@ -55,18 +49,25 @@ public class ProdutoController {
     private Button despesas;
     @FXML
     private Button videos;
+
     @FXML
-    private MenuButton categoria;
+    private TableView <Produto> EstoqueList;
     @FXML
-    private TextField nomeProduto;
+    private TableColumn <Produto, String> NomeProduto;
     @FXML
-    private TextField quantidade;
+    private TableColumn <Produto, Double> ValorDeCompra;
     @FXML
-    private TextField valorInvestido;
+    private TableColumn <Produto, Double> ValorDeVenda;
     @FXML
-    private TextField valorDeVenda;
+    private TableColumn <Produto, String> Categoria;
     @FXML
-    private TextField detalhes;
+    private TableColumn <Produto, String> NomeDoFornecedor;
+    @FXML
+    private TableColumn <Produto, LocalDate> dataDecadastro;
+    @FXML
+    private TableColumn <Produto, String> Detalhes;
+    @FXML
+    private TableColumn <Produto, Integer> quantidade;
 
     @FXML
     public void initialize() throws SQLException {
@@ -90,22 +91,28 @@ public class ProdutoController {
                 }
             });
         }
-        fornecedorList.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        NomeProduto.setCellValueFactory(new PropertyValueFactory<>("nomeProduto"));
+        ValorDeCompra.setCellValueFactory(new PropertyValueFactory<>("preco"));
+        ValorDeVenda.setCellValueFactory(new PropertyValueFactory<>("preco_De_venda"));
+        Categoria.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getCategoria().getTipo_produto())
+        );
+        NomeDoFornecedor.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getFornecedor().getNome())
+        );
+        dataDecadastro.setCellValueFactory(new PropertyValueFactory<>("dataDeCadastro"));
+        Detalhes.setCellValueFactory(new PropertyValueFactory<>("detalhes"));
+        quantidade.setCellValueFactory( cellData ->
+                new ReadOnlyObjectWrapper<>(cellData.getValue().getEstoque().getQuantidade())
+        );
+
         RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
-        ObservableList<Fornecedor> observableList = FXCollections.observableArrayList(registerProdutoDao.fornecedorLIST());
-        FornecedorProdutoList.setItems(observableList);
+        ObservableList<Produto> observableList = FXCollections.observableArrayList(registerProdutoDao.produtoEstoqueLIST());
+        EstoqueList.setItems(observableList);
 
         main = ScreenChange.getMainInstance();
 
-        FornecedorProdutoList.setOnMouseClicked(event -> {
-            if (event.getClickCount()==1){
-                Fornecedor selecionado = FornecedorProdutoList.getSelectionModel().getSelectedItem();
-                if (selecionado != null){
-                    System.out.println("id: "+selecionado.getId());
-                    idfornecedor = selecionado.getId();
-                }
-            }
-        });
+
     }
 
     public void closed(ActionEvent actionEvent) {
@@ -143,47 +150,13 @@ public class ProdutoController {
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         stage.setIconified(true);
     }
-
     public void cadastrarProduto(ActionEvent actionEvent) {
         main.carregarCena("/CadastroProduto.fxml");
     }
 
     public void estoque(ActionEvent actionEvent) {
-        main.carregarCena("/Estoque.fxml");
     }
 
     public void Editarproduto(ActionEvent actionEvent) {
-    }
-
-    public void selecionaranel(ActionEvent actionEvent) {
-        categoria.setText("Aneis");
-    }
-
-    public void selecionarcolar(ActionEvent actionEvent) {
-        categoria.setText("Colares");
-    }
-
-    public void selecionarBrinco(ActionEvent actionEvent) {
-        categoria.setText("Brincos");
-    }
-
-    public void selecionarRelogio(ActionEvent actionEvent) {
-        categoria.setText("Relogios");
-    }
-
-    public void selecionarperfume(ActionEvent actionEvent) {
-        categoria.setText("Perfumes");
-    }
-
-    public void Cadastrar_Produto_fornecedor(ActionEvent actionEvent) throws SQLException {
-        String Nome = nomeProduto.getText();
-        String Quantidade = quantidade.getText();
-        String ValorInvestido = valorInvestido.getText();
-        String ValorDeVenda = valorDeVenda.getText();
-        String Categoria = categoria.getText();
-        String Detalhes = detalhes.getText();
-
-
-        registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now(),idfornecedor);
     }
 }
