@@ -163,7 +163,7 @@
     <Button id="cadastro" layoutX="419.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarDespesa" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ENTRADA DE DESPESAS" />
       <Button id="listadefuncionarios" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#listaDedespesas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CONSULTA DE DESPESAS" />
       <Button id="editarfuncionario" layoutX="865.0" layoutY="26.0" mnemonicParsing="false" onAction="#EditarDespesas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="EDITAR DESPESA" />
-      <Pane id="pane" fx:id="pane" layoutX="419.0" layoutY="94.0" prefHeight="681.0" prefWidth="1056.0" stylesheets="@style.css" />
+      <Pane id="pane" fx:id="pane" layoutX="420.0" layoutY="94.0" prefHeight="681.0" prefWidth="1056.0" stylesheets="@style.css" />
       <TextField id="nome" fx:id="nomeDespesa" alignment="TOP_LEFT" layoutX="514.0" layoutY="256.0" prefHeight="35.0" prefWidth="323.0" promptText="Nome da Despesa" styleClass="style.css" stylesheets="@style.css" />
       <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="515.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -184,10 +184,10 @@
             <Image url="@icons/information.png" />
          </image>
       </ImageView>
-      <MenuButton id="cargos" fx:id="Situacao" layoutX="514.0" layoutY="356.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="152.0" stylesheets="@style.css" text="Situação" textFill="WHITE">
+      <MenuButton id="cargos" fx:id="Situacao" layoutX="514.0" layoutY="356.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" stylesheets="@style.css" text="Situação" textFill="WHITE">
          <items>
-            <MenuItem fx:id="vendedor" mnemonicParsing="false" onAction="#selecionarVendedor" text="Pago" />
-            <MenuItem fx:id="Gerente" mnemonicParsing="false" onAction="#selecionarGerente" text="Pendente" />
+            <MenuItem fx:id="vendedor" mnemonicParsing="false" onAction="#selecionarPago" text="Pago" />
+            <MenuItem fx:id="Gerente" mnemonicParsing="false" onAction="#selecionarPedente" text="Pendente" />
          </items>
       </MenuButton>
       <Button id="cadastrarFuncionario" layoutX="824.0" layoutY="594.0" mnemonicParsing="false" onAction="#SalvarDespesa" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="    SALVAR" />
@@ -196,5 +196,13 @@
             <Image url="@icons/save.png" />
          </image>
       </ImageView>
+      <MenuButton id="cargos" fx:id="FormaDepagamento" layoutX="674.0" layoutY="357.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="162.0" stylesheets="@style.css" text="Forma de Pagamento" textFill="WHITE">
+         <items>
+            <MenuItem fx:id="pix" mnemonicParsing="false" onAction="#Pix" text="Pix" />
+            <MenuItem fx:id="dinheiro" mnemonicParsing="false" onAction="#Dinheiro" text="Dinheiro" />
+            <MenuItem fx:id="credito" mnemonicParsing="false" onAction="#Credito" text="Credito" />
+            <MenuItem fx:id="debito" mnemonicParsing="false" onAction="#Debito" text="Debito" />
+         </items>
+      </MenuButton>
    </children>
 </AnchorPane>

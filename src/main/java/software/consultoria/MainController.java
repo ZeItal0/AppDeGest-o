@@ -1,5 +1,6 @@
 package software.consultoria;
 
+import DAOclass.RegisterDespesaDao;
 import DAOclass.RegisterFornecedorDao;
 import DAOclass.RegisterUsuarioDao;
 import javafx.application.Platform;
@@ -18,6 +19,8 @@ public class MainController {
     RegisterUsuarioDao registerUsuarioDao = new RegisterUsuarioDao();
 
     RegisterFornecedorDao registerFornecedorDao = new RegisterFornecedorDao();
+
+    RegisterDespesaDao registerDespesaDao = new RegisterDespesaDao();
 
     private Main main;
     @FXML
@@ -40,6 +43,7 @@ public class MainController {
     private TextField Senha;
     @FXML
     private MenuButton Cargo;
+
     @FXML
     private ImageView img1;
     @FXML
@@ -52,6 +56,7 @@ public class MainController {
     private ImageView img5;
     @FXML
     private ImageView img6;
+
     @FXML
     private Button funcionario;
     @FXML
@@ -72,6 +77,18 @@ public class MainController {
     private TextField Email;
     @FXML
     private TextField cnpj;
+
+    @FXML
+    private TextField nomeDespesa;
+    @FXML
+    private TextField ValorDespesa;
+    @FXML
+    private MenuButton Situacao;
+    @FXML
+    private MenuButton FormaDepagamento;
+    @FXML
+    private TextArea ObservacoesDespesa;
+
 
     @FXML
     private Pane pane;
@@ -240,7 +257,40 @@ public class MainController {
         registerFornecedorDao.salvarFornecedor(nome,telefone,email,CNPJ,cep,Rua,Cidade,Bairro,DataReg);
     }
 
-    public void SalvarDespesa(ActionEvent actionEvent) {
+    public void SalvarDespesa(ActionEvent actionEvent) throws SQLException {
+        String nome = nomeDespesa.getText();
+        String valor = ValorDespesa.getText();
+        String observacoes = ObservacoesDespesa.getText();
+        String situacao = Situacao.getText();
+        String pagamento = FormaDepagamento.getText();
+        LocalDate data = Data.getValue();
 
+        registerDespesaDao.salvardespesa(nome,Double.parseDouble(valor),observacoes,situacao,pagamento,data);
+
+    }
+
+    public void selecionarPago(ActionEvent actionEvent) {
+        Situacao.setText("Pago");
+    }
+
+    public void selecionarPedente(ActionEvent actionEvent) {
+        Situacao.setText("Pendente");
+
+    }
+
+    public void Pix(ActionEvent actionEvent) {
+        FormaDepagamento.setText("Pix");
+    }
+
+    public void Dinheiro(ActionEvent actionEvent) {
+        FormaDepagamento.setText("Dinheiro");
+    }
+
+    public void Credito(ActionEvent actionEvent) {
+        FormaDepagamento.setText("Credito");
+    }
+
+    public void Debito(ActionEvent actionEvent) {
+        FormaDepagamento.setText("Debito");
     }
 }

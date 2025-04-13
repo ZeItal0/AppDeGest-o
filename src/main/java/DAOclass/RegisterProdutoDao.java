@@ -81,8 +81,6 @@ public class RegisterProdutoDao {
         pstmtProdutoFornecedor.setDate(3, Date.valueOf(data));
         pstmtProdutoFornecedor.executeUpdate();
 
-
-
     }
 
     public ObservableList<Fornecedor> fornecedorLIST() throws SQLException {
@@ -130,5 +128,4 @@ public class RegisterProdutoDao {
         }
         return lista;
     }
-
 }
