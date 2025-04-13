@@ -9,8 +9,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="anchor" fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: black;" styleClass="rounded-anchor-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.LoginController">
+<AnchorPane id="anchor" fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="880.0" style="-fx-background-color: black;" styleClass="rounded-anchor-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.MainController">
    <children>
+      <ImageView fitHeight="350.0" fitWidth="461.0" layoutX="358.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/image_processing20220201-18317-1mavvyp.gif" />
+         </image>
+      </ImageView>
       <VBox alignment="BOTTOM_CENTER" prefHeight="541.0" prefWidth="290.0" style="-fx-background-color: B47E00;" />
       <Pane id="rectangle" layoutX="12.0" layoutY="12.0" prefHeight="518.0" prefWidth="858.0" stylesheets="@style.css">
          <children>
@@ -21,19 +26,34 @@
             </ImageView>
          </children>
       </Pane>
-      <ImageView fitHeight="280.0" fitWidth="400.0" layoutX="395.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="122.0" fitWidth="177.0" layoutX="61.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/image_processing20220201-18317-1mavvyp.gif" />
+            <Image url="@img/diamond2.png" />
          </image>
       </ImageView>
-      <Label id="b1" layoutX="35.0" layoutY="235.0" prefHeight="27.0" prefWidth="25.0" stylesheets="@style.css" />
-      <ImageView id="ico_login" fitHeight="15.0" fitWidth="15.0" layoutX="40.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="459.0" fitWidth="533.0" layoutX="533.0" layoutY="90.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="13.0">
+         <image>
+            <Image url="@img/detail6.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="195.0" layoutX="405.0" layoutY="-4.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="75.0">
+         <image>
+            <Image url="@img/detail2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="459.0" fitWidth="533.0" layoutX="165.0" layoutY="91.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="-13.0">
+         <image>
+            <Image url="@img/detail4.png" />
+         </image>
+      </ImageView>
+      <Label id="b1" layoutX="35.0" layoutY="245.0" prefHeight="27.0" prefWidth="25.0" stylesheets="@style.css" />
+      <ImageView id="ico_login" fitHeight="15.0" fitWidth="15.0" layoutX="40.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/user.png" />
          </image>
       </ImageView>
-      <Label id="b2" layoutX="35.0" layoutY="270.0" prefHeight="27.0" prefWidth="25.0" stylesheets="@style.css" />
-      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="40.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+      <Label id="b2" layoutX="35.0" layoutY="282.0" prefHeight="27.0" prefWidth="25.0" stylesheets="@style.css" />
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="40.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/key.png" />
          </image>
@@ -48,8 +68,8 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField id="login" fx:id="user" layoutX="70.0" layoutY="235.0" prefHeight="25.0" prefWidth="177.0" promptText="usuário" styleClass="style.css" stylesheets="@style.css" />
-      <TextField id="password" fx:id="password" layoutX="70.0" layoutY="270.0" prefHeight="25.0" prefWidth="177.0" promptText="senha" styleClass="style.css" stylesheets="@style.css" />
+      <TextField id="login" fx:id="user" layoutX="70.0" layoutY="245.0" prefHeight="25.0" prefWidth="177.0" promptText="usuário" styleClass="style.css" stylesheets="@style.css" />
+      <TextField id="password" fx:id="password" layoutX="70.0" layoutY="282.0" prefHeight="25.0" prefWidth="177.0" promptText="senha" styleClass="style.css" stylesheets="@style.css" />
       <Label id="text-1" layoutX="35.0" layoutY="200.0" prefHeight="20.0" prefWidth="100.0" stylesheets="@style.css" text="Para acessar o sistema" />
       <ImageView fitHeight="116.0" fitWidth="252.0" layoutX="30.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -57,9 +77,9 @@
          </image>
       </ImageView>
       <Label id="text-2" layoutX="36.0" layoutY="210.0" prefHeight="20.0" prefWidth="100.0" stylesheets="@style.css" text="digite login e senha." />
-      <ImageView fitHeight="127.0" fitWidth="150.0" layoutX="70.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="200.0" fitWidth="195.0" layoutX="557.0" layoutY="-4.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="-75.0">
          <image>
-            <Image url="@img/diamond2.png" />
+            <Image url="@img/detail3.png" />
          </image>
       </ImageView>
    </children>

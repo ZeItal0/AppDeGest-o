@@ -7,6 +7,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -183,12 +184,6 @@
             <Image url="@icons/coin.png" />
          </image>
       </ImageView>
-      <TextField id="nome" fx:id="detalhes" alignment="TOP_LEFT" layoutX="504.0" layoutY="363.0" prefHeight="219.0" prefWidth="329.0" promptText="Detalhes do produto" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="508.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/information.png" />
-         </image>
-      </ImageView>
       <Button id="cadastrarFuncionario" layoutX="730.0" layoutY="627.0" mnemonicParsing="false" onAction="#Cadastrar_Produto_fornecedor" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="      CADASTRAR" />
       <ImageView fitHeight="38.0" fitWidth="50.0" layoutX="746.0" layoutY="637.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -213,6 +208,12 @@
       <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="675.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/coin.png" />
+         </image>
+      </ImageView>
+      <TextArea id="TextArea" fx:id="detalhes" layoutX="504.0" layoutY="368.0" prefHeight="170.0" prefWidth="323.0" promptText="Observações" stylesheets="@style.css" />
+      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="514.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/information.png" />
          </image>
       </ImageView>
    </children>

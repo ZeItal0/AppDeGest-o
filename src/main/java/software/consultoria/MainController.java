@@ -2,7 +2,6 @@ package software.consultoria;
 
 import DAOclass.RegisterFornecedorDao;
 import DAOclass.RegisterUsuarioDao;
-import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,13 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Map;
 
-public class LoginController {
+public class MainController {
     RegisterUsuarioDao registerUsuarioDao = new RegisterUsuarioDao();
 
     RegisterFornecedorDao registerFornecedorDao = new RegisterFornecedorDao();
@@ -240,5 +238,9 @@ public class LoginController {
         String Bairro = bairro.getText();
         LocalDate DataReg = LocalDate.now();
         registerFornecedorDao.salvarFornecedor(nome,telefone,email,CNPJ,cep,Rua,Cidade,Bairro,DataReg);
+    }
+
+    public void SalvarDespesa(ActionEvent actionEvent) {
+
     }
 }

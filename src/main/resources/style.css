@@ -49,7 +49,7 @@
 }
 #closed:hover{
     -fx-background-color: rgba(255, 0, 0, 0.5);
-    -fx-background-color: radial-gradient(center 50% 50%, radius 62%, rgba(255, 0, 0, 0.5) 0%, transparent 100%);
+    -fx-background-color: radial-gradient(center 50% 50%, radius 80%, rgba(255, 0, 0, 0.6) 0%, transparent 100%);
 }
 #divider > .split-pane-divider {
     -fx-pref-width: 0;
@@ -118,7 +118,7 @@
 }
 #minimized:hover{
     -fx-background-color: rgba(113, 99, 240, 0.5);
-    -fx-background-color: radial-gradient(center 50% 50%, radius 62%, rgba(113, 99, 240, 0.5) 0%, transparent 100%);
+    -fx-background-color: radial-gradient(center 50% 50%, radius 80%, rgba(113, 99, 240, 0.9) 0%, transparent 100%);
     -fx-background-radius: 60px;
 }
 
@@ -227,7 +227,16 @@
     -fx-font-weight: bold;
     -fx-background-color: rgba(51, 51, 51, 0.8);
     -fx-border-color: transparent;
-    -fx-text-fill: rgb(255, 255, 255);
+}
+.menu-button > .label{
+    -fx-text-fill: rgba(180, 180, 180, 1);
+}
+.context-menu {
+    -fx-background-color: rgba(51, 51, 51, 0.8);
+    -fx-border-color: transparent;
+}
+.menu-item > .label {
+    -fx-text-fill: white;
 }
 .date-picker .text-field {
     -fx-background-color: rgba(51, 51, 51, 0.8);
@@ -286,3 +295,31 @@
 .table-row-cell:filled:selected .table-cell {
     -fx-text-fill: rgb(255, 255, 255);
 }
+
+#TextArea{
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(51, 51, 51, 0.8);
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 5px 10px 5px 40px;
+}
+
+.text-area .content {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .viewport {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-bar:vertical,.text-area .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+
+

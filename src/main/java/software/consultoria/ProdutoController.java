@@ -67,7 +67,7 @@ public class ProdutoController {
     @FXML
     private TextField valorDeVenda;
     @FXML
-    private TextField detalhes;
+    private TextArea detalhes;
     @FXML
     private Pane pane;
     private Transition transition = new Transition();
