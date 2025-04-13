@@ -240,6 +240,7 @@ public class MainController {
     }
 
     public void listaDedespesas(ActionEvent actionEvent) {
+        main.carregarCena("/ListaDespesa.fxml");
     }
 
     public void EditarDespesas(ActionEvent actionEvent) {
@@ -256,7 +257,6 @@ public class MainController {
         registerDespesaDao.salvardespesa(nome,Double.parseDouble(valor),observacoes,situacao,pagamento,data);
 
     }
-
     public void selecionarPago(ActionEvent actionEvent) {
         Situacao.setText("Pago");
     }

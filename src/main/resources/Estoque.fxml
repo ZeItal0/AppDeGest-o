@@ -161,8 +161,8 @@
       <Button id="lista" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#estoque" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ESTOQUE" />
       <Button id="editarfuncionario" layoutX="856.0" layoutY="26.0" mnemonicParsing="false" onAction="#Editarproduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="EDITAR PRODUTO" />
       <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="679.0" prefWidth="1057.0" stylesheets="@style.css" />
-      <Label id="Text" layoutX="770.0" layoutY="130.0" prefHeight="58.0" prefWidth="312.0" stylesheets="@style.css" text="Lista do Estoque" />
-      <TableView id="styleview" fx:id="EstoqueList" layoutX="427.0" layoutY="186.0" prefHeight="566.0" prefWidth="1033.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
+      <Label id="Text" layoutX="795.0" layoutY="119.0" prefHeight="58.0" prefWidth="312.0" stylesheets="@style.css" text="Lista do Estoque" />
+      <TableView id="styleview" fx:id="EstoqueList" layoutX="417.0" layoutY="186.0" prefHeight="566.0" prefWidth="1057.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="NomeProduto" prefWidth="184.0" style="-fx-background-color: transparent;" text="PRODUTO" />
             <TableColumn fx:id="ValorDeCompra" prefWidth="126.0" style="-fx-background-color: transparent;" text="VALOR DE COMPRA" />
@@ -170,8 +170,8 @@
             <TableColumn fx:id="Categoria" prefWidth="78.0" style="-fx-background-color: transparent;" text="CATEGORIA" />
             <TableColumn fx:id="NomeDoFornecedor" prefWidth="129.3333740234375" style="-fx-background-color: transparent;" text="FORNECEDOR" />
             <TableColumn fx:id="dataDecadastro" prefWidth="74.0" style="-fx-background-color: transparent;" text="DATA" />
-            <TableColumn fx:id="Detalhes" prefWidth="218.0" text="DETALHES" />
-            <TableColumn fx:id="quantidade" prefWidth="95.0" text="QUANTIDADE" />
+            <TableColumn fx:id="Detalhes" prefWidth="253.0" text="DETALHES" />
+            <TableColumn fx:id="quantidade" prefWidth="84.0" text="QUANTIDADE" />
          </columns>
       </TableView>
    </children>

@@ -162,15 +162,15 @@
       <Button id="editarfuncionario" layoutX="865.0" layoutY="26.0" mnemonicParsing="false" onAction="#EditarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="EDITAR FORNECEDOR" />
       <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="679.0" prefWidth="1057.0" stylesheets="@style.css" />
       <Label id="Text" layoutX="805.0" layoutY="129.0" prefHeight="58.0" prefWidth="303.0" stylesheets="@style.css" text="Fornecedores" />
-      <TableView id="styleview" fx:id="fornecedorTableList" layoutX="449.0" layoutY="190.0" prefHeight="566.0" prefWidth="1007.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
+      <TableView id="styleview" fx:id="fornecedorTableList" layoutX="418.0" layoutY="190.0" prefHeight="581.0" prefWidth="1057.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
          <columns>
-            <TableColumn fx:id="nFornecedor" prefWidth="196.0" style="-fx-background-color: transparent;" text="NOME" />
-            <TableColumn fx:id="telFornecedor" prefWidth="111.0" style="-fx-background-color: transparent;" text="TELEFONE" />
-            <TableColumn fx:id="email" prefWidth="138.0" style="-fx-background-color: transparent;" text="EMAIL" />
+            <TableColumn fx:id="nFornecedor" prefWidth="213.0" style="-fx-background-color: transparent;" text="NOME" />
+            <TableColumn fx:id="telFornecedor" prefWidth="113.0" style="-fx-background-color: transparent;" text="TELEFONE" />
+            <TableColumn fx:id="email" prefWidth="119.0" style="-fx-background-color: transparent;" text="EMAIL" />
             <TableColumn fx:id="cepFornecedor" prefWidth="60.0" style="-fx-background-color: transparent;" text="CEP" />
             <TableColumn fx:id="CNPJ" minWidth="0.0" prefWidth="94.0" style="-fx-background-color: transparent;" text="CNPJ" />
-            <TableColumn fx:id="dataDecadastro" minWidth="0.0" prefWidth="185.0" style="-fx-background-color: transparent;" text="Data de Cadastro" />
-            <TableColumn fx:id="endereco" prefWidth="221.0" style="-fx-background-color: transparent;" text="ENDEREÇO" />
+            <TableColumn fx:id="dataDecadastro" minWidth="0.0" prefWidth="203.0" style="-fx-background-color: transparent;" text="Data de Cadastro" />
+            <TableColumn fx:id="endereco" prefWidth="253.0" style="-fx-background-color: transparent;" text="ENDEREÇO" />
          </columns>
       </TableView>
    </children>
