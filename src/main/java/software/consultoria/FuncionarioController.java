@@ -14,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
@@ -60,6 +61,9 @@ public class FuncionarioController {
     private Button despesas;
     @FXML
     private Button videos;
+    @FXML
+    private Pane pane;
+    private Transition transition = new Transition();
 
 
     @FXML
@@ -103,6 +107,11 @@ public class FuncionarioController {
             ObservableList<Usuario> observableList = FXCollections.observableArrayList(registerUsuarioDao.listarusuario());
             funcionariostableList.setItems(observableList);
             main = ScreenChange.getMainInstance();
+
+        if (pane != null){
+            transition.fadeInPane(pane);
+        }
+
     }
 
     public void cadastrar(ActionEvent actionEvent) {

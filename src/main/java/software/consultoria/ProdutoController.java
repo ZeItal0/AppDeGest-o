@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
@@ -67,6 +68,9 @@ public class ProdutoController {
     private TextField valorDeVenda;
     @FXML
     private TextField detalhes;
+    @FXML
+    private Pane pane;
+    private Transition transition = new Transition();
 
     @FXML
     public void initialize() throws SQLException {
@@ -106,6 +110,9 @@ public class ProdutoController {
                 }
             }
         });
+        if (pane != null){
+            transition.fadeInPane(pane);
+        }
     }
 
     public void closed(ActionEvent actionEvent) {

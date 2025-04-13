@@ -157,7 +157,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Pane id="pane" layoutX="444.0" layoutY="105.0" prefHeight="656.0" prefWidth="1000.0" stylesheets="@style.css" />
+      <Pane id="pane" fx:id="pane" layoutX="418.0" layoutY="92.0" prefHeight="681.0" prefWidth="1056.0" stylesheets="@style.css" />
       <Label id="Text" layoutX="712.0" layoutY="114.0" prefHeight="58.0" prefWidth="513.0" stylesheets="@style.css" text="Funcinários Cadastrados" />
       <TableView id="styleview" fx:id="funcionariostableList" layoutX="444.0" layoutY="179.0" prefHeight="549.0" prefWidth="1000.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
         <columns>

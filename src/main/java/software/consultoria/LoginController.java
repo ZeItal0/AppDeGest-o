@@ -2,24 +2,25 @@ package software.consultoria;
 
 import DAOclass.RegisterFornecedorDao;
 import DAOclass.RegisterUsuarioDao;
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 public class LoginController {
     RegisterUsuarioDao registerUsuarioDao = new RegisterUsuarioDao();
+
     RegisterFornecedorDao registerFornecedorDao = new RegisterFornecedorDao();
+
     private Main main;
     @FXML
     private TextField NomeFuncionario;
@@ -74,6 +75,10 @@ public class LoginController {
     @FXML
     private TextField cnpj;
 
+    @FXML
+    private Pane pane;
+    private Transition transition = new Transition();
+
 
     @FXML
     public void initialize() {
@@ -98,6 +103,10 @@ public class LoginController {
             });
         }
         main = ScreenChange.getMainInstance();
+
+        if (pane != null){
+            transition.fadeInPane(pane);
+        }
     }
 
     public void enter(ActionEvent actionEvent) {
@@ -170,6 +179,7 @@ public class LoginController {
     }
 
     public void cadastrarDespesa(ActionEvent actionEvent) {
+        main.carregarCena("/CadastroDespesa.fxml");
     }
 
     public void listaDedespesas(ActionEvent actionEvent) {

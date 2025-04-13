@@ -2,18 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.ProdutoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.EstoqueController">
    <children>
       <SplitPane id="divider" dividerPositions="0.2778" prefHeight="800.0" prefWidth="1500.0" stylesheets="@style.css">
         <items>
@@ -160,60 +157,22 @@
             </ImageView>
          </graphic>
       </Button>
-    <Button id="cadastro" layoutX="419.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR PRODUTO" />
-      <Button id="listadefuncionarios" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#estoque" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ESTOQUE" />
+    <Button id="buttonfuncionario" layoutX="419.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR PRODUTO" />
+      <Button id="lista" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#estoque" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ESTOQUE" />
       <Button id="editarfuncionario" layoutX="856.0" layoutY="26.0" mnemonicParsing="false" onAction="#Editarproduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="EDITAR PRODUTO" />
       <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="679.0" prefWidth="1057.0" stylesheets="@style.css" />
-      <Label id="Text" layoutX="644.0" layoutY="130.0" prefHeight="58.0" prefWidth="394.0" stylesheets="@style.css" text="Cadastro de Produto" />
-      <TextField id="nome" fx:id="nomeProduto" alignment="TOP_LEFT" layoutX="504.0" layoutY="246.0" prefHeight="35.0" prefWidth="323.0" promptText="Nome do produto" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="508.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/nomeproduto.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="quantidade" alignment="TOP_LEFT" layoutX="504.0" layoutY="285.0" prefHeight="35.0" prefWidth="174.0" promptText="Quantidade" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="508.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/quantity.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="valorInvestido" alignment="TOP_LEFT" layoutX="504.0" layoutY="324.0" prefHeight="35.0" prefWidth="160.0" promptText="Valor investido" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="510.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/coin.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="detalhes" alignment="TOP_LEFT" layoutX="504.0" layoutY="363.0" prefHeight="219.0" prefWidth="329.0" promptText="Detalhes do produto" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="508.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/information.png" />
-         </image>
-      </ImageView>
-      <Button id="cadastrarFuncionario" layoutX="730.0" layoutY="627.0" mnemonicParsing="false" onAction="#Cadastrar_Produto_fornecedor" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="      CADASTRAR" />
-      <ImageView fitHeight="38.0" fitWidth="50.0" layoutX="746.0" layoutY="637.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/save.png" />
-         </image>
-      </ImageView>
-      <TableView id="styleview" fx:id="FornecedorProdutoList" layoutX="983.0" layoutY="246.0" prefHeight="337.0" prefWidth="203.0" stylesheets="@style.css">
-        <columns>
-          <TableColumn fx:id="fornecedorList" prefWidth="201.0" text="Fornecedores" />
-        </columns>
+      <Label id="Text" layoutX="770.0" layoutY="130.0" prefHeight="58.0" prefWidth="312.0" stylesheets="@style.css" text="Lista do Estoque" />
+      <TableView id="styleview" fx:id="EstoqueList" layoutX="427.0" layoutY="186.0" prefHeight="566.0" prefWidth="1033.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
+         <columns>
+            <TableColumn fx:id="NomeProduto" prefWidth="184.0" style="-fx-background-color: transparent;" text="PRODUTO" />
+            <TableColumn fx:id="ValorDeCompra" prefWidth="126.0" style="-fx-background-color: transparent;" text="VALOR DE COMPRA" />
+            <TableColumn fx:id="ValorDeVenda" prefWidth="126.0" style="-fx-background-color: transparent;" text="VALOR DE VENDA" />
+            <TableColumn fx:id="Categoria" prefWidth="78.0" style="-fx-background-color: transparent;" text="CATEGORIA" />
+            <TableColumn fx:id="NomeDoFornecedor" prefWidth="129.3333740234375" style="-fx-background-color: transparent;" text="FORNECEDOR" />
+            <TableColumn fx:id="dataDecadastro" prefWidth="74.0" style="-fx-background-color: transparent;" text="DATA" />
+            <TableColumn fx:id="Detalhes" prefWidth="218.0" text="DETALHES" />
+            <TableColumn fx:id="quantidade" prefWidth="95.0" text="QUANTIDADE" />
+         </columns>
       </TableView>
-      <MenuButton id="cargos" fx:id="categoria" layoutX="683.0" layoutY="285.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="146.0" stylesheets="@style.css" text="Categoria" textFill="WHITE">
-         <items>
-            <MenuItem id="cargos" fx:id="anel" mnemonicParsing="false" onAction="#selecionaranel" text="Anel" />
-            <MenuItem id="cargos" fx:id="colar" mnemonicParsing="false" onAction="#selecionarcolar" text="Colar" />
-            <MenuItem id="cargos" fx:id="brinco" mnemonicParsing="false" onAction="#selecionarBrinco" text="Brinco" />
-            <MenuItem id="cargos" fx:id="relogio" mnemonicParsing="false" onAction="#selecionarRelogio" text="Relogio" />
-            <MenuItem id="cargos" fx:id="perfume" mnemonicParsing="false" onAction="#selecionarperfume" text="Perfume" />
-         </items>
-      </MenuButton>
-      <TextField id="nome" fx:id="valorDeVenda" alignment="TOP_LEFT" layoutX="669.0" layoutY="324.0" prefHeight="35.0" prefWidth="160.0" promptText="Valor de venda" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="675.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/coin.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

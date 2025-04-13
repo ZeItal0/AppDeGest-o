@@ -159,7 +159,7 @@
     <Button id="cadastro" layoutX="419.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR  FORNECEDOR" />
       <Button id="listadefuncionarios" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#listaFornecedores" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="LISTA DE FORNECEDORES" />
       <Button id="editarfuncionario" layoutX="865.0" layoutY="26.0" mnemonicParsing="false" onAction="#EditarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="EDITAR FORNECEDOR" />
-      <Pane id="pane" layoutX="435.0" layoutY="108.0" prefHeight="656.0" prefWidth="752.0" stylesheets="@style.css" />
+      <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="679.0" prefWidth="1057.0" stylesheets="@style.css" />
       <TextField id="nome" fx:id="NomeFornecedor" alignment="TOP_LEFT" layoutX="494.0" layoutY="236.0" prefHeight="35.0" prefWidth="322.0" promptText="Nome" styleClass="style.css" stylesheets="@style.css" />
       <TextField id="nome" fx:id="rua" alignment="TOP_LEFT" layoutX="496.0" layoutY="433.0" prefHeight="35.0" prefWidth="322.0" promptText="Rua" styleClass="style.css" stylesheets="@style.css" />
       <TextField id="nome" fx:id="Telefonefornecedor" alignment="TOP_LEFT" layoutX="494.0" layoutY="275.0" prefHeight="35.0" prefWidth="322.0" promptText="Telefone" styleClass="style.css" stylesheets="@style.css" />

@@ -17,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
@@ -68,6 +69,9 @@ public class EstoqueController {
     private TableColumn <Produto, String> Detalhes;
     @FXML
     private TableColumn <Produto, Integer> quantidade;
+    @FXML
+    private Pane pane;
+    private Transition transition = new Transition();
 
     @FXML
     public void initialize() throws SQLException {
@@ -112,6 +116,9 @@ public class EstoqueController {
 
         main = ScreenChange.getMainInstance();
 
+        if (pane != null){
+            transition.fadeInPane(pane);
+        }
 
     }
 
