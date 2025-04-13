@@ -5,7 +5,7 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 public class Transition {
-
+    // aqui e utilizado um fadetransition para o efeito das opcoes da tela//
     public void fadeInPane(Pane pane){
         if (pane == null){
             return;

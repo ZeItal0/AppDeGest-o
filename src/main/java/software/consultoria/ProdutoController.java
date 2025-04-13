@@ -19,6 +19,7 @@ import java.time.LocalDate;
 import java.util.Map;
 
 public class ProdutoController {
+
     RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
 
     private entradasEsaidas status;
@@ -115,10 +116,19 @@ public class ProdutoController {
         }
     }
 
+    //botoes de minimizar, encerrar e voltar//
     public void closed(ActionEvent actionEvent) {
         Platform.exit();
     }
+    public void voltar(ActionEvent actionEvent) {
+        main.carregarCena("/login.fxml");
+    }
+    public void minimized(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
 
+    //opcoes do menu principal//
     public void funcionario(ActionEvent actionEvent) {
         main.carregarCena("/funcionariosOptions.fxml");
     }
@@ -142,15 +152,8 @@ public class ProdutoController {
         main.carregarCena("/VideoAulas.fxml");
     }
 
-    public void voltar(ActionEvent actionEvent) {
-        main.carregarCena("/login.fxml");
-    }
 
-    public void minimized(ActionEvent actionEvent) {
-        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        stage.setIconified(true);
-    }
-
+// area para cadastro de produto, listagem e carregar cenas//
     public void cadastrarProduto(ActionEvent actionEvent) {
         main.carregarCena("/CadastroProduto.fxml");
     }
@@ -160,6 +163,18 @@ public class ProdutoController {
     }
 
     public void Editarproduto(ActionEvent actionEvent) {
+    }
+
+    public void Cadastrar_Produto_fornecedor(ActionEvent actionEvent) throws SQLException {
+        String Nome = nomeProduto.getText();
+        String Quantidade = quantidade.getText();
+        String ValorInvestido = valorInvestido.getText();
+        String ValorDeVenda = valorDeVenda.getText();
+        String Categoria = categoria.getText();
+        String Detalhes = detalhes.getText();
+
+
+        registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now(),idfornecedor);
     }
 
     public void selecionaranel(ActionEvent actionEvent) {
@@ -182,15 +197,4 @@ public class ProdutoController {
         categoria.setText("Perfumes");
     }
 
-    public void Cadastrar_Produto_fornecedor(ActionEvent actionEvent) throws SQLException {
-        String Nome = nomeProduto.getText();
-        String Quantidade = quantidade.getText();
-        String ValorInvestido = valorInvestido.getText();
-        String ValorDeVenda = valorDeVenda.getText();
-        String Categoria = categoria.getText();
-        String Detalhes = detalhes.getText();
-
-
-        registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now(),idfornecedor);
-    }
 }

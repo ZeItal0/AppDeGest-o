@@ -20,7 +20,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    //metodo start carrega a primeira cena//
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -32,6 +32,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    //metodo usado para carregar cenas dos fxmls tambem faz a troca de cursor//
     public void carregarCena(String fxpath) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxpath));
@@ -51,6 +52,7 @@ public class Main extends Application {
         }
     }
 
+    //metodo para centralizar a cena //
     public void centerScene (Stage stage, Scene scene){
         stage.setX(210);
         stage.setY(84.5);

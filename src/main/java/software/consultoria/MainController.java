@@ -124,6 +124,7 @@ public class MainController {
         }
     }
 
+    // codigo para encerrar minimizar e entrar no app//
     public void enter(ActionEvent actionEvent) {
         main.carregarCena("/menu.fxml");
     }
@@ -132,14 +133,13 @@ public class MainController {
         Platform.exit();
     }
 
-    public void voltar(ActionEvent actionEvent) {
-        main.carregarCena("/login.fxml");
+    public void minimized(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
     }
 
-    public void funcionario(ActionEvent actionEvent) {
-        main.carregarCena("/funcionariosOptions.fxml");
-    }
 
+    //opcoes do menu principal para carregar cenas//
     public void venda(ActionEvent actionEvent) {
         main.carregarCena("/VendaOptions.fxml");
     }
@@ -160,9 +160,12 @@ public class MainController {
         main.carregarCena("/VideoAulas.fxml");
     }
 
-    public void minimized(ActionEvent actionEvent) {
-        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        stage.setIconified(true);
+    public void voltar(ActionEvent actionEvent) { main.carregarCena("/login.fxml"); }
+
+
+    //area de cadastro de funcionario e listagem e carregar cenas//
+    public void funcionario(ActionEvent actionEvent) {
+        main.carregarCena("/funcionariosOptions.fxml");
     }
 
     public void cadastrar(ActionEvent actionEvent) {
@@ -192,45 +195,6 @@ public class MainController {
         registerUsuarioDao.salvarusuario(nome,telefone,cep,Rua,Cidade,Bairro,User,senha,ButtonMenu,DataNas,DataReg);
 
     }
-
-    public void cadastrarDespesa(ActionEvent actionEvent) {
-        main.carregarCena("/CadastroDespesa.fxml");
-    }
-
-    public void listaDedespesas(ActionEvent actionEvent) {
-    }
-
-    public void EditarDespesas(ActionEvent actionEvent) {
-    }
-
-    public void cadastrarFornecedor(ActionEvent actionEvent) {
-        main.carregarCena("/CadastroFornecedor.fxml");
-    }
-
-    public void listaFornecedores(ActionEvent actionEvent) {
-        main.carregarCena("/ListaFornecedor.fxml");
-    }
-
-    public void EditarFornecedor(ActionEvent actionEvent) {
-    }
-
-    public void cadastrarProduto(ActionEvent actionEvent) {
-        main.carregarCena("/CadastroProduto.fxml");
-    }
-
-    public void estoque(ActionEvent actionEvent) {
-        main.carregarCena("/Estoque.fxml");
-    }
-
-    public void Editarproduto(ActionEvent actionEvent) {
-    }
-
-    public void cadastrarvenda(ActionEvent actionEvent) {
-    }
-
-    public void historicoDevendas(ActionEvent actionEvent) {
-    }
-
     public void selecionarVendedor(ActionEvent actionEvent) {
         Cargo.setText("Vendedor");
     }
@@ -244,6 +208,19 @@ public class MainController {
     }
 
 
+
+    // area de cadastro de fornecedor, listagem e carregar cenas//
+    public void cadastrarFornecedor(ActionEvent actionEvent) {
+        main.carregarCena("/CadastroFornecedor.fxml");
+    }
+
+    public void listaFornecedores(ActionEvent actionEvent) {
+        main.carregarCena("/ListaFornecedor.fxml");
+    }
+
+    public void EditarFornecedor(ActionEvent actionEvent) {
+    }
+
     public void confirmarFornecedor(ActionEvent actionEvent) throws SQLException {
         String nome = NomeFornecedor.getText();
         String telefone = Telefonefornecedor.getText();
@@ -255,6 +232,17 @@ public class MainController {
         String Bairro = bairro.getText();
         LocalDate DataReg = LocalDate.now();
         registerFornecedorDao.salvarFornecedor(nome,telefone,email,CNPJ,cep,Rua,Cidade,Bairro,DataReg);
+    }
+
+    //area de captura de informacoes ,listagem e carregar cenas//
+    public void cadastrarDespesa(ActionEvent actionEvent) {
+        main.carregarCena("/CadastroDespesa.fxml");
+    }
+
+    public void listaDedespesas(ActionEvent actionEvent) {
+    }
+
+    public void EditarDespesas(ActionEvent actionEvent) {
     }
 
     public void SalvarDespesa(ActionEvent actionEvent) throws SQLException {
@@ -293,4 +281,27 @@ public class MainController {
     public void Debito(ActionEvent actionEvent) {
         FormaDepagamento.setText("Debito");
     }
+
+
+    // parte para ser implementada //
+    public void cadastrarProduto(ActionEvent actionEvent) {
+        main.carregarCena("/CadastroProduto.fxml");
+    }
+
+    public void estoque(ActionEvent actionEvent) {
+        main.carregarCena("/Estoque.fxml");
+    }
+
+
+    public void Editarproduto(ActionEvent actionEvent) {
+    }
+
+    public void cadastrarvenda(ActionEvent actionEvent) {
+    }
+
+    public void historicoDevendas(ActionEvent actionEvent) {
+    }
+
+
+
 }

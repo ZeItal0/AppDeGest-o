@@ -65,7 +65,7 @@ public class FuncionarioController {
     private Pane pane;
     private Transition transition = new Transition();
 
-
+    //esse initialize e usado para listagem de funcionarios alem de conter efeitos do menu principal//
     @FXML
     public void initialize() throws SQLException {
 
@@ -114,6 +114,21 @@ public class FuncionarioController {
 
     }
 
+    //botoes para encerrar, minimizar e voltar//
+    public void closed(ActionEvent actionEvent) {
+        Platform.exit();
+    }
+
+    public void voltar(ActionEvent actionEvent) {
+        main.carregarCena("/login.fxml");
+    }
+
+    public void minimized(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    //Carregar cenas //
     public void cadastrar(ActionEvent actionEvent) {
         main.carregarCena("/CadastroFuncionario.fxml");
     }
@@ -125,10 +140,7 @@ public class FuncionarioController {
         main.carregarCena("/EditarFuncionario.fxml");
     }
 
-    public void closed(ActionEvent actionEvent) {
-        Platform.exit();
-    }
-
+    //opcoes do menu principal//
     public void funcionario(ActionEvent actionEvent) {
         main.carregarCena("/funcionariosOptions.fxml");
     }
@@ -153,12 +165,5 @@ public class FuncionarioController {
         main.carregarCena("/VideoAulas.fxml");
     }
 
-    public void voltar(ActionEvent actionEvent) {
-        main.carregarCena("/login.fxml");
-    }
 
-    public void minimized(ActionEvent actionEvent) {
-        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        stage.setIconified(true);
-    }
 }

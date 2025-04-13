@@ -66,7 +66,7 @@ public class FornecedorController {
     private Pane pane;
     private Transition transition = new Transition();
 
-
+    //esse initialize e usado para listagem de fornecedores alem de conter efeitos visuais//
     @FXML
     public void initialize() throws SQLException {
 
@@ -114,8 +114,22 @@ public class FornecedorController {
         }
     }
 
+    //botoes de encerrar, voltar e minimizar//
     public void closed(ActionEvent actionEvent) {
         Platform.exit();
+    }
+    public void voltar(ActionEvent actionEvent) {
+        main.carregarCena("/login.fxml");
+    }
+
+    public void minimized(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    //opcoes do menu principal//
+    public void funcionario(ActionEvent actionEvent) {
+        main.carregarCena("/funcionariosOptions.fxml");
     }
 
     public void venda(ActionEvent actionEvent) {
@@ -138,15 +152,7 @@ public class FornecedorController {
         main.carregarCena("/VideoAulas.fxml");
     }
 
-    public void voltar(ActionEvent actionEvent) {
-        main.carregarCena("/login.fxml");
-    }
-
-    public void minimized(ActionEvent actionEvent) {
-        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        stage.setIconified(true);
-    }
-
+    //area de carregar cenas da opcao especifica do menu//
     public void cadastrarFornecedor(ActionEvent actionEvent) {
         main.carregarCena("/CadastroFornecedor.fxml");
     }
@@ -157,7 +163,4 @@ public class FornecedorController {
     public void EditarFornecedor(ActionEvent actionEvent) {
     }
 
-    public void funcionario(ActionEvent actionEvent) {
-        main.carregarCena("/funcionariosOptions.fxml");
-    }
 }

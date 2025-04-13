@@ -73,6 +73,7 @@ public class EstoqueController {
     private Pane pane;
     private Transition transition = new Transition();
 
+    //esse initialize e usado para listagem do estoque, tambem contem efeitos visuais//
     @FXML
     public void initialize() throws SQLException {
         if(funcionario!=null){
@@ -122,10 +123,20 @@ public class EstoqueController {
 
     }
 
+    //botoes de encerrar, voltar e minimizar//
     public void closed(ActionEvent actionEvent) {
         Platform.exit();
     }
+    public void voltar(ActionEvent actionEvent) {
+        main.carregarCena("/login.fxml");
+    }
 
+    public void minimized(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    //opcoes do menu principal//
     public void funcionario(ActionEvent actionEvent) {
         main.carregarCena("/funcionariosOptions.fxml");
     }
@@ -149,14 +160,7 @@ public class EstoqueController {
         main.carregarCena("/VideoAulas.fxml");
     }
 
-    public void voltar(ActionEvent actionEvent) {
-        main.carregarCena("/login.fxml");
-    }
-
-    public void minimized(ActionEvent actionEvent) {
-        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        stage.setIconified(true);
-    }
+    //area para carregar cenas da opcao selecionada do menu principal//
     public void cadastrarProduto(ActionEvent actionEvent) {
         main.carregarCena("/CadastroProduto.fxml");
     }
