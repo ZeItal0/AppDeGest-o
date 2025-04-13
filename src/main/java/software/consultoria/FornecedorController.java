@@ -85,6 +85,7 @@ public class FornecedorController {
                         if (!imagem.getStyleClass().contains("hover-img")) {
                             imagem.getStyleClass().add("hover-img");
                         }
+                        transition.fadeInButton(imagem);
                     });
                     botao.setOnMouseExited(e -> imagem.getStyleClass().remove("hover-img"));
                 }
