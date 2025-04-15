@@ -298,6 +298,7 @@ public class MainController {
     }
 
     public void cadastrarvenda(ActionEvent actionEvent) {
+        main.carregarCena("/RegistrarVendas.fxml");
     }
 
     public void historicoDevendas(ActionEvent actionEvent) {
