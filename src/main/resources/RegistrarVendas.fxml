@@ -12,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.VendaRegisterController">
    <children>
@@ -164,37 +165,40 @@
       <Button id="listadefuncionarios" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#historicoDevendas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="HISTORICO DE VENDAS" />
       <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="679.0" prefWidth="1058.0" stylesheets="@style.css">
          <children>
-            <Label id="info" layoutX="10.0" layoutY="6.0" prefHeight="27.0" prefWidth="37.0" stylesheets="@style.css" text="DATA" />
-            <Label id="info" fx:id="DataAtual" layoutX="47.0" layoutY="6.0" prefHeight="27.0" prefWidth="110.0" stylesheets="@style.css" />
-            <Label id="info" layoutX="10.0" layoutY="40.0" prefHeight="27.0" prefWidth="59.0" stylesheets="@style.css" text="VENDEDOR" />
-            <Label id="info" fx:id="DataAtual1" layoutX="69.0" layoutY="40.0" prefHeight="27.0" prefWidth="89.0" stylesheets="@style.css" />
-            <ImageView fitHeight="63.0" fitWidth="44.0" layoutX="341.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+            <Label id="info" layoutX="904.0" layoutY="43.0" prefHeight="27.0" prefWidth="37.0" stylesheets="@style.css" text="DATA" />
+            <Label id="info" fx:id="DataAtual" layoutX="941.0" layoutY="43.0" prefHeight="27.0" prefWidth="110.0" stylesheets="@style.css" />
+            <Label id="info" layoutX="904.0" layoutY="77.0" prefHeight="27.0" prefWidth="59.0" stylesheets="@style.css" text="VENDEDOR" />
+            <Label id="info" fx:id="DataAtual1" layoutX="963.0" layoutY="77.0" prefHeight="27.0" prefWidth="89.0" stylesheets="@style.css" />
+            <ImageView fitHeight="63.0" fitWidth="44.0" layoutX="428.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                <image>
                   <Image url="@icons/down-arrow.png" />
                </image>
             </ImageView>
-            <Label id="info" alignment="CENTER" layoutX="906.0" layoutY="401.0" prefHeight="33.0" prefWidth="61.0" stylesheets="@style.css" text="TOTAL" />
-            <Label id="info" fx:id="DataAtual11" layoutX="966.0" layoutY="401.0" prefHeight="33.0" prefWidth="89.0" stylesheets="@style.css" />
+            <Label id="infoTOTAL" alignment="CENTER" layoutX="901.0" layoutY="484.0" prefHeight="47.0" prefWidth="51.0" stylesheets="@style.css" text="TOTAL">
+               <font>
+                  <Font size="19.0" />
+               </font></Label>
+            <Label id="infoTOTAL" fx:id="TOTAL" layoutX="952.0" layoutY="484.0" prefHeight="47.0" prefWidth="101.0" stylesheets="@style.css" />
          </children>
       </Pane>
-      <TableView id="listaVenda" fx:id="produtosList" layoutX="594.0" layoutY="98.0" prefHeight="158.0" prefWidth="877.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
+      <TableView id="listaVenda" fx:id="produtosList" layoutX="425.0" layoutY="137.0" prefHeight="188.0" prefWidth="890.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="NOME" prefWidth="284.66668701171875" style="-fx-background-color: transparent;" text="NOME" />
-            <TableColumn fx:id="DESCRICAO" prefWidth="471.0" style="-fx-background-color: transparent;" text="DESCRIÇÃO" />
-            <TableColumn fx:id="QUANTIDADE" prefWidth="60.0" style="-fx-background-color: transparent;" text="QUANTIDADE" />
-            <TableColumn fx:id="VALOR" prefWidth="56.3333740234375" style="-fx-background-color: transparent;" text="VALOR" />
+            <TableColumn fx:id="DESCRICAO" prefWidth="429.0" style="-fx-background-color: transparent;" text="DESCRIÇÃO" />
+            <TableColumn fx:id="QUANTIDADE" prefWidth="59.6666259765625" style="-fx-background-color: transparent;" text="QUANTIDADE" />
+            <TableColumn fx:id="VALOR" prefWidth="109.6666259765625" style="-fx-background-color: transparent;" text="VALOR" />
          </columns>
       </TableView>
-      <TableView id="listaVenda" fx:id="listaDeVenda" layoutX="591.0" layoutY="314.0" prefHeight="174.0" prefWidth="880.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
+      <TableView id="listaVenda" fx:id="listaDeVenda" layoutX="422.0" layoutY="374.0" prefHeight="251.0" prefWidth="891.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="NOMELIST" prefWidth="306.33331298828125" style="-fx-background-color: transparent;" text="NOME" />
-            <TableColumn fx:id="DESCRICAOLIST" prefWidth="455.666748046875" style="-fx-background-color: transparent;" text="DESCRIÇÃO" />
-            <TableColumn fx:id="QUANTIDADELIST" prefWidth="61.333251953125" style="-fx-background-color: transparent;" text="QUANTIDADE" />
-            <TableColumn fx:id="VALORLIST" prefWidth="50.333251953125" style="-fx-background-color: transparent;" text="VALOR" />
+            <TableColumn fx:id="DESCRICAOLIST" prefWidth="408.3333740234375" style="-fx-background-color: transparent;" text="DESCRIÇÃO" />
+            <TableColumn fx:id="QUANTIDADELIST" prefWidth="58.6666259765625" style="-fx-background-color: transparent;" text="QUANTIDADE" />
+            <TableColumn fx:id="VALORLIST" prefWidth="109.3333740234375" style="-fx-background-color: transparent;" text="VALOR" />
          </columns>
       </TableView>
-      <TextField id="nome" fx:id="DESCONTOPRODUTO" alignment="TOP_LEFT" layoutX="1163.0" layoutY="496.0" prefHeight="33.0" prefWidth="135.0" promptText="DESCONTO" styleClass="style.css" stylesheets="@style.css" />
-      <MenuButton id="cargos" fx:id="FormaDepagamento" layoutX="964.0" layoutY="496.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="178.0" stylesheets="@style.css" text="FORMA DE PAGAMENTO" textFill="WHITE">
+      <TextField id="nome" fx:id="DESCONTOPRODUTO" alignment="TOP_LEFT" layoutX="1319.0" layoutY="535.0" prefHeight="33.0" prefWidth="152.0" promptText="DESCONTO" styleClass="style.css" stylesheets="@style.css" />
+      <MenuButton id="cargos" fx:id="FormaDepagamento" layoutX="1319.0" layoutY="492.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="152.0" stylesheets="@style.css" text="FORMA DE PAGAMENTO" textFill="WHITE">
          <items>
             <MenuItem fx:id="pix" mnemonicParsing="false" onAction="#Pix" text="Pix" />
             <MenuItem fx:id="dinheiro" mnemonicParsing="false" onAction="#Dinheiro" text="Dinheiro" />
@@ -202,21 +206,23 @@
             <MenuItem fx:id="debito" mnemonicParsing="false" onAction="#Debito" text="Debito" />
          </items>
       </MenuButton>
-      <Button id="cadastrarFuncionario" layoutX="1103.0" layoutY="648.0" mnemonicParsing="false" onAction="#FINALIZAR" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="      FINALIZAR" />
-      <ImageView fitHeight="44.0" fitWidth="50.0" layoutX="1117.0" layoutY="655.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/check-mark.png" />
-         </image>
-      </ImageView>
-      <Button id="Cancelar" alignment="CENTER" layoutX="855.0" layoutY="647.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text=" CANCELAR">
+      <Button id="cadastrarFuncionario" layoutX="1140.0" layoutY="667.0" mnemonicParsing="false" onAction="#FINALIZAR" prefHeight="62.0" prefWidth="172.0" stylesheets="@style.css" text="FINALIZAR">
          <graphic>
-            <ImageView fitHeight="33.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="44.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/check-mark.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button id="Cancelar" alignment="CENTER" layoutX="1321.0" layoutY="448.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text=" CANCELAR">
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons/cancel.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <ImageView fitHeight="25.0" fitWidth="33.0" layoutX="1169.0" layoutY="499.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="33.0" layoutX="1325.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/discount.png" />
          </image>

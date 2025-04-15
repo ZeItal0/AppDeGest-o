@@ -4,6 +4,7 @@ import DAOclass.RegisterProdutoDao;
 import Models.Fornecedor;
 import Models.Itens_de_Venda;
 import Models.Produto;
+import Models.Vendas;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -21,7 +22,7 @@ import java.time.LocalDate;
 import java.util.Map;
 
 public class VendaRegisterController {
-
+    Vendas vendas = new Vendas();
     @FXML
     private TableView <Produto> produtosList;
     @FXML
@@ -33,17 +34,18 @@ public class VendaRegisterController {
     @FXML
     private TableColumn <Produto,Double> VALOR;
 
-    private ObservableList<Produto> listaParaVenda = FXCollections.observableArrayList();
+    private ObservableList<Itens_de_Venda> listaParaVenda = FXCollections.observableArrayList();
     @FXML
-    private TableView <Produto> listaDeVenda;
+    private TableView <Itens_de_Venda> listaDeVenda;
     @FXML
-    private TableColumn <Produto,String> NOMELIST;
+    private TableColumn <Itens_de_Venda,String> NOMELIST;
     @FXML
-    private TableColumn <Produto,String> DESCRICAOLIST;
+    private TableColumn <Itens_de_Venda,String> DESCRICAOLIST;
     @FXML
-    private TableColumn <Produto,Integer> QUANTIDADELIST;
+    private TableColumn <Itens_de_Venda,Integer> QUANTIDADELIST;
     @FXML
-    private TableColumn <Produto,Double> VALORLIST;
+    private TableColumn <Itens_de_Venda,Double> VALORLIST;
+
 
     private Main main;
     @FXML
@@ -74,6 +76,8 @@ public class VendaRegisterController {
     private Button despesas;
     @FXML
     private Button videos;
+    @FXML
+    private Label TOTAL;
 
     @FXML
     private MenuButton FormaDepagamento;
@@ -82,6 +86,7 @@ public class VendaRegisterController {
     private Pane pane;
     private Transition transition = new Transition();
 
+    // esse initialize e um pouco mais complexo ele captura uma lista de itens do estoque verifica se o item esta zerado ou nao e adiciona em outra lista para venda dos produtos//
     @FXML
     public void initialize() throws SQLException {
 
@@ -122,7 +127,6 @@ public class VendaRegisterController {
             if (event.getClickCount()==1){
                 Produto selecionado = produtosList.getSelectionModel().getSelectedItem();
                 if (selecionado != null){
-//                    System.out.println("nome: "+selecionado.getNomeProduto()+" preco: "+selecionado.getPreco_De_venda()+" detalhes: "+selecionado.getDetalhes()+" quantidade: "+selecionado.getEstoque().getQuantidade());
                     int quantidade = selecionado.getEstoque().getQuantidade();
                     if (quantidade > 0){
                         selecionado.getEstoque().setQuantidade(quantidade - 1);
@@ -140,14 +144,43 @@ public class VendaRegisterController {
     }
 
     private void ListaDeVenda(Produto selecionado) {
-        NOMELIST.setCellValueFactory(new PropertyValueFactory<>("nomeProduto"));
-        VALORLIST.setCellValueFactory(new PropertyValueFactory<>("preco_De_venda"));
-        DESCRICAOLIST.setCellValueFactory(new PropertyValueFactory<>("detalhes"));
-        QUANTIDADELIST.setCellValueFactory( cellData ->
-                new ReadOnlyObjectWrapper<>(1)
-        );
-        listaParaVenda.add(selecionado);
+
+        Itens_de_Venda itemExistente = null;
+        for(Itens_de_Venda item: listaParaVenda){
+            if (item.getProduto().getId() == selecionado.getId()){
+                itemExistente = item;
+                break;
+            }
+        }
+
+        if (itemExistente != null){
+            itemExistente.setQuantidade_itens(itemExistente.getQuantidade_itens() + 1);
+            itemExistente.setValor_unitario(itemExistente.getQuantidade_itens() * selecionado.getPreco_De_venda());
+        }
+        else {
+            Itens_de_Venda novoItem = new Itens_de_Venda();
+            novoItem.setProduto(selecionado);
+            novoItem.setQuantidade_itens(1);
+            novoItem.setValor_unitario(selecionado.getPreco_De_venda());
+            listaParaVenda.add(novoItem);
+        }
+        vendas.setItens(listaParaVenda);
+        TOTAL.setText(vendas.TotalVenda().toString());
         listaDeVenda.setItems(listaParaVenda);
+
+        NOMELIST.setCellValueFactory( cellData ->
+                new ReadOnlyObjectWrapper<>(cellData.getValue().getProduto().getNomeProduto())
+        );
+        VALORLIST.setCellValueFactory( cellData ->
+                new ReadOnlyObjectWrapper<>(cellData.getValue().getValor_unitario())
+        );
+        DESCRICAOLIST.setCellValueFactory( cellData ->
+                new ReadOnlyObjectWrapper<>(cellData.getValue().getProduto().getDetalhes())
+        );
+        QUANTIDADELIST.setCellValueFactory( cellData ->
+                new ReadOnlyObjectWrapper<>(cellData.getValue().getQuantidade_itens())
+        );
+        listaDeVenda.refresh();
     }
 
 

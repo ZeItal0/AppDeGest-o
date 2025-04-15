@@ -18,6 +18,7 @@ public class RegisterProdutoDao {
     private String sqlMovimentacao= "INSERT INTO movimentacao_de_estoque(id_produto, tipo_movimentacao, quantidade, data_movimentacao) VALUES (?,?,?,?)";
     private String sqlProdutoFornecedor = "INSERT INTO produto_fornecedor(id_fornecedor, id_produto, data_de_cadastro) VALUES (?,?,?)";
     private String sqlProdutoslist = "SELECT \n" +
+            "    p.id,\n" +
             "    p.nome_produto,\n" +
             "    p.preco,\n" +
             "    p.Preco_de_Venda,\n" +
@@ -105,6 +106,7 @@ public class RegisterProdutoDao {
 
         while (rs.next()){
             Produto produto = new Produto();
+            produto.setId(rs.getInt("id"));
             produto.setNomeProduto(rs.getString("nome_produto"));
             produto.setPreco(rs.getDouble("preco"));
             produto.setPreco_De_venda(rs.getDouble("Preco_de_Venda"));

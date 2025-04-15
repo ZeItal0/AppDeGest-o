@@ -1,6 +1,7 @@
 package Models;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Vendas {
     private int id;
@@ -8,6 +9,7 @@ public class Vendas {
     private Fornecedor fornecedor;
     private FormaDepagamento formaDepagamento;
     private StatusDeVenda statusDeVenda;
+    private List<Itens_de_Venda> itens;
 
     public Vendas (){
 
@@ -59,5 +61,17 @@ public class Vendas {
 
     public void setStatusDeVenda(StatusDeVenda statusDeVenda) {
         this.statusDeVenda = statusDeVenda;
+    }
+
+    public void setItens(List<Itens_de_Venda> itens) {
+        this.itens = itens;
+    }
+
+    public Double TotalVenda(){
+        Double total = 0.0;
+        for (Itens_de_Venda item: itens){
+            total += item.getValor_unitario();
+        }
+        return total;
     }
 }
