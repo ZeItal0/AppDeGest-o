@@ -1,6 +1,7 @@
 package DAOclass;
 
 import Models.Endereco;
+import Models.Sessao;
 import Models.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +18,7 @@ public class RegisterUsuarioDao {
     private String sqlUsario = "INSERT INTO usuario (id_endereco, nome, senha, loginUser, telefone, data_de_nascimento, data_de_cadastro) VALUES (?,?,?,?,?,?,?)";
     private String sqlFuncionario = "INSERT INTO funcionario (id_usuario, cargo) VALUES (?,?)";
     private String sqlist = "SELECT u.id, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro, " + "e.Rua, e.cep " + "FROM usuario u " + "JOIN endereco e ON u.id_endereco = e.id";
+    private String sqllogin = "SELECT id, nome FROM usuario WHERE loginUser = ? AND senha = ?";
 
     public void salvarusuario(String nome, String telefone, String cep, String rua, String Cidade, String bairro, String User, String senha, String buttonMenu, LocalDate DataNas, LocalDate DataReg) throws SQLException {
 
@@ -77,6 +79,37 @@ public class RegisterUsuarioDao {
 
         }
         return lista;
+    }
+
+    public boolean verificarlogin (String login, String senha) throws SQLException {
+
+        ResultSet rs = null;
+        Connection conn = null;
+        PreparedStatement stmtlogin = null;
+
+        try {
+            conn = dbConnector.connect();
+            stmtlogin = conn.prepareStatement(sqllogin);
+            stmtlogin.setString(1,login);
+            stmtlogin.setString(2,senha);
+            rs = stmtlogin.executeQuery();
+
+            if (rs.next()){
+                Sessao.nome = rs.getString("nome");
+                Sessao.id = rs.getInt("id");
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }finally {
+            if (rs != null) rs.close();
+            if (stmtlogin != null) stmtlogin.close();
+            if (conn != null) conn.close();
+
+        }
+
     }
 
 }

@@ -25,7 +25,7 @@
                         <Image url="@img/diamond2.png" />
                      </image>
                   </ImageView>
-                  <Label id="user" layoutX="83.0" layoutY="716.0" prefHeight="41.0" prefWidth="118.0" stylesheets="@style.css" />
+                  <Label id="user" fx:id="userName" alignment="CENTER" layoutX="83.0" layoutY="716.0" prefHeight="41.0" prefWidth="118.0" stylesheets="@style.css" />
                   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="91.0" layoutY="722.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/user2.png" />
@@ -168,7 +168,7 @@
             <Label id="info" layoutX="904.0" layoutY="43.0" prefHeight="27.0" prefWidth="37.0" stylesheets="@style.css" text="DATA" />
             <Label id="info" fx:id="DataAtual" layoutX="941.0" layoutY="43.0" prefHeight="27.0" prefWidth="110.0" stylesheets="@style.css" />
             <Label id="info" layoutX="904.0" layoutY="77.0" prefHeight="27.0" prefWidth="59.0" stylesheets="@style.css" text="VENDEDOR" />
-            <Label id="info" fx:id="DataAtual1" layoutX="963.0" layoutY="77.0" prefHeight="27.0" prefWidth="89.0" stylesheets="@style.css" />
+            <Label id="info" fx:id="vendedor" layoutX="963.0" layoutY="77.0" prefHeight="27.0" prefWidth="89.0" stylesheets="@style.css" />
             <ImageView fitHeight="63.0" fitWidth="44.0" layoutX="428.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                <image>
                   <Image url="@icons/down-arrow.png" />

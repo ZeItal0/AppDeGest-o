@@ -3,6 +3,7 @@ package software.consultoria;
 import DAOclass.RegisterDespesaDao;
 import DAOclass.RegisterFornecedorDao;
 import DAOclass.RegisterUsuarioDao;
+import Models.Sessao;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -94,6 +95,12 @@ public class MainController {
     private Pane pane;
     private Transition transition = new Transition();
 
+    @FXML
+    private TextField user;
+    @FXML
+    private TextField password;
+    @FXML
+    private Label userName;
 
     @FXML
     public void initialize() {
@@ -118,6 +125,10 @@ public class MainController {
                 }
             });
         }
+
+        if (userName != null){
+            userName.setText(Sessao.nome);
+        }
         main = ScreenChange.getMainInstance();
 
         if (pane != null){
@@ -125,9 +136,15 @@ public class MainController {
         }
     }
 
-    // codigo para encerrar minimizar e entrar no app//
-    public void enter(ActionEvent actionEvent) {
-        main.carregarCena("/menu.fxml");
+    // codigos para encerrar minimizar e entrar no app//
+
+    public void enter(ActionEvent actionEvent) throws SQLException {
+        if(registerUsuarioDao.verificarlogin(user.getText(),password.getText())){
+            main.carregarCena("/menu.fxml");
+        }
+        else {
+
+        }
     }
 
     public void closed(ActionEvent actionEvent) {

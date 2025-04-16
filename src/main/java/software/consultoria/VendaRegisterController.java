@@ -1,10 +1,7 @@
 package software.consultoria;
 
 import DAOclass.RegisterProdutoDao;
-import Models.Fornecedor;
-import Models.Itens_de_Venda;
-import Models.Produto;
-import Models.Vendas;
+import Models.*;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -83,12 +80,20 @@ public class VendaRegisterController {
     private MenuButton FormaDepagamento;
 
     @FXML
+    private Label userName;
+    @FXML
+    private Label vendedor;
+
+    @FXML
     private Pane pane;
     private Transition transition = new Transition();
 
     // esse initialize e um pouco mais complexo ele captura uma lista de itens do estoque verifica se o item esta zerado ou nao e adiciona em outra lista para venda dos produtos//
     @FXML
     public void initialize() throws SQLException {
+
+        userName.setText(Sessao.nome);
+        vendedor.setText(Sessao.nome);
 
         DataAtual.setText(String.valueOf(LocalDate.now()));
 
