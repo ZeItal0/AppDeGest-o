@@ -1,6 +1,7 @@
 package software.consultoria;
 
 import DAOclass.RegisterProdutoDao;
+import DAOclass.RegisterVendaDao;
 import Models.*;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -14,12 +15,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.ObjectInputFilter;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Map;
 
 public class VendaRegisterController {
     Vendas vendas = new Vendas();
+    RegisterVendaDao registerVendaDao = new RegisterVendaDao();
+
     @FXML
     private TableView <Produto> produtosList;
     @FXML
@@ -148,6 +152,7 @@ public class VendaRegisterController {
         }
     }
 
+    //lista ou carrinho de venda que salva o itens adicionados//
     private void ListaDeVenda(Produto selecionado) {
 
         Itens_de_Venda itemExistente = null;
@@ -188,7 +193,7 @@ public class VendaRegisterController {
         listaDeVenda.refresh();
     }
 
-
+    //botoes para encerrar sair e minimizar//
     public void closed(ActionEvent actionEvent) {
         Platform.exit();
     }
@@ -202,6 +207,7 @@ public class VendaRegisterController {
     }
 
 
+    //opcoes do menu principal//
     public void funcionario(ActionEvent actionEvent) {
         main.carregarCena("/funcionariosOptions.fxml");
     }
@@ -233,7 +239,7 @@ public class VendaRegisterController {
     public void historicoDevendas(ActionEvent actionEvent) {
     }
 
-
+    //Opcoes de forma de pagamento //
     public void Pix(ActionEvent actionEvent) {
         FormaDepagamento.setText("Pix");
     }
@@ -250,11 +256,13 @@ public class VendaRegisterController {
         FormaDepagamento.setText("Debito");
     }
 
-
+    //Ao cancelar a cena reenicia e tudo e limpo//
     public void Cancelar(ActionEvent actionEvent) {
+        main.carregarCena("/RegistrarVendas.fxml");
     }
 
-
-    public void FINALIZAR(ActionEvent actionEvent) {
+    //chama a classe dao para registrar a venda no banco//
+    public void FINALIZAR(ActionEvent actionEvent) throws SQLException {
+        registerVendaDao.salvarVenda(listaParaVenda,FormaDepagamento.getText(),LocalDate.now(), String.valueOf(entradasEsaidas.saida), String.valueOf(StatusDeVenda.Local),Sessao.id);
     }
 }

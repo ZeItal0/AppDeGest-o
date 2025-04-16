@@ -2,6 +2,7 @@ package software.consultoria;
 
 import DAOclass.RegisterProdutoDao;
 import Models.Fornecedor;
+import Models.Sessao;
 import Models.entradasEsaidas;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -72,6 +73,8 @@ public class ProdutoController {
     @FXML
     private Pane pane;
     private Transition transition = new Transition();
+    @FXML
+    private Label userName;
 
     @FXML
     public void initialize() throws SQLException {
@@ -112,6 +115,7 @@ public class ProdutoController {
                 }
             }
         });
+        userName.setText(Sessao.nome);
         if (pane != null){
             transition.fadeInPane(pane);
         }

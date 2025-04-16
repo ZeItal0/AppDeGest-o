@@ -314,6 +314,8 @@ public class MainController {
     public void Editarproduto(ActionEvent actionEvent) {
     }
 
+
+
     public void cadastrarvenda(ActionEvent actionEvent) {
         main.carregarCena("/RegistrarVendas.fxml");
     }

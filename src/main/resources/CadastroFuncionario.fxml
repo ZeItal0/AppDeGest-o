@@ -23,7 +23,7 @@
                         <Image url="@img/diamond2.png" />
                      </image>
                   </ImageView>
-                  <Label id="user" layoutX="83.0" layoutY="716.0" prefHeight="41.0" prefWidth="118.0" stylesheets="@style.css" />
+                  <Label id="user" fx:id="userName" alignment="CENTER" layoutX="83.0" layoutY="716.0" prefHeight="41.0" prefWidth="118.0" stylesheets="@style.css" />
                   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="91.0" layoutY="722.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/user2.png" />

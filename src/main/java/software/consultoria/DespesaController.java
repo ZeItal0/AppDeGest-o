@@ -149,7 +149,7 @@ public class DespesaController {
     }
 
     public void videos(ActionEvent actionEvent) {
-        main.carregarCena("/VendaOptions.fxml");
+        main.carregarCena("/VideoAulas.fxml");
     }
 
     public void cadastrarDespesa(ActionEvent actionEvent) {
@@ -157,6 +157,7 @@ public class DespesaController {
     }
 
     public void listaDedespesas(ActionEvent actionEvent) {
+
     }
 
     public void EditarDespesas(ActionEvent actionEvent) {

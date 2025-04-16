@@ -4,6 +4,7 @@ import DAOclass.RegisterProdutoDao;
 import Models.Categoria;
 import Models.Fornecedor;
 import Models.Produto;
+import Models.Sessao;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,6 +14,7 @@ import javafx.css.SimpleStyleableIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -72,6 +74,8 @@ public class EstoqueController {
     @FXML
     private Pane pane;
     private Transition transition = new Transition();
+    @FXML
+    private Label userName;
 
     //esse initialize e usado para listagem do estoque, tambem contem efeitos visuais//
     @FXML
@@ -118,6 +122,7 @@ public class EstoqueController {
 
         main = ScreenChange.getMainInstance();
 
+        userName.setText(Sessao.nome);
         if (pane != null){
             transition.fadeInPane(pane);
         }

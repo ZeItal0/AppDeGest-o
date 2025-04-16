@@ -181,12 +181,12 @@
             <Label id="infoTOTAL" fx:id="TOTAL" layoutX="952.0" layoutY="484.0" prefHeight="47.0" prefWidth="101.0" stylesheets="@style.css" />
          </children>
       </Pane>
-      <TableView id="listaVenda" fx:id="produtosList" layoutX="425.0" layoutY="137.0" prefHeight="188.0" prefWidth="890.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
+      <TableView id="listaVenda" fx:id="produtosList" layoutX="425.0" layoutY="137.0" prefHeight="190.0" prefWidth="891.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
          <columns>
-            <TableColumn fx:id="NOME" prefWidth="284.66668701171875" style="-fx-background-color: transparent;" text="NOME" />
-            <TableColumn fx:id="DESCRICAO" prefWidth="429.0" style="-fx-background-color: transparent;" text="DESCRIÇÃO" />
-            <TableColumn fx:id="QUANTIDADE" prefWidth="59.6666259765625" style="-fx-background-color: transparent;" text="QUANTIDADE" />
-            <TableColumn fx:id="VALOR" prefWidth="109.6666259765625" style="-fx-background-color: transparent;" text="VALOR" />
+            <TableColumn fx:id="NOME" prefWidth="306.33331298828125" style="-fx-background-color: transparent;" text="NOME" />
+            <TableColumn fx:id="DESCRICAO" prefWidth="395.0" style="-fx-background-color: transparent;" text="DESCRIÇÃO" />
+            <TableColumn fx:id="QUANTIDADE" prefWidth="61.0" style="-fx-background-color: transparent;" text="QUANTIDADE" />
+            <TableColumn fx:id="VALOR" prefWidth="122.0" style="-fx-background-color: transparent;" text="VALOR" />
          </columns>
       </TableView>
       <TableView id="listaVenda" fx:id="listaDeVenda" layoutX="422.0" layoutY="374.0" prefHeight="251.0" prefWidth="891.0" style="-fx-background-color: transparent;" stylesheets="@style.css">

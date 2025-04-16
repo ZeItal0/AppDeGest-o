@@ -262,7 +262,7 @@
 #Cancelar{
     -fx-background-color: rgba(51, 51, 51, 0.5);
     -fx-border-color: black;
-    -fx-border-radius: 60px;
+    -fx-border-radius: 10px;
     -fx-background-radius: 60px;
     -fx-border-width: 2px;
     -fx-font-size: 10px;
@@ -348,7 +348,7 @@
 }
 .scroll-bar .thumb {
     -fx-background-color: rgba(51, 51, 51, 0.8);
-    -fx-background-radius: 5;
+    -fx-background-radius: 3;
 }
 .table-view .corner {
     -fx-background-color: transparent;
@@ -392,6 +392,5 @@
     -fx-background-color: rgba(51, 51, 51, 0.8);
     -fx-border-color: transparent;
     -fx-text-fill: white;
-    
 }
 

@@ -24,7 +24,7 @@
                         <Image url="@img/diamond2.png" />
                      </image>
                   </ImageView>
-                  <Label id="user" layoutX="83.0" layoutY="716.0" prefHeight="41.0" prefWidth="118.0" stylesheets="@style.css" />
+                  <Label id="user" fx:id="userName" alignment="CENTER" layoutX="83.0" layoutY="716.0" prefHeight="41.0" prefWidth="118.0" stylesheets="@style.css" />
                   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="91.0" layoutY="722.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/user2.png" />
@@ -163,7 +163,7 @@
     <Button id="cadastro" layoutX="419.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarDespesa" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ENTRADA DE DESPESAS" />
       <Button id="listadefuncionarios" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#listaDedespesas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CONSULTA DE DESPESAS" />
       <Button id="editarfuncionario" layoutX="865.0" layoutY="26.0" mnemonicParsing="false" onAction="#EditarDespesas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="EDITAR DESPESA" />
-      <Pane id="pane" fx:id="pane" layoutX="420.0" layoutY="94.0" prefHeight="681.0" prefWidth="1056.0" stylesheets="@style.css" />
+      <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="681.0" prefWidth="1059.0" stylesheets="@style.css" />
       <TextField id="nome" fx:id="nomeDespesa" alignment="TOP_LEFT" layoutX="514.0" layoutY="256.0" prefHeight="35.0" prefWidth="323.0" promptText="Nome da Despesa" styleClass="style.css" stylesheets="@style.css" />
       <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="515.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>

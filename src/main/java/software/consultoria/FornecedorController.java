@@ -3,6 +3,7 @@ package software.consultoria;
 import DAOclass.RegisterFornecedorDao;
 import DAOclass.RegisterUsuarioDao;
 import Models.Fornecedor;
+import Models.Sessao;
 import Models.Usuario;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -11,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -65,6 +67,8 @@ public class FornecedorController {
     @FXML
     private Pane pane;
     private Transition transition = new Transition();
+    @FXML
+    private Label userName;
 
     //esse initialize e usado para listagem de fornecedores alem de conter efeitos visuais//
     @FXML
@@ -109,6 +113,7 @@ public class FornecedorController {
         ObservableList<Fornecedor> observableList = FXCollections.observableArrayList(registerFornecedorDao.listarFornecedor());
         fornecedorTableList.setItems(observableList);
 
+        userName.setText(Sessao.nome);
         main = ScreenChange.getMainInstance();
         if (pane != null){
             transition.fadeInPane(pane);
