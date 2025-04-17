@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.ProdutoController">
    <children>
-      <SplitPane id="divider" dividerPositions="0.2778" prefHeight="800.0" prefWidth="1500.0" stylesheets="@style.css">
+      <SplitPane id="divider" dividerPositions="0.2778" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: black;" stylesheets="@style.css">
         <items>
           <AnchorPane id="menu" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: B47E00;" stylesheets="@style.css">
                <children>
@@ -161,9 +161,8 @@
             </ImageView>
          </graphic>
       </Button>
-    <Button id="cadastro" layoutX="419.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR PRODUTO" />
-      <Button id="listadefuncionarios" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#estoque" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ESTOQUE" />
-      <Button id="editarfuncionario" layoutX="856.0" layoutY="26.0" mnemonicParsing="false" onAction="#Editarproduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="EDITAR PRODUTO" />
+    <Button id="cadastro" layoutX="424.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR PRODUTO" />
+      <Button id="listadefuncionarios" layoutX="684.0" layoutY="26.0" mnemonicParsing="false" onAction="#estoque" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ESTOQUE" />
       <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="679.0" prefWidth="1057.0" stylesheets="@style.css" />
       <Label id="Text" layoutX="644.0" layoutY="130.0" prefHeight="58.0" prefWidth="394.0" stylesheets="@style.css" text="Cadastro de Produto" />
       <TextField id="nome" fx:id="nomeProduto" alignment="TOP_LEFT" layoutX="504.0" layoutY="246.0" prefHeight="35.0" prefWidth="323.0" promptText="Nome do produto" styleClass="style.css" stylesheets="@style.css" />
@@ -216,5 +215,6 @@
             <Image url="@icons/information.png" />
          </image>
       </ImageView>
+      <Pane id="setpane" layoutX="276.0" layoutY="22.0" prefHeight="69.0" prefWidth="160.0" stylesheets="@style.css" />
    </children>
 </AnchorPane>

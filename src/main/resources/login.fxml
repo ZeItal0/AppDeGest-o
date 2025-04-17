@@ -76,7 +76,7 @@
       <TextField id="login" fx:id="user" layoutX="70.0" layoutY="245.0" prefHeight="25.0" prefWidth="177.0" promptText="usuário" styleClass="style.css" stylesheets="@style.css" />
       <TextField id="password" fx:id="password" layoutX="70.0" layoutY="282.0" prefHeight="25.0" prefWidth="177.0" promptText="senha" styleClass="style.css" stylesheets="@style.css" />
       <Label id="text-1" layoutX="35.0" layoutY="200.0" prefHeight="20.0" prefWidth="100.0" stylesheets="@style.css" text="Para acessar o sistema" />
-      <ImageView fitHeight="129.0" fitWidth="380.0" layoutX="473.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="129.0" fitWidth="380.0" layoutX="473.0" layoutY="89.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/Seja.png" />
          </image>
@@ -87,12 +87,12 @@
             <Image url="@img/detail3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="83.0" fitWidth="150.0" layoutX="516.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="83.0" fitWidth="150.0" layoutX="516.0" layoutY="287.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/ao.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="487.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="487.0" layoutY="322.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/gG.png" />
          </image>

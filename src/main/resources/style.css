@@ -6,6 +6,7 @@
     -fx-border-width: 2px;
     -fx-background-radius: 60px;
 }
+
 #enter:hover{
     /* -fx-background-color: radial-gradient(center 50% 50%, radius 50%, rgb(214, 198, 124) 0%, transparent 100%); */
     -fx-text-fill: white;
@@ -136,10 +137,9 @@
 #buttonfuncionario{
     -fx-background-color: transparent;
     -fx-text-fill: white;
-    -fx-padding: 0 0 0 -40;
     -fx-border-color: #B47E00;
     -fx-border-width: 5px;
-    -fx-shape: "M 0 0 L 1 0 L 0.8 1 L 0 1 Z";
+    -fx-shape: "M 0 10 L 150 10 L 160 25 L 150 40 L 0 40 L 10 25 Z";
     -fx-scale-shape: true;
     -fx-font-weight: bold;
 }
@@ -148,16 +148,13 @@
     -fx-text-fill: white;
     -fx-border-color: #B47E00;
     -fx-border-width: 5px;
-    -fx-shape: "M 0.2 0 L 1 0 L 0.8 1 L 0 1 Z";
+    -fx-shape: "M 0 10 L 150 10 L 160 25 L 150 40 L 0 40 L 10 25 Z";
     -fx-font-weight: bold;
 }
-#editarfuncionario{
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-border-color: #B47E00;
-    -fx-border-width: 5px;
-    -fx-shape: "M 0.2 0 L 1 0 L 0.8 1 L 0 1 Z";
-    -fx-font-weight: bold;
+
+#setpane{
+    -fx-background-color:  #B47E00;
+    -fx-shape: "M 0 10 L 150 10 L 170 25 L 150 40 L 0 40 L 10 25 Z";
 }
 
 #buttonfuncionario:hover{
@@ -172,12 +169,7 @@
     -fx-effect: dropshadow(gaussian, #b8860b, 10, 0.5, 0, 0);
     -fx-font-weight: bold;
 }
-#editarfuncionario:hover{
-    -fx-background-color: #b8860b;
-    -fx-text-fill: black;
-    -fx-effect: dropshadow(gaussian, #b8860b, 10, 0.5, 0, 0);
-    -fx-font-weight: bold;
-}
+
 #mensagem{
     -fx-text-fill: white;
     -fx-font-size: 20px;
@@ -186,8 +178,7 @@
     -fx-background-color: #b8860b;
     -fx-text-fill: black;
     -fx-border-color: #b8860b;
-    -fx-shape: "M 0 0 L 1 0 L 0.8 1 L 0 1 Z";
-    -fx-padding: 0 0 0 -40;
+    -fx-shape: "M 0 10 L 150 10 L 160 25 L 150 40 L 0 40 L 10 25 Z";
     -fx-font-weight: bold;
     
 }
@@ -195,14 +186,7 @@
      -fx-background-color: #b8860b;
     -fx-text-fill: black;
     -fx-border-color: #b8860b;
-    -fx-shape: "M 0.2 0 L 1 0 L 0.8 1 L 0 1 Z";
-    -fx-font-weight: bold;
-}
-#editar{
-    -fx-background-color: #b8860b;
-    -fx-text-fill: black;
-    -fx-border-color: #b8860b;
-    -fx-shape: "M 0.2 0 L 1 0 L 0.8 1 L 0 1 Z";
+    -fx-shape: "M 0 10 L 150 10 L 160 25 L 150 40 L 0 40 L 10 25 Z";
     -fx-font-weight: bold;
 }
 

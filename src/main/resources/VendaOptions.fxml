@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.MainController">
    <children>
-      <SplitPane id="divider" dividerPositions="0.2778" prefHeight="800.0" prefWidth="1500.0" stylesheets="@style.css">
+      <SplitPane id="divider" dividerPositions="0.2778" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: black;" stylesheets="@style.css">
         <items>
           <AnchorPane id="menu" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: B47E00;" stylesheets="@style.css">
                <children>
@@ -155,7 +155,8 @@
             </ImageView>
          </graphic>
       </Button>
-    <Button id="buttonfuncionario" layoutX="419.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarvenda" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="REGISTRAR VENDA" />
-      <Button id="listadefuncionarios" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#historicoDevendas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="HISTORICO DE VENDAS" />
+    <Button id="buttonfuncionario" layoutX="424.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarvenda" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="REGISTRAR VENDA" />
+      <Button id="listadefuncionarios" layoutX="684.0" layoutY="26.0" mnemonicParsing="false" onAction="#historicoDevendas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="HISTORICO DE VENDAS" />
+      <Pane id="setpane" layoutX="276.0" layoutY="22.0" prefHeight="69.0" prefWidth="160.0" stylesheets="@style.css" />
    </children>
 </AnchorPane>

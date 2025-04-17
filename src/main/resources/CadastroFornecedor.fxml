@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.MainController">
    <children>
-      <SplitPane id="divider" dividerPositions="0.2778" prefHeight="800.0" prefWidth="1500.0" stylesheets="@style.css">
+      <SplitPane id="divider" dividerPositions="0.2778" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: black;" stylesheets="@style.css">
         <items>
           <AnchorPane id="menu" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: B47E00;" stylesheets="@style.css">
                <children>
@@ -156,64 +156,64 @@
             </ImageView>
          </graphic>
       </Button>
-    <Button id="cadastro" layoutX="419.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR  FORNECEDOR" />
-      <Button id="listadefuncionarios" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#listaFornecedores" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="LISTA DE FORNECEDORES" />
-      <Button id="editarfuncionario" layoutX="865.0" layoutY="26.0" mnemonicParsing="false" onAction="#EditarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="EDITAR FORNECEDOR" />
+    <Button id="cadastro" layoutX="424.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR  FORNECEDOR" />
+      <Button id="listadefuncionarios" layoutX="684.0" layoutY="26.0" mnemonicParsing="false" onAction="#listaFornecedores" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="LISTA DE FORNECEDORES" />
       <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="679.0" prefWidth="1057.0" stylesheets="@style.css" />
-      <TextField id="nome" fx:id="NomeFornecedor" alignment="TOP_LEFT" layoutX="494.0" layoutY="236.0" prefHeight="35.0" prefWidth="322.0" promptText="Nome" styleClass="style.css" stylesheets="@style.css" />
-      <TextField id="nome" fx:id="rua" alignment="TOP_LEFT" layoutX="496.0" layoutY="433.0" prefHeight="35.0" prefWidth="322.0" promptText="Rua" styleClass="style.css" stylesheets="@style.css" />
-      <TextField id="nome" fx:id="Telefonefornecedor" alignment="TOP_LEFT" layoutX="494.0" layoutY="275.0" prefHeight="35.0" prefWidth="322.0" promptText="Telefone" styleClass="style.css" stylesheets="@style.css" />
-      <TextField id="nome" fx:id="CEP" alignment="TOP_LEFT" layoutX="495.0" layoutY="394.0" prefHeight="35.0" prefWidth="124.0" promptText="CEP" styleClass="style.css" stylesheets="@style.css" />
-      <Label id="Text" layoutX="730.0" layoutY="148.0" prefHeight="58.0" prefWidth="190.0" stylesheets="@style.css" text="Cadastro" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="498.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+      <TextField id="nome" fx:id="NomeFornecedor" alignment="TOP_LEFT" layoutX="559.0" layoutY="279.0" prefHeight="35.0" prefWidth="322.0" promptText="Nome" styleClass="style.css" stylesheets="@style.css" />
+      <TextField id="nome" fx:id="rua" alignment="TOP_LEFT" layoutX="997.0" layoutY="326.0" prefHeight="35.0" prefWidth="322.0" promptText="Rua" styleClass="style.css" stylesheets="@style.css" />
+      <TextField id="nome" fx:id="Telefonefornecedor" alignment="TOP_LEFT" layoutX="559.0" layoutY="326.0" prefHeight="35.0" prefWidth="322.0" promptText="Telefone" styleClass="style.css" stylesheets="@style.css" />
+      <TextField id="nome" fx:id="CEP" alignment="TOP_LEFT" layoutX="997.0" layoutY="278.0" prefHeight="35.0" prefWidth="124.0" promptText="CEP" styleClass="style.css" stylesheets="@style.css" />
+      <Label id="Text" layoutX="859.0" layoutY="165.0" prefHeight="58.0" prefWidth="190.0" stylesheets="@style.css" text="Cadastro" />
+      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="563.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/id-card.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="35.0" layoutX="498.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="35.0" layoutX="999.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/adress.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="498.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="563.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/telephone-call2%201.png" />
          </image>
       </ImageView>
-      <TextField id="nome" fx:id="cidade" alignment="TOP_LEFT" layoutX="497.0" layoutY="473.0" prefHeight="35.0" prefWidth="322.0" promptText="Cidade" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="501.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
+      <TextField id="nome" fx:id="cidade" alignment="TOP_LEFT" layoutX="998.0" layoutY="375.0" prefHeight="35.0" prefWidth="322.0" promptText="Cidade" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="1002.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/city.png" />
          </image>
       </ImageView>
-      <TextField id="nome" fx:id="bairro" alignment="TOP_LEFT" layoutX="497.0" layoutY="514.0" prefHeight="35.0" prefWidth="322.0" promptText="Bairro" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="501.0" layoutY="518.0" pickOnBounds="true" preserveRatio="true">
+      <TextField id="nome" fx:id="bairro" alignment="TOP_LEFT" layoutX="998.0" layoutY="426.0" prefHeight="35.0" prefWidth="322.0" promptText="Bairro" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="1002.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/houses.png" />
          </image>
       </ImageView>
-      <TextField id="nome" fx:id="Email" alignment="TOP_LEFT" layoutX="495.0" layoutY="315.0" prefHeight="35.0" prefWidth="322.0" promptText="Email" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="499.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+      <TextField id="nome" fx:id="Email" alignment="TOP_LEFT" layoutX="560.0" layoutY="374.0" prefHeight="35.0" prefWidth="322.0" promptText="Email" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="564.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/email.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="501.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="1003.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/zip-code.png" />
          </image>
       </ImageView>
-      <TextField id="nome" fx:id="cnpj" alignment="TOP_LEFT" layoutX="496.0" layoutY="355.0" prefHeight="35.0" prefWidth="322.0" promptText="CNPJ" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="499.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+      <TextField id="nome" fx:id="cnpj" alignment="TOP_LEFT" layoutX="559.0" layoutY="424.0" prefHeight="35.0" prefWidth="322.0" promptText="CNPJ" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="562.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/cnpj.png" />
          </image>
       </ImageView>
-      <Button id="cadastrarFuncionario" layoutX="701.0" layoutY="611.0" mnemonicParsing="false" onAction="#confirmarFornecedor" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="      CADASTRAR" />
-      <ImageView fitHeight="44.0" fitWidth="50.0" layoutX="715.0" layoutY="618.0" pickOnBounds="true" preserveRatio="true">
+      <Button id="cadastrarFuncionario" layoutX="843.0" layoutY="589.0" mnemonicParsing="false" onAction="#confirmarFornecedor" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="      CADASTRAR" />
+      <ImageView fitHeight="44.0" fitWidth="50.0" layoutX="857.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/registeruser.png" />
          </image>
       </ImageView>
+      <Pane id="setpane" layoutX="276.0" layoutY="22.0" prefHeight="69.0" prefWidth="160.0" stylesheets="@style.css" />
    </children>
 </AnchorPane>
