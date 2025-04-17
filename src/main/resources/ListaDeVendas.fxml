@@ -162,12 +162,13 @@
       <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="679.0" prefWidth="1058.0" stylesheets="@style.css" />
       <TableView id="styleview" fx:id="listaDeVenda" layoutX="419.0" layoutY="168.0" prefHeight="600.0" prefWidth="1052.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
          <columns>
-            <TableColumn fx:id="FUNCIONARIO" prefWidth="141.0" style="-fx-background-color: transparent;" text="FUNCIONÁRIO" />
-            <TableColumn fx:id="NOMELIST" minWidth="0.0" prefWidth="205.0" style="-fx-background-color: transparent;" text="PRODUTO" />
-            <TableColumn fx:id="DESCRICAOLIST" prefWidth="426.0" style="-fx-background-color: transparent;" text="DESCRIÇÃO" />
-            <TableColumn fx:id="DATA" prefWidth="113.0" style="-fx-background-color: transparent;" text="DATA DA VENDA" />
-            <TableColumn fx:id="QUANTIDADELIST" prefWidth="61.0" style="-fx-background-color: transparent;" text="QUANTIDADE" />
-            <TableColumn fx:id="VALORLIST" prefWidth="105.0" style="-fx-background-color: transparent;" text="VALOR" />
+            <TableColumn fx:id="FUNCIONARIO" prefWidth="193.33331298828125" style="-fx-background-color: transparent;" text="FUNCIONÁRIO" />
+            <TableColumn fx:id="NOMELIST" minWidth="0.0" prefWidth="329.66668701171875" style="-fx-background-color: transparent;" text="PRODUTO" />
+            <TableColumn fx:id="PAGAMENTO" minWidth="0.0" prefWidth="106.33331298828125" style="-fx-background-color: transparent;" text="PAGAMENTO" />
+            <TableColumn fx:id="STATUS" prefWidth="132.33331298828125" style="-fx-background-color: transparent;" text="STATUS" />
+            <TableColumn fx:id="DATA" prefWidth="111.6666259765625" style="-fx-background-color: transparent;" text="DATA DA VENDA" />
+            <TableColumn fx:id="QUANTIDADELIST" prefWidth="96.3333740234375" style="-fx-background-color: transparent;" text="QUANTIDADE" />
+            <TableColumn fx:id="VALORLIST" prefWidth="82.666748046875" style="-fx-background-color: transparent;" text="VALOR" />
          </columns>
       </TableView>
       <Pane id="setpane" layoutX="276.0" layoutY="22.0" prefHeight="69.0" prefWidth="160.0" stylesheets="@style.css" />

@@ -10,17 +10,19 @@ public class Vendas {
     private FormaDepagamento formaDepagamento;
     private StatusDeVenda statusDeVenda;
     private List<Itens_de_Venda> itens;
+    private Usuario usuario;
 
     public Vendas (){
 
     }
 
-    public Vendas(int id, LocalDate data_De_venda, Fornecedor fornecedor, FormaDepagamento formaDepagamento, StatusDeVenda statusDeVenda) {
+    public Vendas(int id, LocalDate data_De_venda, Fornecedor fornecedor, FormaDepagamento formaDepagamento, StatusDeVenda statusDeVenda,Usuario usuario) {
         this.id = id;
         this.data_De_venda = data_De_venda;
         this.fornecedor = fornecedor;
         this.formaDepagamento = formaDepagamento;
         this.statusDeVenda = statusDeVenda;
+        this.usuario = usuario;
     }
 
     public int getId() {
@@ -73,5 +75,13 @@ public class Vendas {
             total += item.getValor_unitario();
         }
         return total;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

@@ -1,21 +1,47 @@
 package software.consultoria;
 
+import DAOclass.RegisterVendaDao;
+import Models.Itens_de_Venda;
 import Models.Sessao;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 public class HistoricoVendasController {
-
     private Main main;
+
+    @FXML
+    private TableView<Itens_de_Venda> listaDeVenda;
+    @FXML
+    private TableColumn<Itens_de_Venda,String> FUNCIONARIO;
+    @FXML
+    private TableColumn<Itens_de_Venda,String> NOMELIST;
+    @FXML
+    private TableColumn<Itens_de_Venda,String> PAGAMENTO;
+    @FXML
+    private TableColumn<Itens_de_Venda,String> STATUS;
+    @FXML
+    private TableColumn<Itens_de_Venda, String> DATA;
+    @FXML
+    private TableColumn<Itens_de_Venda,Integer> QUANTIDADELIST;
+    @FXML
+    private TableColumn<Itens_de_Venda,Double> VALORLIST;
 
     @FXML
     private ImageView img1;
@@ -29,6 +55,7 @@ public class HistoricoVendasController {
     private ImageView img5;
     @FXML
     private ImageView img6;
+
     @FXML
     private Button funcionario;
     @FXML
@@ -47,6 +74,8 @@ public class HistoricoVendasController {
     @FXML
     private Label userName;
 
+
+    //Esse initialize faz a listagem e tambem aplica efeitos
     @FXML
     public void initialize() throws SQLException {
 
@@ -72,7 +101,27 @@ public class HistoricoVendasController {
             });
         }
 
+        NOMELIST.setCellValueFactory(celldata ->
+                new SimpleStringProperty(celldata.getValue().getProduto().getNomeProduto())
+        );
+        FUNCIONARIO.setCellValueFactory(celldata ->
+                new SimpleStringProperty(celldata.getValue().getVendas().getUsuario().getNome())
+        );
+        PAGAMENTO.setCellValueFactory(celldata ->
+                new SimpleStringProperty(celldata.getValue().getVendas().getFormaDepagamento().getTipoDepagamento())
+        );
+        DATA.setCellValueFactory(celldata ->
+                new SimpleStringProperty(celldata.getValue().getVendas().getData_De_venda().toString())
+        );
+        STATUS.setCellValueFactory(celldata ->
+                new SimpleStringProperty(celldata.getValue().getVendas().getStatusDeVenda().toString())
+        );
+        QUANTIDADELIST.setCellValueFactory(new PropertyValueFactory<>("quantidade_itens"));
+        VALORLIST.setCellValueFactory(new PropertyValueFactory<>("valor_unitario"));
 
+        RegisterVendaDao registerVendaDao = new RegisterVendaDao();
+        ObservableList<Itens_de_Venda> observableList = FXCollections.observableArrayList(registerVendaDao.vendasList());
+        listaDeVenda.setItems(observableList);
 
         userName.setText(Sessao.nome);
         main = ScreenChange.getMainInstance();
