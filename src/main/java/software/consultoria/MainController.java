@@ -261,8 +261,6 @@ public class MainController {
         main.carregarCena("/ListaDespesa.fxml");
     }
 
-    public void EditarDespesas(ActionEvent actionEvent) {
-    }
 
     public void SalvarDespesa(ActionEvent actionEvent) throws SQLException {
         String nome = nomeDespesa.getText();
@@ -311,8 +309,6 @@ public class MainController {
     }
 
 
-    public void Editarproduto(ActionEvent actionEvent) {
-    }
 
 
 
@@ -321,6 +317,7 @@ public class MainController {
     }
 
     public void historicoDevendas(ActionEvent actionEvent) {
+        main.carregarCena("/ListaDeVendas.fxml");
     }
 
 

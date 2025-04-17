@@ -1,45 +1,22 @@
 package software.consultoria;
 
-import DAOclass.RegisterFornecedorDao;
-import DAOclass.RegisterUsuarioDao;
-import Models.Fornecedor;
 import Models.Sessao;
-import Models.Usuario;
 import javafx.application.Platform;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.Map;
 
-public class FornecedorController {
+public class HistoricoVendasController {
+
     private Main main;
-    @FXML
-    private TableView<Fornecedor> fornecedorTableList;
-    @FXML
-    private TableColumn<Fornecedor,String> nFornecedor;
-    @FXML
-    private TableColumn<Fornecedor,String> telFornecedor;
-    @FXML
-    private TableColumn<Fornecedor, String> email;
-    @FXML
-    private TableColumn<Fornecedor, String> cepFornecedor;
-    @FXML
-    private TableColumn<Fornecedor, String> endereco;
-    @FXML
-    private TableColumn<Fornecedor, LocalDate> dataDecadastro;
+
     @FXML
     private ImageView img1;
     @FXML
@@ -70,7 +47,6 @@ public class FornecedorController {
     @FXML
     private Label userName;
 
-    //esse initialize e usado para listagem de fornecedores alem de conter efeitos visuais//
     @FXML
     public void initialize() throws SQLException {
 
@@ -96,22 +72,7 @@ public class FornecedorController {
             });
         }
 
-        nFornecedor.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        telFornecedor.setCellValueFactory(new PropertyValueFactory<>("telefone"));
 
-        cepFornecedor.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getEndereco().getCep())
-        );
-
-        endereco.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getEndereco().getRua())
-        );
-
-        email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        dataDecadastro.setCellValueFactory(new PropertyValueFactory<>("dataDeCadastro"));
-        RegisterFornecedorDao registerFornecedorDao = new RegisterFornecedorDao();
-        ObservableList<Fornecedor> observableList = FXCollections.observableArrayList(registerFornecedorDao.listarFornecedor());
-        fornecedorTableList.setItems(observableList);
 
         userName.setText(Sessao.nome);
         main = ScreenChange.getMainInstance();
@@ -120,10 +81,11 @@ public class FornecedorController {
         }
     }
 
-    //botoes de encerrar, voltar e minimizar//
+
     public void closed(ActionEvent actionEvent) {
         Platform.exit();
     }
+
     public void voltar(ActionEvent actionEvent) {
         main.carregarCena("/login.fxml");
     }
@@ -133,7 +95,7 @@ public class FornecedorController {
         stage.setIconified(true);
     }
 
-    //opcoes do menu principal//
+
     public void funcionario(ActionEvent actionEvent) {
         main.carregarCena("/funcionariosOptions.fxml");
     }
@@ -158,12 +120,12 @@ public class FornecedorController {
         main.carregarCena("/VideoAulas.fxml");
     }
 
-    //area de carregar cenas da opcao especifica do menu//
-    public void cadastrarFornecedor(ActionEvent actionEvent) {
-        main.carregarCena("/CadastroFornecedor.fxml");
+
+
+    public void cadastrarvenda(ActionEvent actionEvent) {
+        main.carregarCena("/RegistrarVendas.fxml");
     }
 
-    public void listaFornecedores(ActionEvent actionEvent) {
+    public void historicoDevendas(ActionEvent actionEvent) {
     }
-
 }

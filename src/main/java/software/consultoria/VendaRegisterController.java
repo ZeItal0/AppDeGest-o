@@ -237,6 +237,7 @@ public class VendaRegisterController {
     }
 
     public void historicoDevendas(ActionEvent actionEvent) {
+        main.carregarCena("/ListaDeVendas.fxml");
     }
 
     //Opcoes de forma de pagamento //
