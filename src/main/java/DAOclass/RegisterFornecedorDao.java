@@ -41,6 +41,10 @@ public class RegisterFornecedorDao {
         pstmtFornecedor.setDate(6, Date.valueOf(DataReg));
         pstmtFornecedor.executeUpdate();
 
+        pstmtEndereco.close();
+        pstmtFornecedor.close();
+        conn.close();
+
     }
     public ObservableList<Fornecedor> listarFornecedor() throws SQLException {
         ObservableList<Fornecedor> lista = FXCollections.observableArrayList();
@@ -63,6 +67,9 @@ public class RegisterFornecedorDao {
             lista.add(fornecedor);
 
         }
+        rs.close();
+        stmt.close();
+        conn.close();
         return lista;
     }
 

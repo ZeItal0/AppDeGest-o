@@ -4,6 +4,7 @@ module software.consultoria {
     requires org.controlsfx.controls;
     requires java.sql;
     requires org.xerial.sqlitejdbc;
+    requires java.desktop;
 
     opens software.consultoria to javafx.fxml;
     opens Models to javafx.base, javafx.fxml;

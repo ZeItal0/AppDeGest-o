@@ -47,7 +47,9 @@ public class RegisterDespesaDao {
         pstmtDespesas.setString(6,situacao);
         pstmtDespesas.executeUpdate();
 
-        System.out.println(nome + " " +valor+" " + observacoes + " " + situacao+" "+pagamento+" "+data);
+        pstmtFormaPagamento.close();
+        pstmtDespesas.close();
+        conn.close();
 
     }
 
@@ -69,6 +71,10 @@ public class RegisterDespesaDao {
             despesas.setFormaDepagamento(formaDepagamento);
             lista.add(despesas);
         }
+
+        rs.close();
+        stmt.close();
+        conn.close();
 
         return lista;
     }

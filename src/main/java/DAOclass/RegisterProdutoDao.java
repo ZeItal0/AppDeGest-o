@@ -82,6 +82,13 @@ public class RegisterProdutoDao {
         pstmtProdutoFornecedor.setDate(3, Date.valueOf(data));
         pstmtProdutoFornecedor.executeUpdate();
 
+        pstmtCategoria.close();
+        pstmtProduto.close();
+        pstmtEstoque.close();
+        pstmtMovimentacao.close();
+        pstmtProdutoFornecedor.close();
+        conn.close();
+
     }
 
     public ObservableList<Fornecedor> fornecedorLIST() throws SQLException {
@@ -95,6 +102,9 @@ public class RegisterProdutoDao {
             fornecedor.setNome(rs.getString("nome"));
             lista.add(fornecedor);
         }
+        rs.close();
+        stmt.close();
+        conn.close();
         return lista;
     }
 
@@ -128,6 +138,9 @@ public class RegisterProdutoDao {
             lista.add(produto);
 
         }
+        rs.close();
+        stmt.close();
+        conn.close();
         return lista;
     }
 }

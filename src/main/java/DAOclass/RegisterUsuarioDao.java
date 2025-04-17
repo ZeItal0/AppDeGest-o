@@ -56,6 +56,11 @@ public class RegisterUsuarioDao {
         pstmtFuncionario.setInt(1,idUsuario);
         pstmtFuncionario.setString(2,buttonMenu);
         pstmtFuncionario.executeUpdate();
+
+        pstmtEndereco.close();
+        pstmtUsuario.close();
+        pstmtFuncionario.close();
+        conn.close();
     }
 
     public ObservableList<Usuario> listarusuario() throws SQLException {
@@ -78,6 +83,9 @@ public class RegisterUsuarioDao {
             lista.add(usuario);
 
         }
+        rs.close();
+        stmt.close();
+        conn.close();
         return lista;
     }
 

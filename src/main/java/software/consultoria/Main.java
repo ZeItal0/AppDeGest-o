@@ -11,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+
+import java.awt.*;
 import java.sql.Connection;
 
 
@@ -54,11 +56,19 @@ public class Main extends Application {
 
     //metodo para centralizar a cena //
     public void centerScene (Stage stage, Scene scene){
-        stage.setX(210);
-        stage.setY(84.5);
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = toolkit.getScreenSize();
+        double centroX = screenSize.getWidth()/2;
+        double centroY = screenSize.getHeight()/2;
+        stage.setX(centroX-740);
+        stage.setY(centroY-430);
     }
     public void logincenter (Stage stage){
-        stage.setX(512.0);
-        stage.setY(154.0);
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = toolkit.getScreenSize();
+        double centroX = screenSize.getWidth()/2;
+        double centroY = screenSize.getHeight()/2;
+        stage.setX(centroX-420);
+        stage.setY(centroY-250);
     }
 }
