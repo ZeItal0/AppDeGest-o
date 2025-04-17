@@ -1,7 +1,6 @@
 package DAOclass;
 
 import Models.*;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import software.consultoria.DatabaseConnector;
@@ -12,10 +11,12 @@ import java.util.List;
 
 public class RegisterVendaDao {
     DatabaseConnector dbConnector = new DatabaseConnector();
+    UpdatesDao updatesDao = new UpdatesDao();
     private String sqlvenda = "INSERT INTO venda (id_forma_de_pagamento, id_funcionario, id_status_venda,data_venda) VALUES (?,?,?,?)";
     private String sqlFormaDepagamento = "INSERT INTO forma_de_pagamento (tipo_de_pagamento) VALUES (?)";
     private String sqlStatus = "INSERT INTO status_venda (status_de_venda) VALUES (?)";
     private String sqlItens = "INSERT INTO itens_de_venda (id_venda, id_produto, quantidade, valor_unitario) VALUES (?,?,?,?)";
+    private String sqlMovimentacao= "INSERT INTO movimentacao_de_estoque(id_produto, tipo_movimentacao, quantidade, data_movimentacao) VALUES (?,?,?,?)";
     private String sqlvendaList = """
         SELECT 
             v.id AS id_venda,
@@ -74,21 +75,34 @@ public class RegisterVendaDao {
         }
 
         PreparedStatement pstmtItens = conn.prepareStatement(sqlItens);
+        PreparedStatement pstmtMovimentacao = conn.prepareStatement(sqlMovimentacao);
         for (Itens_de_Venda item : itens){
             pstmtItens.setInt(1,idVenda);
             pstmtItens.setInt(2,item.getProduto().getId());
             pstmtItens.setInt(3,item.getQuantidade_itens());
             pstmtItens.setDouble(4,item.getValor_unitario());
             pstmtItens.addBatch();
+
+            pstmtMovimentacao.setInt(1,item.getProduto().getId());
+            pstmtMovimentacao.setString(2,movimentacao);
+            pstmtMovimentacao.setInt(3,item.getQuantidade_itens());
+            pstmtMovimentacao.setDate(4,Date.valueOf(data));
+            pstmtMovimentacao.addBatch();
+
+            updatesDao.atualizarQuantidade(item.getProduto().getId(), item.getQuantidade_itens());
         }
         pstmtItens.executeBatch();
+        pstmtMovimentacao.executeBatch();
+
 
         pstmtItens.close();
         pstmtVenda.close();
         pstmtstatus.close();
         pstmtFormaPagamento.close();
+        pstmtMovimentacao.close();
         conn.close();
     }
+
 
     public ObservableList<Itens_de_Venda> vendasList() throws SQLException {
         ObservableList<Itens_de_Venda> lista = FXCollections.observableArrayList();
