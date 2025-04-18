@@ -23,6 +23,7 @@ public class MainController {
 
     RegisterDespesaDao registerDespesaDao = new RegisterDespesaDao();
 
+
     private Main main;
     @FXML
     private TextField NomeFuncionario;
@@ -143,7 +144,7 @@ public class MainController {
             main.carregarCena("/menu.fxml");
         }
         else {
-
+            Aviso.mostrarAviso("Usuario não Registrado!");
         }
     }
 
@@ -198,7 +199,8 @@ public class MainController {
         main.carregarCena("/EditarFuncionario.fxml");
     }
 
-    public void CadastrarFuncionario(ActionEvent actionEvent) throws SQLException{
+    public void CadastrarFuncionario(ActionEvent actionEvent) {
+
         String nome = NomeFuncionario.getText();
         String telefone = TelefoneFuncionario.getText();
         String cep = CEP.getText();
@@ -210,7 +212,19 @@ public class MainController {
         String ButtonMenu = Cargo.getText();
         LocalDate DataNas = Data.getValue();
         LocalDate DataReg = LocalDate.now();
-        registerUsuarioDao.salvarusuario(nome,telefone,cep,Rua,Cidade,Bairro,User,senha,ButtonMenu,DataNas,DataReg);
+
+        if (nome.isEmpty() || telefone.isEmpty() || cep.isEmpty() || Rua.isEmpty() || Cidade.isEmpty() || Bairro.isEmpty() || User.isEmpty() || senha.isEmpty() || ButtonMenu.isEmpty() || DataNas == null){
+            Aviso.mostrarAviso("Preencha todos campos!");
+        }
+        else {
+            try {
+                registerUsuarioDao.salvarusuario(nome,telefone,cep,Rua,Cidade,Bairro,User,senha,ButtonMenu,DataNas,DataReg);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                Aviso.mostrarAviso("Erro Registrar Usuario");
+            }
+        }
 
     }
     public void selecionarVendedor(ActionEvent actionEvent) {
@@ -239,7 +253,7 @@ public class MainController {
     public void EditarFornecedor(ActionEvent actionEvent) {
     }
 
-    public void confirmarFornecedor(ActionEvent actionEvent) throws SQLException {
+    public void confirmarFornecedor(ActionEvent actionEvent) {
         String nome = NomeFornecedor.getText();
         String telefone = Telefonefornecedor.getText();
         String email = Email.getText();
@@ -249,7 +263,19 @@ public class MainController {
         String Cidade = cidade.getText();
         String Bairro = bairro.getText();
         LocalDate DataReg = LocalDate.now();
-        registerFornecedorDao.salvarFornecedor(nome,telefone,email,CNPJ,cep,Rua,Cidade,Bairro,DataReg);
+
+        if (nome.isEmpty() || telefone.isEmpty() || email.isEmpty() || CNPJ.isEmpty() || cep.isEmpty() || Rua.isEmpty() || Cidade.isEmpty() || Bairro.isEmpty()){
+            Aviso.mostrarAviso("Preencha todos campos!");
+        }
+        else {
+            try {
+                registerFornecedorDao.salvarFornecedor(nome,telefone,email,CNPJ,cep,Rua,Cidade,Bairro,DataReg);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                Aviso.mostrarAviso("Erro Registrar fornecedor");
+            }
+        }
     }
 
     //area de captura de informacoes ,listagem e carregar cenas//
@@ -270,7 +296,19 @@ public class MainController {
         String pagamento = FormaDepagamento.getText();
         LocalDate data = Data.getValue();
 
-        registerDespesaDao.salvardespesa(nome,Double.parseDouble(valor),observacoes,situacao,pagamento,data);
+        if (nome.isEmpty() || valor.isEmpty() || observacoes.isEmpty() || situacao.isEmpty() || pagamento.isEmpty() || data == null){
+            Aviso.mostrarAviso("Preencha todos campos!");
+        }
+        else {
+            try {
+                registerDespesaDao.salvardespesa(nome,Double.parseDouble(valor),observacoes,situacao,pagamento,data);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                Aviso.mostrarAviso("Erro Registrar Despesa");
+            }
+        }
+
 
     }
     public void selecionarPago(ActionEvent actionEvent) {

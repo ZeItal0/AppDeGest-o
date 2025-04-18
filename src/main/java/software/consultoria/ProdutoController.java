@@ -170,7 +170,7 @@ public class ProdutoController {
     public void Editarproduto(ActionEvent actionEvent) {
     }
 
-    public void Cadastrar_Produto_fornecedor(ActionEvent actionEvent) throws SQLException {
+    public void Cadastrar_Produto_fornecedor(ActionEvent actionEvent) {
         String Nome = nomeProduto.getText();
         String Quantidade = quantidade.getText();
         String ValorInvestido = valorInvestido.getText();
@@ -178,8 +178,18 @@ public class ProdutoController {
         String Categoria = categoria.getText();
         String Detalhes = detalhes.getText();
 
-
-        registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now(),idfornecedor);
+        if (Nome.isEmpty() || Quantidade.isEmpty() || ValorInvestido.isEmpty() || ValorDeVenda.isEmpty() || Categoria.isEmpty() || Detalhes.isEmpty()){
+            Aviso.mostrarAviso("Preencha todos campos!");
+        }
+        else{
+            try {
+                registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now(),idfornecedor);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                Aviso.mostrarAviso("Erro ao cadastrar produto");
+            }
+        }
     }
 
     public void selecionaranel(ActionEvent actionEvent) {

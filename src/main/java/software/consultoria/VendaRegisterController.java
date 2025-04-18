@@ -282,6 +282,26 @@ public class VendaRegisterController {
 
     //chama a classe dao para registrar a venda no banco//
     public void FINALIZAR(ActionEvent actionEvent) throws SQLException {
-        registerVendaDao.salvarVenda(listaParaVenda,FormaDepagamento.getText(),LocalDate.now(), String.valueOf(entradasEsaidas.saida), String.valueOf(StatusDeVenda.Local),Sessao.id);
+
+        if (listaDeVenda.getItems().isEmpty()){
+            Aviso.mostrarAviso("Adicione um produto\n    da lista!");
+            return;
+        }
+        if (FormaDepagamento.getText().isEmpty()){
+            Aviso.mostrarAviso("Selecione a forma\n    de Pagamento!");
+            return;
+        }
+        if (!DESCONTOPRODUTO.getText().matches("\\d+") && !DESCONTOPRODUTO.getText().isEmpty()){
+            Aviso.mostrarAviso("Somente Numeros\n    em Desconto");
+            return;
+        }
+
+        try {
+            registerVendaDao.salvarVenda(listaParaVenda,FormaDepagamento.getText(),LocalDate.now(), String.valueOf(entradasEsaidas.saida), String.valueOf(StatusDeVenda.Local),Sessao.id);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            Aviso.mostrarAviso("Erro ao realizar a venda");
+        }
     }
 }
