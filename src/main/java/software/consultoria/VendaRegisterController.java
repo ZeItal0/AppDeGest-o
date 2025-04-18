@@ -64,6 +64,8 @@ public class VendaRegisterController {
 
     @FXML
     private Label DataAtual;
+    @FXML
+    private TextField DESCONTOPRODUTO;
 
     @FXML
     private Button funcionario;
@@ -163,6 +165,17 @@ public class VendaRegisterController {
             }
         }
 
+        Double percentual = 0.0;
+
+        if (DESCONTOPRODUTO != null && !DESCONTOPRODUTO.getText().isEmpty()){
+            try {
+                percentual = Double.parseDouble(DESCONTOPRODUTO.getText());
+            }
+            catch (NumberFormatException e){
+                percentual = 0.0;
+            }
+        }
+
         if (itemExistente != null){
             itemExistente.setQuantidade_itens(itemExistente.getQuantidade_itens() + 1);
             itemExistente.setValor_unitario(itemExistente.getQuantidade_itens() * selecionado.getPreco_De_venda());
@@ -173,7 +186,12 @@ public class VendaRegisterController {
             novoItem.setQuantidade_itens(1);
             novoItem.setValor_unitario(selecionado.getPreco_De_venda());
             listaParaVenda.add(novoItem);
+            itemExistente = novoItem;
         }
+
+        Double valorDesconto = itemExistente.getQuantidade_itens() * selecionado.getPreco_De_venda() - (itemExistente.getQuantidade_itens() * selecionado.getPreco_De_venda() * percentual / 100);
+        itemExistente.setValor_unitario(valorDesconto);
+
         vendas.setItens(listaParaVenda);
         TOTAL.setText(vendas.TotalVenda().toString());
         listaDeVenda.setItems(listaParaVenda);
