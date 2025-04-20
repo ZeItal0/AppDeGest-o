@@ -7,11 +7,13 @@ import Models.Sessao;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+import javafx.scene.control.Button;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Map;
@@ -91,9 +93,19 @@ public class MainController {
     @FXML
     private TextArea ObservacoesDespesa;
 
+    @FXML
+    private Button buttonone;
+    @FXML
+    private Button buttontwo;
+
 
     @FXML
     private Pane pane;
+    @FXML
+    private Pane paneSuperior;
+    @FXML
+    private AnchorPane AnchorPane;
+
     private Transition transition = new Transition();
 
     @FXML
@@ -130,11 +142,21 @@ public class MainController {
         if (userName != null){
             userName.setText(Sessao.nome);
         }
-        main = ScreenChange.getMainInstance();
-
         if (pane != null){
             transition.fadeInPane(pane);
         }
+        if (paneSuperior != null){
+            transition.fadeInPane(paneSuperior);
+        }
+        if(buttonone!=null){
+            transition.fadeInButtonsOptions(buttonone);
+            transition.fadeInButtonsOptions(buttontwo);
+        }
+        if (AnchorPane!=null){
+            transition.fadeInPane(AnchorPane);
+        }
+
+        main = ScreenChange.getMainInstance();
     }
 
     // codigos para encerrar minimizar e entrar no app//
@@ -142,9 +164,15 @@ public class MainController {
     public void enter(ActionEvent actionEvent) throws SQLException {
         if(registerUsuarioDao.verificarlogin(user.getText(),password.getText())){
             main.carregarCena("/menu.fxml");
+        } else {
+            Aviso.mostrarAviso("Usuario não Registrado!","/Alert.fxml");
         }
-        else {
-            Aviso.mostrarAviso("Usuario não Registrado!");
+
+        if (user.getText().isEmpty()){
+            Aviso.mostrarAviso("Digite o Usuario!","/Alert.fxml");
+        }
+        else if (password.getText().isEmpty()){
+            Aviso.mostrarAviso("Digite a Senha!","/Alert.fxml");
         }
     }
 
@@ -214,15 +242,16 @@ public class MainController {
         LocalDate DataReg = LocalDate.now();
 
         if (nome.isEmpty() || telefone.isEmpty() || cep.isEmpty() || Rua.isEmpty() || Cidade.isEmpty() || Bairro.isEmpty() || User.isEmpty() || senha.isEmpty() || ButtonMenu.isEmpty() || DataNas == null){
-            Aviso.mostrarAviso("Preencha todos campos!");
+            Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
         }
         else {
             try {
                 registerUsuarioDao.salvarusuario(nome,telefone,cep,Rua,Cidade,Bairro,User,senha,ButtonMenu,DataNas,DataReg);
+                Aviso.mostrarAviso("","/confirmado.fxml");
             }
             catch (Exception e){
                 e.printStackTrace();
-                Aviso.mostrarAviso("Erro Registrar Usuario");
+                Aviso.mostrarAviso("Erro Registrar Usuario","/Alert.fxml");
             }
         }
 
@@ -250,9 +279,6 @@ public class MainController {
         main.carregarCena("/ListaFornecedor.fxml");
     }
 
-    public void EditarFornecedor(ActionEvent actionEvent) {
-    }
-
     public void confirmarFornecedor(ActionEvent actionEvent) {
         String nome = NomeFornecedor.getText();
         String telefone = Telefonefornecedor.getText();
@@ -265,15 +291,16 @@ public class MainController {
         LocalDate DataReg = LocalDate.now();
 
         if (nome.isEmpty() || telefone.isEmpty() || email.isEmpty() || CNPJ.isEmpty() || cep.isEmpty() || Rua.isEmpty() || Cidade.isEmpty() || Bairro.isEmpty()){
-            Aviso.mostrarAviso("Preencha todos campos!");
+            Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
         }
         else {
             try {
                 registerFornecedorDao.salvarFornecedor(nome,telefone,email,CNPJ,cep,Rua,Cidade,Bairro,DataReg);
+                Aviso.mostrarAviso("","/confirmado.fxml");
             }
             catch (Exception e){
                 e.printStackTrace();
-                Aviso.mostrarAviso("Erro Registrar fornecedor");
+                Aviso.mostrarAviso("Erro Registrar fornecedor","/Alert.fxml");
             }
         }
     }
@@ -297,15 +324,16 @@ public class MainController {
         LocalDate data = Data.getValue();
 
         if (nome.isEmpty() || valor.isEmpty() || observacoes.isEmpty() || situacao.isEmpty() || pagamento.isEmpty() || data == null){
-            Aviso.mostrarAviso("Preencha todos campos!");
+            Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
         }
         else {
             try {
                 registerDespesaDao.salvardespesa(nome,Double.parseDouble(valor),observacoes,situacao,pagamento,data);
+                Aviso.mostrarAviso("","/confirmado.fxml");
             }
             catch (Exception e) {
                 e.printStackTrace();
-                Aviso.mostrarAviso("Erro Registrar Despesa");
+                Aviso.mostrarAviso("Erro Registrar Despesa","/Alert.fxml");
             }
         }
 

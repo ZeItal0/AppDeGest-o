@@ -155,8 +155,8 @@
             </ImageView>
          </graphic>
       </Button>
-    <Button id="buttonfuncionario" layoutX="424.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR  FORNECEDOR" />
-      <Button id="listadefuncionarios" layoutX="684.0" layoutY="26.0" mnemonicParsing="false" onAction="#listaFornecedores" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="LISTA DE FORNECEDORES" />
-      <Pane id="setpane" layoutX="276.0" layoutY="22.0" prefHeight="69.0" prefWidth="160.0" stylesheets="@style.css" />
+    <Button id="buttonfuncionario" fx:id="buttonone" layoutX="424.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR  FORNECEDOR" />
+      <Button id="listadefuncionarios" fx:id="buttontwo" layoutX="684.0" layoutY="26.0" mnemonicParsing="false" onAction="#listaFornecedores" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="LISTA DE FORNECEDORES" />
+      <Pane id="setpane" fx:id="paneSuperior" layoutX="276.0" layoutY="22.0" prefHeight="69.0" prefWidth="160.0" stylesheets="@style.css" />
    </children>
 </AnchorPane>

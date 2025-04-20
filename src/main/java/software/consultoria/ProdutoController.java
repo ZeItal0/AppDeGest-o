@@ -179,15 +179,16 @@ public class ProdutoController {
         String Detalhes = detalhes.getText();
 
         if (Nome.isEmpty() || Quantidade.isEmpty() || ValorInvestido.isEmpty() || ValorDeVenda.isEmpty() || Categoria.isEmpty() || Detalhes.isEmpty()){
-            Aviso.mostrarAviso("Preencha todos campos!");
+            Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
         }
         else{
             try {
                 registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now(),idfornecedor);
+                Aviso.mostrarAviso("","/confirmado.fxml");
             }
             catch (Exception e){
                 e.printStackTrace();
-                Aviso.mostrarAviso("Erro ao cadastrar produto");
+                Aviso.mostrarAviso("Erro ao cadastrar produto","/Alert.fxml");
             }
         }
     }

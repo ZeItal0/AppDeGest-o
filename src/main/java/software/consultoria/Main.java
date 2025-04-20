@@ -1,8 +1,8 @@
 package software.consultoria;
 
-import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
-import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
@@ -48,7 +48,13 @@ public class Main extends Application {
             }else{
                 logincenter(primaryStage);
             }
-            primaryStage.setScene(scene);
+            if (fxpath.equals("/menu.fxml")){
+                PauseTransition pause = new PauseTransition(Duration.seconds(3));
+                pause.setOnFinished(event -> primaryStage.setScene(scene));
+                pause.play();
+            }else {
+                primaryStage.setScene(scene);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

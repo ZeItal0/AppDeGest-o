@@ -284,24 +284,25 @@ public class VendaRegisterController {
     public void FINALIZAR(ActionEvent actionEvent) throws SQLException {
 
         if (listaDeVenda.getItems().isEmpty()){
-            Aviso.mostrarAviso("Adicione um produto\n    da lista!");
+            Aviso.mostrarAviso("Adicione um produto\n    da lista!","/Alert.fxml");
             return;
         }
         if (FormaDepagamento.getText().isEmpty()){
-            Aviso.mostrarAviso("Selecione a forma\n    de Pagamento!");
+            Aviso.mostrarAviso("Selecione a forma\n    de Pagamento!","/Alert.fxml");
             return;
         }
         if (!DESCONTOPRODUTO.getText().matches("\\d+") && !DESCONTOPRODUTO.getText().isEmpty()){
-            Aviso.mostrarAviso("Somente Numeros\n    em Desconto");
+            Aviso.mostrarAviso("Somente Numeros\n    em Desconto","/Alert.fxml");
             return;
         }
 
         try {
             registerVendaDao.salvarVenda(listaParaVenda,FormaDepagamento.getText(),LocalDate.now(), String.valueOf(entradasEsaidas.saida), String.valueOf(StatusDeVenda.Local),Sessao.id);
+            Aviso.mostrarAviso("","/confirmado.fxml");
         }
         catch (Exception e){
             e.printStackTrace();
-            Aviso.mostrarAviso("Erro ao realizar a venda");
+            Aviso.mostrarAviso("Erro ao realizar a venda","/Alert.fxml");
         }
     }
 }

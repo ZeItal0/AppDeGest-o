@@ -14,9 +14,9 @@ import java.io.IOException;
 
 public class Aviso {
     //Classe responsavel por carregar a cena de aviso dinamico e tambem aplica efeito de transparencia//
-    public static void mostrarAviso(String mensagem){
+    public static void mostrarAviso(String mensagem,String fxpath){
         try {
-            FXMLLoader loader = new FXMLLoader(Aviso.class.getResource("/Alert.fxml"));
+            FXMLLoader loader = new FXMLLoader(Aviso.class.getResource(fxpath));
             Parent root = loader.load();
             AvisoController controller = loader.getController();
             controller.avisoMensagem(mensagem);
@@ -28,6 +28,7 @@ public class Aviso {
             stage.initStyle(StageStyle.TRANSPARENT);
             centerAviso(stage, scene);
             stage.showAndWait();
+
         }
         catch (IOException e){
             e.printStackTrace();
