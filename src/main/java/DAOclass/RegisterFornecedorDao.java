@@ -14,7 +14,6 @@ public class RegisterFornecedorDao {
     DatabaseConnector dbConnector = new DatabaseConnector();
     private String sqlEndereco = "INSERT INTO endereco (cidade, Rua, bairro,cep) VALUES (?,?,?,?)";
     private String sqlFornecedor = "INSERT INTO fornecedor (id_endereco, nome, email, telefone, cnpj_cpf, data_de_cadastro) VALUES (?,?,?,?,?,?)";
-    private String sqlist = "SELECT u.id, u.nome, u.email, u.telefone, u.cnpj_cpf, u.data_de_cadastro, e.Rua, e.cep " + "FROM fornecedor u " + "JOIN endereco e ON u.id_endereco = e.id";
 
 
     public void salvarFornecedor(String nome, String telefone, String email, String CNPJ, String cep, String Rua, String Cidade, String Bairro, LocalDate DataReg) throws SQLException {
@@ -46,31 +45,4 @@ public class RegisterFornecedorDao {
         conn.close();
 
     }
-    public ObservableList<Fornecedor> listarFornecedor() throws SQLException {
-        ObservableList<Fornecedor> lista = FXCollections.observableArrayList();
-        Connection conn = dbConnector.connect();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(sqlist);
-        while (rs.next()){
-            Fornecedor fornecedor = new Fornecedor();
-            fornecedor.setId(rs.getInt("id"));
-            fornecedor.setNome(rs.getString("nome"));
-            fornecedor.setEmail(rs.getString("email"));
-            fornecedor.setTelefone(rs.getString("telefone"));
-            fornecedor.setCnpj(rs.getString("cnpj_cpf"));
-            fornecedor.setDataDeCadastro(rs.getDate("data_de_cadastro").toLocalDate());
-
-            Endereco endereco = new Endereco();
-            endereco.setRua(rs.getString("Rua"));
-            endereco.setCep(rs.getString("cep"));
-            fornecedor.setEndereco(endereco);
-            lista.add(fornecedor);
-
-        }
-        rs.close();
-        stmt.close();
-        conn.close();
-        return lista;
-    }
-
 }

@@ -47,7 +47,7 @@ public class SearchProdutoDao {
             "JOIN produto_fornecedor pf ON p.id = pf.id_produto\n" +
             "JOIN fornecedor f ON pf.id_fornecedor = f.id\n" +
             "JOIN estoque e ON p.id = e.id_produto\n" +
-            "WHERE p.nome_produto LIKE ?\n";
+            "WHERE p.nome_produto LIKE ? OR f.nome LIKE ?\n";
 
     public ObservableList<Produto> produtoEstoqueLIST() throws SQLException {
         ObservableList<Produto> lista = FXCollections.observableArrayList();
@@ -91,6 +91,7 @@ public class SearchProdutoDao {
         Connection conn = dbConnector.connect();
         PreparedStatement pstmt = conn.prepareStatement(sqlBusca);
         pstmt.setString(1,"%"+nome+"%");
+        pstmt.setString(2,"%"+nome+"%");
         ResultSet rs = pstmt.executeQuery();
         while (rs.next()){
             Produto produto = new Produto();

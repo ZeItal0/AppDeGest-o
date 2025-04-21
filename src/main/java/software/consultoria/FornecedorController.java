@@ -2,7 +2,9 @@ package software.consultoria;
 
 import DAOclass.RegisterFornecedorDao;
 import DAOclass.RegisterUsuarioDao;
+import DAOclass.SearchFornecedorDao;
 import Models.Fornecedor;
+import Models.Produto;
 import Models.Sessao;
 import Models.Usuario;
 import javafx.animation.TranslateTransition;
@@ -12,10 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -91,6 +90,8 @@ public class FornecedorController {
     private Transition transition = new Transition();
     @FXML
     private Label userName;
+    @FXML
+    private TextField Pesquisa;
 
     //esse initialize e usado para listagem de fornecedores alem de conter efeitos visuais//
     @FXML
@@ -148,8 +149,8 @@ public class FornecedorController {
 
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         dataDecadastro.setCellValueFactory(new PropertyValueFactory<>("dataDeCadastro"));
-        RegisterFornecedorDao registerFornecedorDao = new RegisterFornecedorDao();
-        ObservableList<Fornecedor> observableList = FXCollections.observableArrayList(registerFornecedorDao.listarFornecedor());
+        SearchFornecedorDao searchFornecedorDao = new SearchFornecedorDao();
+        ObservableList<Fornecedor> observableList = FXCollections.observableArrayList(searchFornecedorDao.listarFornecedor());
         fornecedorTableList.setItems(observableList);
 
         userName.setText(Sessao.nome);
@@ -157,6 +158,15 @@ public class FornecedorController {
         if (pane != null){
             transition.fadeInPane(pane);
         }
+        Pesquisa.textProperty().addListener((observable, oldValue, newValue) ->{
+            try {
+                ObservableList<Fornecedor> filtro = searchFornecedorDao.BuscarFornecedor(newValue);
+                fornecedorTableList.setItems(filtro);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     //botoes de encerrar, voltar e minimizar//
