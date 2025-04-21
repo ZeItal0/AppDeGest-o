@@ -1,9 +1,7 @@
 package software.consultoria;
 
 import DAOclass.RegisterDespesaDao;
-import DAOclass.RegisterUsuarioDao;
 import Models.Despesas;
-import Models.Usuario;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -25,6 +23,7 @@ import javafx.util.Duration;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Map;
+
 
 public class DespesaController {
 

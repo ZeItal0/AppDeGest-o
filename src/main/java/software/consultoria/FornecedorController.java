@@ -36,6 +36,8 @@ public class FornecedorController {
     @FXML
     private TableColumn<Fornecedor,String> telFornecedor;
     @FXML
+    private TableColumn<Fornecedor,String> CNPJ;
+    @FXML
     private TableColumn<Fornecedor, String> email;
     @FXML
     private TableColumn<Fornecedor, String> cepFornecedor;
@@ -133,6 +135,8 @@ public class FornecedorController {
 
         nFornecedor.setCellValueFactory(new PropertyValueFactory<>("nome"));
         telFornecedor.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+
+        CNPJ.setCellValueFactory(new PropertyValueFactory<>("cnpj"));
 
         cepFornecedor.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getEndereco().getCep())
