@@ -1,6 +1,7 @@
 package software.consultoria;
 
 import DAOclass.RegisterUsuarioDao;
+import DAOclass.SearchFuncionarioDao;
 import Models.Endereco;
 import Models.Sessao;
 import Models.Usuario;
@@ -11,10 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -83,6 +81,9 @@ public class FuncionarioController {
     @FXML
     private Button voltar;
     @FXML
+    private TextField Pesquisa;
+
+    @FXML
     private Pane pane;
 
     private Transition transition = new Transition();
@@ -143,8 +144,8 @@ public class FuncionarioController {
 
             dataNascimento.setCellValueFactory(new PropertyValueFactory<>("dataDeNascimento"));
             dataDecadastro.setCellValueFactory(new PropertyValueFactory<>("DataDeRegistro"));
-            RegisterUsuarioDao registerUsuarioDao = new RegisterUsuarioDao();
-            ObservableList<Usuario> observableList = FXCollections.observableArrayList(registerUsuarioDao.listarusuario());
+            SearchFuncionarioDao searchFuncionarioDao = new SearchFuncionarioDao();
+            ObservableList<Usuario> observableList = FXCollections.observableArrayList(searchFuncionarioDao.listarusuario());
             funcionariostableList.setItems(observableList);
             main = ScreenChange.getMainInstance();
 
@@ -152,6 +153,17 @@ public class FuncionarioController {
         if (pane != null){
             transition.fadeInPane(pane);
         }
+
+        Pesquisa.textProperty().addListener((observable, oldValue, newValue) ->{
+
+            try {
+                ObservableList<Usuario> filtro = searchFuncionarioDao.buscaPorNome(newValue);
+                funcionariostableList.setItems(filtro);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
 
     }
 

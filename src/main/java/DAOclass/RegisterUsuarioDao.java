@@ -17,7 +17,6 @@ public class RegisterUsuarioDao {
     private String sqlEndereco = "INSERT INTO endereco (cidade, Rua, bairro,cep) VALUES (?,?,?,?)";
     private String sqlUsario = "INSERT INTO usuario (id_endereco, nome, senha, loginUser, telefone, data_de_nascimento, data_de_cadastro) VALUES (?,?,?,?,?,?,?)";
     private String sqlFuncionario = "INSERT INTO funcionario (id_usuario, cargo) VALUES (?,?)";
-    private String sqlist = "SELECT u.id, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro, " + "e.Rua, e.cep " + "FROM usuario u " + "JOIN endereco e ON u.id_endereco = e.id";
     private String sqllogin = "SELECT id, nome FROM usuario WHERE loginUser = ? AND senha = ?";
 
     public void salvarusuario(String nome, String telefone, String cep, String rua, String Cidade, String bairro, String User, String senha, String buttonMenu, LocalDate DataNas, LocalDate DataReg) throws SQLException {
@@ -61,32 +60,6 @@ public class RegisterUsuarioDao {
         pstmtUsuario.close();
         pstmtFuncionario.close();
         conn.close();
-    }
-
-    public ObservableList<Usuario> listarusuario() throws SQLException {
-        ObservableList<Usuario> lista = FXCollections.observableArrayList();
-        Connection conn = dbConnector.connect();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(sqlist);
-        while (rs.next()){
-            Usuario usuario = new Usuario();
-            usuario.setId(rs.getInt("id"));
-            usuario.setNome(rs.getString("nome"));
-            usuario.setTelefone(rs.getString("telefone"));
-            usuario.setDataDeNascimento(rs.getDate("data_de_nascimento").toLocalDate());
-            usuario.setDataDeRegistro(rs.getDate("data_de_cadastro").toLocalDate());
-
-            Endereco endereco = new Endereco();
-            endereco.setRua(rs.getString("Rua"));
-            endereco.setCep(rs.getString("cep"));
-            usuario.setEndereco(endereco);
-            lista.add(usuario);
-
-        }
-        rs.close();
-        stmt.close();
-        conn.close();
-        return lista;
     }
 
     public boolean verificarlogin (String login, String senha) throws SQLException {

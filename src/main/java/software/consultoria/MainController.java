@@ -8,7 +8,6 @@ import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -17,12 +16,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.util.Duration;
-
-import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 public class MainController {
     RegisterUsuarioDao registerUsuarioDao = new RegisterUsuarioDao();
