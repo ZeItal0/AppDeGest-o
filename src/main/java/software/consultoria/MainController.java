@@ -203,6 +203,9 @@ public class MainController {
         if (registerUsuarioDao.verificarlogin(user.getText(),password.getText()) == false && !user.getText().isEmpty() && !password.getText().isEmpty()){
             Aviso.mostrarAviso("Usuario não Registrado!","/Alert.fxml");
         }
+        if (user.getText().length() > 8 || password.getText().length() > 16){
+            Aviso.mostrarAviso("Usuario e Senha Devem \nconter 8 Caracteres","/Alert.fxml");
+        }
     }
 
     public void closed(ActionEvent actionEvent) {
@@ -273,6 +276,24 @@ public class MainController {
         if (nome.isEmpty() || telefone.isEmpty() || cep.isEmpty() || Rua.isEmpty() || Cidade.isEmpty() || Bairro.isEmpty() || User.isEmpty() || senha.isEmpty() || ButtonMenu.isEmpty() || DataNas == null){
             Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
         }
+        
+        if (NomeFuncionario.getText().length() > 30){
+            Aviso.mostrarAviso("Nome deve conter\n 30 Caracteres","/Alert.fxml");
+        }else if ( TelefoneFuncionario.getText().length() > 14){
+            Aviso.mostrarAviso("Telefone deve conter ate\n 14 Caracteres","/Alert.fxml");
+        }else if (CEP.getText().length() > 8) {
+            Aviso.mostrarAviso("Cep deve conter ate\n 8 Caracteres","/Alert.fxml");
+        }else if (rua.getText().length() > 35){
+            Aviso.mostrarAviso("rua deve conter ate\n 35 Caracteres","/Alert.fxml");
+        }else if (cidade.getText().length() > 30) {
+            Aviso.mostrarAviso("Cidade deve conter ate\n 30 Caracteres","/Alert.fxml");
+        }else if (bairro.getText().length() > 25) {
+            Aviso.mostrarAviso("Bairro deve conter ate\n 25 Caracteres","/Alert.fxml");
+        }else if (Usuario.getText().length() > 8) {
+            Aviso.mostrarAviso("Usuario deve conter ate\n 8 Caracteres","/Alert.fxml");
+        } else if (Senha.getText().length() > 16){
+            Aviso.mostrarAviso("Senha deve conter ate\n 16 Caracteres","/Alert.fxml");
+        }
         else {
             try {
                 registerUsuarioDao.salvarusuario(nome,telefone,cep,Rua,Cidade,Bairro,User,senha,ButtonMenu,DataNas,DataReg);
@@ -283,8 +304,9 @@ public class MainController {
                 Aviso.mostrarAviso("Erro Registrar Usuario","/Alert.fxml");
             }
         }
-
     }
+
+
     public void selecionarVendedor(ActionEvent actionEvent) {
         Cargo.setText("Vendedor");
     }
@@ -322,6 +344,23 @@ public class MainController {
         if (nome.isEmpty() || telefone.isEmpty() || email.isEmpty() || CNPJ.isEmpty() || cep.isEmpty() || Rua.isEmpty() || Cidade.isEmpty() || Bairro.isEmpty()){
             Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
         }
+        if (NomeFornecedor.getText().length() > 30){
+            Aviso.mostrarAviso("Nome deve conter\n 30 Caracteres","/Alert.fxml");
+        }else if (Telefonefornecedor.getText().length() > 14) {
+            Aviso.mostrarAviso("Telefone deve conter ate\n 14 Caracteres","/Alert.fxml");
+        }else if (Email.getText().length() > 25){
+            Aviso.mostrarAviso("Email deve conter ate\n 25 Caracteres","/Alert.fxml");
+        }else if (cnpj.getText().length() > 14){
+            Aviso.mostrarAviso("CNPJ deve conter ate\n 14 Caracteres","/Alert.fxml");
+        }else if (CEP.getText().length() > 8){
+            Aviso.mostrarAviso("CEP deve conter ate\n 8 Caracteres","/Alert.fxml");
+        }else if (rua.getText().length() > 35){
+            Aviso.mostrarAviso("rua deve conter ate\n 35 Caracteres","/Alert.fxml");
+        }else if (cidade.getText().length() > 30) {
+            Aviso.mostrarAviso("Cidade deve conter ate\n 30 Caracteres","/Alert.fxml");
+        }else if (bairro.getText().length() > 25) {
+            Aviso.mostrarAviso("Bairro deve conter ate\n 25 Caracteres","/Alert.fxml");
+        }
         else {
             try {
                 registerFornecedorDao.salvarFornecedor(nome,telefone,email,CNPJ,cep,Rua,Cidade,Bairro,DataReg);
@@ -354,6 +393,17 @@ public class MainController {
 
         if (nome.isEmpty() || valor.isEmpty() || observacoes.isEmpty() || situacao.isEmpty() || pagamento.isEmpty() || data == null){
             Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
+        }
+        if (nomeDespesa.getText().length() > 30){
+            Aviso.mostrarAviso("Numero Maximo em\nDespesa é 30!","/Alert.fxml");
+        }else if (!valor.matches("\\d+")){
+            Aviso.mostrarAviso("Somente numeros\nEm Valor!","/Alert.fxml");
+        }else if (ObservacoesDespesa.getText().length() >50){
+            Aviso.mostrarAviso("Numero Maximo em\nObservações é 50!","/Alert.fxml");
+        }else if (situacao.isEmpty()){
+            Aviso.mostrarAviso("Selecione uma opção\nEm situação","/Alert.fxml");
+        }else if (pagamento.isEmpty()){
+            Aviso.mostrarAviso("Selecione uma opção\nEm pagamento","/Alert.fxml");
         }
         else {
             try {

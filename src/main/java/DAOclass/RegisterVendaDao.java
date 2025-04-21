@@ -17,6 +17,7 @@ public class RegisterVendaDao {
     private String sqlStatus = "INSERT INTO status_venda (status_de_venda) VALUES (?)";
     private String sqlItens = "INSERT INTO itens_de_venda (id_venda, id_produto, quantidade, valor_unitario) VALUES (?,?,?,?)";
     private String sqlMovimentacao= "INSERT INTO movimentacao_de_estoque(id_produto, tipo_movimentacao, quantidade, data_movimentacao) VALUES (?,?,?,?)";
+    private String sqlHistoricoDeReceitas = "INSERT INTO historico_de_receitas(id_venda) VALUES (?)";
 
     public void salvarVenda(List<Itens_de_Venda> itens, String pagamento, LocalDate data, String movimentacao, String status, Integer id_funcionario) throws SQLException {
         Connection conn = dbConnector.connect();
@@ -52,6 +53,10 @@ public class RegisterVendaDao {
         if (rsVenda.next()){
             idVenda = rsVenda.getInt(1);
         }
+
+        PreparedStatement pstmtReceitas = conn.prepareStatement(sqlHistoricoDeReceitas);
+        pstmtReceitas.setInt(1,idVenda);
+        pstmtReceitas.executeUpdate();
 
         PreparedStatement pstmtItens = conn.prepareStatement(sqlItens);
         PreparedStatement pstmtMovimentacao = conn.prepareStatement(sqlMovimentacao);

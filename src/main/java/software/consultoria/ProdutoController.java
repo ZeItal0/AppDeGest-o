@@ -30,7 +30,7 @@ public class ProdutoController {
 
     private Main main;
 
-    private int idfornecedor;
+    private Integer idfornecedor;
 
     @FXML
     private TableView<Fornecedor> FornecedorProdutoList;
@@ -145,7 +145,6 @@ public class ProdutoController {
             if (event.getClickCount()==1){
                 Fornecedor selecionado = FornecedorProdutoList.getSelectionModel().getSelectedItem();
                 if (selecionado != null){
-                    System.out.println("id: "+selecionado.getId());
                     idfornecedor = selecionado.getId();
                 }
             }
@@ -216,6 +215,23 @@ public class ProdutoController {
         if (Nome.isEmpty() || Quantidade.isEmpty() || ValorInvestido.isEmpty() || ValorDeVenda.isEmpty() || Categoria.isEmpty() || Detalhes.isEmpty()){
             Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
         }
+        if (idfornecedor == null){
+            Aviso.mostrarAviso("Selecione um vendedor!","/Alert.fxml");
+        }
+        if (nomeProduto.getText().length() > 30){
+            Aviso.mostrarAviso("Numero Maximo em\nNome é 30!","/Alert.fxml");
+        }else if (!quantidade.getText().matches("\\d+(\\.\\d+)?")){
+            Aviso.mostrarAviso("Somente numeros\nEm quantidade!","/Alert.fxml");
+        }else if (!valorInvestido.getText().matches("\\d+(\\.\\d+)?")){
+            Aviso.mostrarAviso("Somente numeros em\nValor investido!","/Alert.fxml");
+        }else if (!valorDeVenda.getText().matches("\\d+(\\.\\d+)?")){
+            Aviso.mostrarAviso("Somente numeros em\nValor de venda!","/Alert.fxml");
+        }else if (categoria.getText().isEmpty()){
+            Aviso.mostrarAviso("Selecione uma opção\nEm categoria!","/Alert.fxml");
+        }else if (detalhes.getText().length() > 50){
+            Aviso.mostrarAviso("Numero Maximo em\nObservações é 50!","/Alert.fxml");
+        }
+
         else{
             try {
                 registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now(),idfornecedor);
