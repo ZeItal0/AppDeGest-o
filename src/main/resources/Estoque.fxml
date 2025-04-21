@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -195,6 +196,12 @@
       <ImageView id="userGR" fitHeight="31.0" fitWidth="43.0" layoutX="10.0" layoutY="758.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/user1.png" />
+         </image>
+      </ImageView>
+      <TextField id="pesquisa" fx:id="Pesquisa" alignment="TOP_LEFT" layoutX="1186.0" layoutY="138.0" prefHeight="35.0" prefWidth="280.0" promptText="Pesquisa" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="29.0" fitWidth="43.0" layoutX="1431.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/search.png" />
          </image>
       </ImageView>
    </children>

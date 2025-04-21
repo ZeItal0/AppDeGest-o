@@ -15,10 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.css.SimpleStyleableIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -97,6 +94,8 @@ public class EstoqueController {
     private Transition transition = new Transition();
     @FXML
     private Label userName;
+    @FXML
+    private TextField Pesquisa;
 
     //esse initialize e usado para listagem do estoque, tambem contem efeitos visuais//
     @FXML
@@ -163,6 +162,16 @@ public class EstoqueController {
             transition.fadeInPane(pane);
         }
 
+        Pesquisa.textProperty().addListener((observable, oldValue, newValue) ->{
+
+            try {
+                ObservableList<Produto> filtro = searchProdutoDao.buscaPorProduto(newValue);
+                EstoqueList.setItems(filtro);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     //botoes de encerrar, voltar e minimizar//
