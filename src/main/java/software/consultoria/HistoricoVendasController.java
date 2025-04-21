@@ -1,7 +1,9 @@
 package software.consultoria;
 
 import DAOclass.RegisterVendaDao;
+import DAOclass.SearchVendasDao;
 import Models.Itens_de_Venda;
+import Models.Produto;
 import Models.Sessao;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -10,10 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -93,6 +92,8 @@ public class HistoricoVendasController {
     @FXML
     private Label userName;
 
+    @FXML
+    private TextField Pesquisa;
 
     //Esse initialize faz a listagem e tambem aplica efeitos
     @FXML
@@ -153,8 +154,8 @@ public class HistoricoVendasController {
         QUANTIDADELIST.setCellValueFactory(new PropertyValueFactory<>("quantidade_itens"));
         VALORLIST.setCellValueFactory(new PropertyValueFactory<>("valor_unitario"));
 
-        RegisterVendaDao registerVendaDao = new RegisterVendaDao();
-        ObservableList<Itens_de_Venda> observableList = FXCollections.observableArrayList(registerVendaDao.vendasList());
+        SearchVendasDao searchVendasDao = new SearchVendasDao();
+        ObservableList<Itens_de_Venda> observableList = FXCollections.observableArrayList(searchVendasDao.vendasList());
         listaDeVenda.setItems(observableList);
 
         userName.setText(Sessao.nome);
@@ -162,6 +163,16 @@ public class HistoricoVendasController {
         if (pane != null){
             transition.fadeInPane(pane);
         }
+
+        Pesquisa.textProperty().addListener((observable, oldValue, newValue) ->{
+            try {
+                ObservableList<Itens_de_Venda> filtro = searchVendasDao.buscaPorVenda(newValue);
+                listaDeVenda.setItems(filtro);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 

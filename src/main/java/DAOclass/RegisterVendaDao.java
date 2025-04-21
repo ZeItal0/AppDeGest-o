@@ -17,27 +17,6 @@ public class RegisterVendaDao {
     private String sqlStatus = "INSERT INTO status_venda (status_de_venda) VALUES (?)";
     private String sqlItens = "INSERT INTO itens_de_venda (id_venda, id_produto, quantidade, valor_unitario) VALUES (?,?,?,?)";
     private String sqlMovimentacao= "INSERT INTO movimentacao_de_estoque(id_produto, tipo_movimentacao, quantidade, data_movimentacao) VALUES (?,?,?,?)";
-    private String sqlvendaList = """
-        SELECT 
-            v.id AS id_venda,
-            v.data_venda,
-            u.nome AS nome_funcionario,
-            p.id AS id_produto,
-            p.nome_produto,
-            p.detalhes_produto,
-            iv.quantidade,
-            iv.valor_unitario,
-            fp.tipo_de_pagamento,
-            sv.status_de_venda
-        FROM venda v
-        JOIN funcionario f ON v.id_funcionario = f.id
-        JOIN usuario u ON f.id_usuario = u.id
-        JOIN forma_de_pagamento fp ON v.id_forma_de_pagamento = fp.id
-        JOIN status_venda sv ON v.id_status_venda = sv.id
-        JOIN itens_de_venda iv ON v.id = iv.id_venda
-        JOIN produto p ON iv.id_produto = p.id
-        ORDER BY v.data_venda DESC
-    """;
 
     public void salvarVenda(List<Itens_de_Venda> itens, String pagamento, LocalDate data, String movimentacao, String status, Integer id_funcionario) throws SQLException {
         Connection conn = dbConnector.connect();
@@ -102,48 +81,4 @@ public class RegisterVendaDao {
         pstmtMovimentacao.close();
         conn.close();
     }
-
-
-    public ObservableList<Itens_de_Venda> vendasList() throws SQLException {
-        ObservableList<Itens_de_Venda> lista = FXCollections.observableArrayList();
-        Connection conn = dbConnector.connect();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(sqlvendaList);
-
-        while (rs.next()){
-
-            Produto produto = new Produto();
-            produto.setNomeProduto(rs.getString("nome_produto"));
-            produto.setDetalhes(rs.getString("detalhes_produto"));
-
-            FormaDepagamento formaDepagamento = new FormaDepagamento();
-            formaDepagamento.setTipoDepagamento(rs.getString("tipo_de_pagamento"));
-
-            StatusDeVenda status = StatusDeVenda.valueOf(rs.getString("status_de_venda"));
-
-            Usuario usuario = new Usuario();
-            usuario.setNome(rs.getString("nome_funcionario"));
-
-            Vendas vendas = new Vendas();
-            vendas.setData_De_venda(rs.getDate("data_venda").toLocalDate());
-            vendas.setFormaDepagamento(formaDepagamento);
-            vendas.setStatusDeVenda(status);
-            vendas.setUsuario(usuario);
-
-            Itens_de_Venda item = new Itens_de_Venda();
-            item.setProduto(produto);
-            item.setQuantidade_itens(rs.getInt("quantidade"));
-            item.setValor_unitario(rs.getDouble("valor_unitario"));
-            item.setVendas(vendas);
-
-            lista.add(item);
-        }
-        rs.close();
-        stmt.close();
-        conn.close();
-
-        return lista;
-    }
-
-
 }
