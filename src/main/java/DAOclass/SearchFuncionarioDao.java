@@ -12,13 +12,16 @@ public class SearchFuncionarioDao {
 
     DatabaseConnector dbConnector = new DatabaseConnector();
 
-    private String sqlist = "SELECT u.id, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro, " + "e.Rua, e.cep " + "FROM usuario u " + "JOIN endereco e ON u.id_endereco = e.id";
+    private String sqlist = "SELECT u.id, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro, " + "e.Rua, e.cep " + "FROM usuario u " + "JOIN endereco e ON u.id_endereco = e.id " + "ORDER BY u.data_de_cadastro DESC " +
+            "LIMIT 100;";
     String sqlBusca = """
                 SELECT u.id, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro,
                        e.Rua, e.cep
                 FROM usuario u
                 JOIN endereco e ON u.id_endereco = e.id
                 WHERE u.nome LIKE ?
+                ORDER BY u.data_de_cadastro DESC
+                LIMIT 100;
             """;
 
 

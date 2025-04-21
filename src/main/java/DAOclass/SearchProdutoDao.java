@@ -30,7 +30,9 @@ public class SearchProdutoDao {
             "JOIN categoria c ON p.id_categoria = c.id\n" +
             "JOIN produto_fornecedor pf ON p.id = pf.id_produto\n" +
             "JOIN fornecedor f ON pf.id_fornecedor = f.id\n" +
-            "JOIN estoque e ON p.id = e.id_produto;";
+            "JOIN estoque e ON p.id = e.id_produto\n" +
+            "ORDER BY p.data_de_cadastro DESC\n" +
+            "LIMIT 100;";
 
     private String sqlBusca = "SELECT \n" +
             "    p.id,\n" +
@@ -47,7 +49,9 @@ public class SearchProdutoDao {
             "JOIN produto_fornecedor pf ON p.id = pf.id_produto\n" +
             "JOIN fornecedor f ON pf.id_fornecedor = f.id\n" +
             "JOIN estoque e ON p.id = e.id_produto\n" +
-            "WHERE p.nome_produto LIKE ? OR f.nome LIKE ?\n";
+            "WHERE p.nome_produto LIKE ? OR f.nome LIKE ?\n"+
+            "ORDER BY p.data_de_cadastro DESC\n" +
+            "LIMIT 100;";
 
     public ObservableList<Produto> produtoEstoqueLIST() throws SQLException {
         ObservableList<Produto> lista = FXCollections.observableArrayList();
@@ -122,14 +126,4 @@ public class SearchProdutoDao {
         conn.close();
         return lista;
     }
-
-
-
-
-
-
-
-
-
-
 }

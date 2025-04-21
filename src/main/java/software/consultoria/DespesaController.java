@@ -1,7 +1,9 @@
 package software.consultoria;
 
 import DAOclass.RegisterDespesaDao;
+import DAOclass.SearchDespesasDao;
 import Models.Despesas;
+import Models.Produto;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -9,10 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -90,6 +89,8 @@ public class DespesaController {
     private Transition transition = new Transition();
     @FXML
     private Label userName;
+    @FXML
+    private TextField Pesquisa;
 
     @FXML
     public void initialize() throws SQLException {
@@ -141,9 +142,8 @@ public class DespesaController {
                 new SimpleStringProperty(cellData.getValue().getFormaDepagamento().getTipoDepagamento())
         );
 
-
-        RegisterDespesaDao registerDespesaDao = new RegisterDespesaDao();
-        ObservableList<Despesas> observableList = FXCollections.observableArrayList(registerDespesaDao.despesasLIST());
+        SearchDespesasDao searchDespesasDao = new SearchDespesasDao();
+        ObservableList<Despesas> observableList = FXCollections.observableArrayList(searchDespesasDao.despesasLIST());
         DespesasList.setItems(observableList);
         main = ScreenChange.getMainInstance();
 
@@ -151,6 +151,15 @@ public class DespesaController {
             transition.fadeInPane(pane);
         }
 
+        Pesquisa.textProperty().addListener((observable, oldValue, newValue) ->{
+            try {
+                ObservableList<Despesas> filtro = searchDespesasDao.buscaDespesa(newValue);
+                DespesasList.setItems(filtro);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
     }
     //botoes de minimizar, encerrar e voltar//
     public void closed(ActionEvent actionEvent) {

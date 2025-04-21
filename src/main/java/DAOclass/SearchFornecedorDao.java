@@ -11,8 +11,12 @@ import java.sql.*;
 public class SearchFornecedorDao {
     DatabaseConnector dbConnector = new DatabaseConnector();
 
-    private String sqlist = "SELECT u.id, u.nome, u.email, u.telefone, u.cnpj_cpf, u.data_de_cadastro, e.Rua, e.cep " + "FROM fornecedor u " + "JOIN endereco e ON u.id_endereco = e.id";
-    private String sqBusca = "SELECT u.id, u.nome, u.email, u.telefone, u.cnpj_cpf, u.data_de_cadastro, " + "e.Rua, e.cep " + "FROM fornecedor u " + "JOIN endereco e ON u.id_endereco = e.id " + "WHERE u.nome LIKE ? OR u.email LIKE ? OR u.telefone LIKE ? OR u.cnpj_cpf LIKE ?";
+    private String sqlist = "SELECT u.id, u.nome, u.email, u.telefone, u.cnpj_cpf, u.data_de_cadastro, e.Rua, e.cep " + "FROM fornecedor u " + "JOIN endereco e ON u.id_endereco = e.id "+"ORDER BY \n" +
+            "    u.data_de_cadastro DESC\n" +
+            "LIMIT 100;";
+    private String sqBusca = "SELECT u.id, u.nome, u.email, u.telefone, u.cnpj_cpf, u.data_de_cadastro, " + "e.Rua, e.cep " + "FROM fornecedor u " + "JOIN endereco e ON u.id_endereco = e.id " + "WHERE u.nome LIKE ? OR u.email LIKE ? OR u.telefone LIKE ? OR u.cnpj_cpf LIKE ? "+"ORDER BY \n" +
+            "    u.data_de_cadastro DESC\n" +
+            "LIMIT 100";
 
     public ObservableList<Fornecedor> listarFornecedor() throws SQLException {
         ObservableList<Fornecedor> lista = FXCollections.observableArrayList();

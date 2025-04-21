@@ -29,6 +29,7 @@ public class SearchVendasDao {
         JOIN itens_de_venda iv ON v.id = iv.id_venda
         JOIN produto p ON iv.id_produto = p.id
         ORDER BY v.data_venda DESC
+        LIMIT 100;
     """;
     private String sqlBusca = "SELECT \n" +
             "    v.id AS id_venda,\n" +
@@ -49,7 +50,8 @@ public class SearchVendasDao {
             "JOIN itens_de_venda iv ON v.id = iv.id_venda\n" +
             "JOIN produto p ON iv.id_produto = p.id\n" +
             "WHERE p.nome_produto LIKE ? OR u.nome LIKE ?\n" +
-            "ORDER BY v.data_venda DESC";
+            "ORDER BY v.data_venda DESC \n" +
+            "LIMIT 100;";
 
     public ObservableList<Itens_de_Venda> vendasList() throws SQLException {
         ObservableList<Itens_de_Venda> lista = FXCollections.observableArrayList();
