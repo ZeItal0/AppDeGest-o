@@ -2,6 +2,7 @@ package software.consultoria;
 
 import DAOclass.RegisterProdutoDao;
 import DAOclass.RegisterVendaDao;
+import DAOclass.SearchProdutoDao;
 import Models.*;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -107,6 +108,8 @@ public class VendaRegisterController {
     private Label userName;
     @FXML
     private Label vendedor;
+    @FXML
+    private TextField Pesquisa;
 
     @FXML
     private Pane pane;
@@ -163,8 +166,8 @@ public class VendaRegisterController {
         QUANTIDADE.setCellValueFactory( cellData ->
                 new ReadOnlyObjectWrapper<>(cellData.getValue().getEstoque().getQuantidade())
         );
-        RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
-        ObservableList<Produto> observableList = FXCollections.observableArrayList(registerProdutoDao.produtoEstoqueLIST());
+        SearchProdutoDao searchProdutoDao = new SearchProdutoDao();
+        ObservableList<Produto> observableList = FXCollections.observableArrayList(searchProdutoDao.produtoEstoqueLIST());
         produtosList.setItems(observableList);
 
         produtosList.setOnMouseClicked(event -> {
@@ -185,6 +188,17 @@ public class VendaRegisterController {
         if (pane != null){
             transition.fadeInPane(pane);
         }
+
+        Pesquisa.textProperty().addListener((observable, oldValue, newValue) ->{
+
+            try {
+                ObservableList<Produto> filtro = searchProdutoDao.buscaPorProduto(newValue);
+                produtosList.setItems(filtro);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     //lista ou carrinho de venda que salva o itens adicionados//

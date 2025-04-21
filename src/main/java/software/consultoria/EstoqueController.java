@@ -1,6 +1,7 @@
 package software.consultoria;
 
 import DAOclass.RegisterProdutoDao;
+import DAOclass.SearchProdutoDao;
 import Models.Categoria;
 import Models.Fornecedor;
 import Models.Produto;
@@ -151,8 +152,8 @@ public class EstoqueController {
                 new ReadOnlyObjectWrapper<>(cellData.getValue().getEstoque().getQuantidade())
         );
 
-        RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
-        ObservableList<Produto> observableList = FXCollections.observableArrayList(registerProdutoDao.produtoEstoqueLIST());
+        SearchProdutoDao searchProdutoDao = new SearchProdutoDao();
+        ObservableList<Produto> observableList = FXCollections.observableArrayList(searchProdutoDao.produtoEstoqueLIST());
         EstoqueList.setItems(observableList);
 
         main = ScreenChange.getMainInstance();
