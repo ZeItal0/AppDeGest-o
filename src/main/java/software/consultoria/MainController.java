@@ -4,6 +4,7 @@ import DAOclass.RegisterDespesaDao;
 import DAOclass.RegisterFornecedorDao;
 import DAOclass.RegisterUsuarioDao;
 import Models.Sessao;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,11 +13,16 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.util.Duration;
+
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 public class MainController {
     RegisterUsuarioDao registerUsuarioDao = new RegisterUsuarioDao();
@@ -62,6 +68,19 @@ public class MainController {
     private ImageView img6;
 
     @FXML
+    private VBox vboxLateral;
+    @FXML
+    private Button Open;
+
+    private boolean menuAberto = true;
+    private boolean OpenPosition = false;
+
+    private double larguraMenu = 415;
+    private double distancia = 165;
+    private double distanciaImg = 250;
+    private double distanciaUser = 180;
+
+    @FXML
     private Button funcionario;
     @FXML
     private Button venda;
@@ -73,6 +92,8 @@ public class MainController {
     private Button despesas;
     @FXML
     private Button videos;
+    @FXML
+    private Button voltar;
     @FXML
     private TextField NomeFornecedor;
     @FXML
@@ -118,6 +139,21 @@ public class MainController {
     @FXML
     public void initialize() {
         if(funcionario!=null){
+
+            larguraMenu = vboxLateral.getPrefWidth();
+            menuAberto = false;
+            vboxLateral.setTranslateX(-larguraMenu + 100);
+            Open.setTranslateX(distancia);
+            voltar.setTranslateX(-80);
+            img1.setTranslateX(distanciaImg);
+            img2.setTranslateX(distanciaImg);
+            img3.setTranslateX(distanciaImg);
+            img4.setTranslateX(distanciaImg);
+            img5.setTranslateX(distanciaImg);
+            img6.setTranslateX(distanciaImg);
+            userName.setTranslateX(distanciaUser);
+            OpenPosition = true;
+
             Map<Button, ImageView> hoverMap = Map.of(
                     funcionario, img1,
                     venda, img2,
@@ -162,17 +198,14 @@ public class MainController {
     // codigos para encerrar minimizar e entrar no app//
 
     public void enter(ActionEvent actionEvent) throws SQLException {
-        if(registerUsuarioDao.verificarlogin(user.getText(),password.getText())){
+        if(registerUsuarioDao.verificarlogin(user.getText(),password.getText()) == true){
             main.carregarCena("/menu.fxml");
-        } else {
+        }
+        if (user.getText().isEmpty() || password.getText().isEmpty()){
+            Aviso.mostrarAviso("Digite o Usuario\nDigite a Senha!","/Alert.fxml");
+        }
+        if (registerUsuarioDao.verificarlogin(user.getText(),password.getText()) == false && !user.getText().isEmpty() && !password.getText().isEmpty()){
             Aviso.mostrarAviso("Usuario não Registrado!","/Alert.fxml");
-        }
-
-        if (user.getText().isEmpty()){
-            Aviso.mostrarAviso("Digite o Usuario!","/Alert.fxml");
-        }
-        else if (password.getText().isEmpty()){
-            Aviso.mostrarAviso("Digite a Senha!","/Alert.fxml");
         }
     }
 
@@ -387,5 +420,58 @@ public class MainController {
     }
 
 
+    //Metodo para fazer o efeito retratil do menu principal//
+    public void Open(ActionEvent actionEvent) {
+        TranslateTransition transicao = new TranslateTransition(Duration.millis(300),vboxLateral);
+        TranslateTransition transicaoSair = new TranslateTransition(Duration.millis(300),voltar);
+        if (menuAberto) {
+            transicao.setToX(-larguraMenu + 100);
+            transicaoSair.setToX(-80);
+        }
+        else {
+            transicao.setToX(0);
+            transicaoSair.setToX(0);
+        }
+        transicao.play();
+        transicaoSair.play();
+        menuAberto = !menuAberto;
 
+        TranslateTransition transicaobutton = new TranslateTransition(Duration.millis(300),Open);
+        TranslateTransition transicaoimg1 = new TranslateTransition(Duration.millis(300),img1);
+        TranslateTransition transicaoimg2 = new TranslateTransition(Duration.millis(300),img2);
+        TranslateTransition transicaoimg3 = new TranslateTransition(Duration.millis(300),img3);
+        TranslateTransition transicaoimg4 = new TranslateTransition(Duration.millis(300),img4);
+        TranslateTransition transicaoimg5 = new TranslateTransition(Duration.millis(300),img5);
+        TranslateTransition transicaoimg6 = new TranslateTransition(Duration.millis(300),img6);
+        TranslateTransition transicaoUser = new TranslateTransition(Duration.millis(300),userName);
+        if (!OpenPosition){
+            transicaobutton.setToX(distancia);
+            transicaoimg1.setToX(distanciaImg);
+            transicaoimg2.setToX(distanciaImg);
+            transicaoimg3.setToX(distanciaImg);
+            transicaoimg4.setToX(distanciaImg);
+            transicaoimg5.setToX(distanciaImg);
+            transicaoimg6.setToX(distanciaImg);
+            transicaoUser.setToX(distanciaUser);
+        }
+        else {
+            transicaobutton.setToX(0);
+            transicaoimg1.setToX(0);
+            transicaoimg2.setToX(0);
+            transicaoimg3.setToX(0);
+            transicaoimg4.setToX(0);
+            transicaoimg5.setToX(0);
+            transicaoimg6.setToX(0);
+            transicaoUser.setToX(0);
+        }
+        transicaobutton.play();
+        transicaoimg1.play();
+        transicaoimg2.play();
+        transicaoimg3.play();
+        transicaoimg4.play();
+        transicaoimg5.play();
+        transicaoimg6.play();
+        transicaoUser.play();
+        OpenPosition = !OpenPosition;
+    }
 }

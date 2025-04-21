@@ -1,92 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.MainController">
    <children>
-      <SplitPane id="divider" dividerPositions="0.2778" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: black;" stylesheets="@style.css">
-        <items>
-          <AnchorPane id="menu" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: B47E00;" stylesheets="@style.css">
-               <children>
-                  <ImageView fitHeight="149.0" fitWidth="214.0" layoutX="94.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" x="14.0" y="-20.0">
-                     <image>
-                        <Image url="@img/diamond2.png" />
-                     </image>
-                  </ImageView>
-                  <Label id="user" fx:id="userName" alignment="CENTER" layoutX="83.0" layoutY="716.0" prefHeight="41.0" prefWidth="118.0" stylesheets="@style.css" />
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="91.0" layoutY="722.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons/user2.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: black;" stylesheets="@style.css">
-              <children>
-                 <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-194.0" layoutY="695.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-                    <image>
-                       <Image url="@img/details.png" />
-                    </image>
-                 </ImageView>
-                 <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="626.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-                    <image>
-                       <Image url="@img/details.png" />
-                    </image>
-                 </ImageView>
-                 <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="404.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" rotate="240.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-                    <image>
-                       <Image url="@img/detail2.png" />
-                    </image>
-                 </ImageView>
-                 <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="50.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" rotate="118.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-                    <image>
-                       <Image url="@img/detail3.png" />
-                    </image>
-                 </ImageView>
-                 <ImageView fitHeight="381.0" fitWidth="559.0" layoutX="-219.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true" rotate="40.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-                    <image>
-                       <Image url="@img/detail4.png" />
-                    </image>
-                 </ImageView>
-                 <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="630.0" layoutY="700.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-                    <image>
-                       <Image url="@img/details5.png" />
-                    </image>
-                 </ImageView>
-                 <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-195.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-                    <image>
-                       <Image url="@img/details5.png" />
-                    </image>
-                 </ImageView>
-                 <ImageView fitHeight="381.0" fitWidth="559.0" layoutX="519.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true" rotate="-50.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-                    <image>
-                       <Image url="@img/detail6.png" />
-                    </image>
-                 </ImageView>
-              </children></AnchorPane>
-        </items>
-      </SplitPane>
-      <Pane id="rectangle2" layoutX="21.0" layoutY="20.0" prefHeight="755.0" prefWidth="1455.0" stylesheets="@style.css">
+      <Pane id="rectangle2" layoutX="3.0" layoutY="5.0" prefHeight="789.0" prefWidth="1492.0" stylesheets="@style.css">
          <children>
-            <ImageView fitHeight="125.0" fitWidth="1500.0" layoutX="-21.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-173.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
                <image>
-                  <Image url="@img/bordes3.png" />
+                  <Image url="@img/details5.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-169.0" layoutY="704.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+               <image>
+                  <Image url="@img/details.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="381.0" fitWidth="559.0" layoutX="-178.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true" rotate="40.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+               <image>
+                  <Image url="@img/detail4.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="106.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" rotate="118.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+               <image>
+                  <Image url="@img/detail3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="770.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" rotate="240.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+               <image>
+                  <Image url="@img/detail2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="1057.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+               <image>
+                  <Image url="@img/details.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="381.0" fitWidth="559.0" layoutX="940.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true" rotate="-50.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+               <image>
+                  <Image url="@img/detail6.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="1061.0" layoutY="708.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+               <image>
+                  <Image url="@img/details5.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Button id="closed" layoutX="1420.0" layoutY="40.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
+      <Button id="closed" layoutX="1451.0" layoutY="11.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
          <graphic>
             <ImageView fx:id="closed" fitHeight="20.0" fitWidth="20.0" onDragDetected="#closed" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -95,63 +70,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button id="funcionario" fx:id="funcionario" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="194.0" mnemonicParsing="false" onAction="#funcionario" prefHeight="54.0" prefWidth="293.0" stylesheets="@style.css" text="Funcionário">
-         <graphic>
-            <ImageView fx:id="img1" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/funcionarios.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button id="Novavenda" fx:id="venda" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="279.0" mnemonicParsing="false" onAction="#venda" prefHeight="54.0" prefWidth="293.0" stylesheets="@style.css" text="Nova venda">
-         <graphic>
-            <ImageView fx:id="img2" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/novavenda.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button id="Produtos" fx:id="produtos" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="364.0" mnemonicParsing="false" onAction="#produtos" prefHeight="54.0" prefWidth="293.0" stylesheets="@style.css" text="Produtos">
-         <graphic>
-            <ImageView fx:id="img3" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/produtos.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button id="Fornecedores" fx:id="fornecedores" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="449.0" mnemonicParsing="false" onAction="#fornecedores" prefHeight="54.0" prefWidth="293.0" stylesheets="@style.css" text="Fornecedores">
-         <graphic>
-            <ImageView fx:id="img4" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/fornecedores.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button id="Despesas" fx:id="despesas" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="534.0" mnemonicParsing="false" onAction="#despesas" prefHeight="54.0" prefWidth="293.0" stylesheets="@style.css" text="Despesas">
-         <graphic>
-            <ImageView fx:id="img5" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/despesas.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button id="VideoAulas" fx:id="videos" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="619.0" mnemonicParsing="false" onAction="#videos" prefHeight="54.0" prefWidth="293.0" stylesheets="@style.css" text="Video Aulas">
-         <graphic>
-            <ImageView fx:id="img6" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/videos.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button id="sair" fx:id="voltar" alignment="CENTER_RIGHT" layoutX="236.0" layoutY="718.0" mnemonicParsing="false" onAction="#voltar" prefHeight="41.0" prefWidth="81.0" stylesheets="@style.css" text="Sair">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/logout.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button id="minimized" layoutX="1373.0" layoutY="40.0" mnemonicParsing="false" onAction="#minimized" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
+      <Button id="minimized" layoutX="1408.0" layoutY="11.0" mnemonicParsing="false" onAction="#minimized" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
          <graphic>
             <ImageView fx:id="closed1" fitHeight="20.0" fitWidth="20.0" onDragDetected="#closed" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -160,42 +79,41 @@
             </ImageView>
          </graphic>
       </Button>
-    <Button id="cadastro" layoutX="424.0" layoutY="26.0" mnemonicParsing="false" onAction="#cadastrarDespesa" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ENTRADA DE DESPESAS" />
-      <Button id="listadefuncionarios" layoutX="684.0" layoutY="26.0" mnemonicParsing="false" onAction="#listaDedespesas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CONSULTA DE DESPESAS" />
-      <Pane id="pane" fx:id="pane" layoutX="417.0" layoutY="94.0" prefHeight="681.0" prefWidth="1059.0" stylesheets="@style.css" />
-      <TextField id="nome" fx:id="nomeDespesa" alignment="TOP_LEFT" layoutX="514.0" layoutY="256.0" prefHeight="35.0" prefWidth="323.0" promptText="Nome da Despesa" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="515.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+    <Button id="cadastro" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarDespesa" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ENTRADA DE DESPESAS" />
+      <Button id="listadefuncionarios" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#listaDedespesas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CONSULTA DE DESPESAS" />
+      <TextField id="nome" fx:id="nomeDespesa" alignment="TOP_LEFT" layoutX="338.0" layoutY="256.0" prefHeight="35.0" prefWidth="323.0" promptText="Nome da Despesa" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="339.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/money-transaction.png" />
          </image>
       </ImageView>
-      <TextField id="nome" fx:id="ValorDespesa" alignment="TOP_LEFT" layoutX="514.0" layoutY="308.0" prefHeight="35.0" prefWidth="148.0" promptText="Valor" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="24.0" layoutX="517.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+      <TextField id="nome" fx:id="ValorDespesa" alignment="TOP_LEFT" layoutX="338.0" layoutY="308.0" prefHeight="35.0" prefWidth="148.0" promptText="Valor" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="30.0" fitWidth="24.0" layoutX="341.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/coin.png" />
          </image>
       </ImageView>
-      <DatePicker id="datepicker" fx:id="Data" layoutX="675.0" layoutY="307.0" prefHeight="37.0" prefWidth="162.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
-      <Label id="Text" layoutX="737.0" layoutY="141.0" prefHeight="58.0" prefWidth="393.0" stylesheets="@style.css" text="Cadastro de Despesa" />
-      <TextArea id="TextArea" fx:id="ObservacoesDespesa" layoutX="889.0" layoutY="256.0" prefHeight="249.0" prefWidth="392.0" promptText="Observações" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="899.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+      <DatePicker id="datepicker" fx:id="Data" layoutX="499.0" layoutY="307.0" prefHeight="37.0" prefWidth="162.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
+      <Label id="Text" layoutX="561.0" layoutY="141.0" prefHeight="58.0" prefWidth="393.0" stylesheets="@style.css" text="Cadastro de Despesa" />
+      <TextArea id="TextArea" fx:id="ObservacoesDespesa" layoutX="713.0" layoutY="256.0" prefHeight="249.0" prefWidth="392.0" promptText="Observações" stylesheets="@style.css" />
+      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="723.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/information.png" />
          </image>
       </ImageView>
-      <MenuButton id="cargos" fx:id="Situacao" layoutX="514.0" layoutY="356.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" stylesheets="@style.css" text="Situação" textFill="WHITE">
+      <MenuButton id="cargos" fx:id="Situacao" layoutX="338.0" layoutY="356.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" stylesheets="@style.css" text="Situação" textFill="WHITE">
          <items>
             <MenuItem fx:id="vendedor" mnemonicParsing="false" onAction="#selecionarPago" text="Pago" />
             <MenuItem fx:id="Gerente" mnemonicParsing="false" onAction="#selecionarPedente" text="Pendente" />
          </items>
       </MenuButton>
-      <Button id="cadastrarFuncionario" layoutX="824.0" layoutY="594.0" mnemonicParsing="false" onAction="#SalvarDespesa" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="    SALVAR" />
-      <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="849.0" layoutY="605.0" pickOnBounds="true" preserveRatio="true">
+      <Button id="cadastrarFuncionario" layoutX="648.0" layoutY="594.0" mnemonicParsing="false" onAction="#SalvarDespesa" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="    SALVAR" />
+      <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="673.0" layoutY="605.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/save.png" />
          </image>
       </ImageView>
-      <MenuButton id="cargos" fx:id="FormaDepagamento" layoutX="674.0" layoutY="357.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="162.0" stylesheets="@style.css" text="Forma de Pagamento" textFill="WHITE">
+      <MenuButton id="cargos" fx:id="FormaDepagamento" layoutX="498.0" layoutY="357.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="162.0" stylesheets="@style.css" text="Forma de Pagamento" textFill="WHITE">
          <items>
             <MenuItem fx:id="pix" mnemonicParsing="false" onAction="#Pix" text="Pix" />
             <MenuItem fx:id="dinheiro" mnemonicParsing="false" onAction="#Dinheiro" text="Dinheiro" />
@@ -203,6 +121,111 @@
             <MenuItem fx:id="debito" mnemonicParsing="false" onAction="#Debito" text="Debito" />
          </items>
       </MenuButton>
-      <Pane id="setpane" layoutX="276.0" layoutY="22.0" prefHeight="69.0" prefWidth="160.0" stylesheets="@style.css" />
+      <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />
+      <VBox id="menu" fx:id="vboxLateral" prefHeight="801.0" prefWidth="415.0" stylesheets="@style.css">
+         <children>
+            <Button id="buttonOptions" fx:id="Open" mnemonicParsing="false" onAction="#Open" stylesheets="@style.css">
+               <graphic>
+                  <ImageView fitHeight="136.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true" x="14.0" y="-20.0">
+                     <image>
+                        <Image url="@img/diamond2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets bottom="52.0" right="55.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="funcionario" fx:id="funcionario" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#funcionario" prefHeight="54.0" prefWidth="314.0" stylesheets="@style.css" text="Funcionário">
+               <graphic>
+                  <ImageView id="img" fx:id="img1" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/funcionarios.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Region maxWidth="300.0" prefHeight="21.0" prefWidth="438.0" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Region>
+            <Button id="Novavenda" fx:id="venda" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#venda" prefHeight="54.0" prefWidth="314.0" stylesheets="@style.css" text="Nova venda">
+               <graphic>
+                  <ImageView fx:id="img2" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/novavenda.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Region maxWidth="300.0" prefHeight="21.0" prefWidth="438.0" VBox.vgrow="NEVER" />
+            <Button id="Produtos" fx:id="produtos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#produtos" prefHeight="54.0" prefWidth="314.0" stylesheets="@style.css" text="Produtos">
+               <graphic>
+                  <ImageView fx:id="img3" fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/produtos.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Region maxWidth="300.0" prefHeight="21.0" prefWidth="438.0" VBox.vgrow="NEVER" />
+            <Button id="Fornecedores" fx:id="fornecedores" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#fornecedores" prefHeight="54.0" prefWidth="314.0" stylesheets="@style.css" text="Fornecedores">
+               <graphic>
+                  <ImageView fx:id="img4" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/fornecedores.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Region maxWidth="300.0" prefHeight="21.0" prefWidth="438.0" VBox.vgrow="NEVER" />
+            <Button id="Despesas" fx:id="despesas" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#despesas" prefHeight="54.0" prefWidth="314.0" stylesheets="@style.css" text="Despesas">
+               <graphic>
+                  <ImageView fx:id="img5" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/despesas.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Region maxWidth="300.0" prefHeight="21.0" prefWidth="438.0" VBox.vgrow="NEVER" />
+            <Button id="VideoAulas" fx:id="videos" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#videos" prefHeight="54.0" prefWidth="314.0" stylesheets="@style.css" text="Video Aulas">
+               <graphic>
+                  <ImageView fx:id="img6" fitHeight="50.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/videos.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Region maxWidth="300.0" prefHeight="58.0" prefWidth="300.0" />
+            <Label id="user" fx:id="userName" alignment="CENTER" prefHeight="57.0" prefWidth="188.0" stylesheets="@style.css">
+               <VBox.margin>
+                  <Insets bottom="-110.0" left="-277.0" />
+               </VBox.margin>
+            </Label>
+            <Button id="sair" fx:id="voltar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#voltar" prefHeight="41.0" prefWidth="81.0" stylesheets="@style.css" text="Sair">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets bottom="-91.0" left="250.0" top="63.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <ImageView id="userGR" fitHeight="31.0" fitWidth="43.0" layoutX="10.0" layoutY="758.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/user1.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -48,13 +48,8 @@ public class Main extends Application {
             }else{
                 logincenter(primaryStage);
             }
-            if (fxpath.equals("/menu.fxml")){
-                PauseTransition pause = new PauseTransition(Duration.seconds(3));
-                pause.setOnFinished(event -> primaryStage.setScene(scene));
-                pause.play();
-            }else {
-                primaryStage.setScene(scene);
-            }
+            primaryStage.setScene(scene);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

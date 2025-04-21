@@ -4,6 +4,7 @@ import DAOclass.RegisterProdutoDao;
 import Models.Fornecedor;
 import Models.Sessao;
 import Models.entradasEsaidas;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,7 +14,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -46,6 +49,21 @@ public class ProdutoController {
     private ImageView img5;
     @FXML
     private ImageView img6;
+
+    @FXML
+    private VBox vboxLateral;
+    @FXML
+    private Button Open;
+
+    private boolean menuAberto = true;
+    private boolean OpenPosition = false;
+
+    private double larguraMenu = 415;
+    private double distancia = 165;
+    private double distanciaImg = 250;
+    private double distanciaUser = 180;
+
+
     @FXML
     private Button funcionario;
     @FXML
@@ -58,6 +76,8 @@ public class ProdutoController {
     private Button despesas;
     @FXML
     private Button videos;
+    @FXML
+    private Button voltar;
     @FXML
     private MenuButton categoria;
     @FXML
@@ -79,6 +99,21 @@ public class ProdutoController {
     @FXML
     public void initialize() throws SQLException {
         if(funcionario!=null){
+
+            larguraMenu = vboxLateral.getPrefWidth();
+            menuAberto = false;
+            vboxLateral.setTranslateX(-larguraMenu + 100);
+            Open.setTranslateX(distancia);
+            voltar.setTranslateX(-80);
+            img1.setTranslateX(distanciaImg);
+            img2.setTranslateX(distanciaImg);
+            img3.setTranslateX(distanciaImg);
+            img4.setTranslateX(distanciaImg);
+            img5.setTranslateX(distanciaImg);
+            img6.setTranslateX(distanciaImg);
+            userName.setTranslateX(distanciaUser);
+            OpenPosition = true;
+
             Map<Button, ImageView> hoverMap = Map.of(
                     funcionario, img1,
                     venda, img2,
@@ -213,4 +248,57 @@ public class ProdutoController {
         categoria.setText("Perfumes");
     }
 
+    public void Open(ActionEvent actionEvent) {
+        TranslateTransition transicao = new TranslateTransition(Duration.millis(300),vboxLateral);
+        TranslateTransition transicaoSair = new TranslateTransition(Duration.millis(300),voltar);
+        if (menuAberto) {
+            transicao.setToX(-larguraMenu + 100);
+            transicaoSair.setToX(-80);
+        }
+        else {
+            transicao.setToX(0);
+            transicaoSair.setToX(0);
+        }
+        transicao.play();
+        transicaoSair.play();
+        menuAberto = !menuAberto;
+
+        TranslateTransition transicaobutton = new TranslateTransition(Duration.millis(300),Open);
+        TranslateTransition transicaoimg1 = new TranslateTransition(Duration.millis(300),img1);
+        TranslateTransition transicaoimg2 = new TranslateTransition(Duration.millis(300),img2);
+        TranslateTransition transicaoimg3 = new TranslateTransition(Duration.millis(300),img3);
+        TranslateTransition transicaoimg4 = new TranslateTransition(Duration.millis(300),img4);
+        TranslateTransition transicaoimg5 = new TranslateTransition(Duration.millis(300),img5);
+        TranslateTransition transicaoimg6 = new TranslateTransition(Duration.millis(300),img6);
+        TranslateTransition transicaoUser = new TranslateTransition(Duration.millis(300),userName);
+        if (!OpenPosition){
+            transicaobutton.setToX(distancia);
+            transicaoimg1.setToX(distanciaImg);
+            transicaoimg2.setToX(distanciaImg);
+            transicaoimg3.setToX(distanciaImg);
+            transicaoimg4.setToX(distanciaImg);
+            transicaoimg5.setToX(distanciaImg);
+            transicaoimg6.setToX(distanciaImg);
+            transicaoUser.setToX(distanciaUser);
+        }
+        else {
+            transicaobutton.setToX(0);
+            transicaoimg1.setToX(0);
+            transicaoimg2.setToX(0);
+            transicaoimg3.setToX(0);
+            transicaoimg4.setToX(0);
+            transicaoimg5.setToX(0);
+            transicaoimg6.setToX(0);
+            transicaoUser.setToX(0);
+        }
+        transicaobutton.play();
+        transicaoimg1.play();
+        transicaoimg2.play();
+        transicaoimg3.play();
+        transicaoimg4.play();
+        transicaoimg5.play();
+        transicaoimg6.play();
+        transicaoUser.play();
+        OpenPosition = !OpenPosition;
+    }
 }

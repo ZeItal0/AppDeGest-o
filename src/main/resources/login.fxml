@@ -24,29 +24,29 @@
                   <Image url="@img/necklace.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="199.0" fitWidth="303.0" layoutX="-5.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="48.0" fitWidth="227.0" layoutX="68.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/SistemaDegestao.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <ImageView fitHeight="122.0" fitWidth="177.0" layoutX="61.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="129.0" fitWidth="194.0" layoutX="-28.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/diamond2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="459.0" fitWidth="533.0" layoutX="533.0" layoutY="90.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="13.0">
+      <ImageView fitHeight="459.0" fitWidth="533.0" layoutX="181.0" layoutY="90.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="13.0">
          <image>
             <Image url="@img/detail6.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="195.0" layoutX="405.0" layoutY="-4.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="75.0">
+      <ImageView fitHeight="200.0" fitWidth="195.0" layoutX="268.0" layoutY="-5.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="85.0">
          <image>
             <Image url="@img/detail2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="459.0" fitWidth="533.0" layoutX="166.0" layoutY="91.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="-13.0">
+      <ImageView fitHeight="459.0" fitWidth="533.0" layoutX="519.0" layoutY="91.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="-13.0">
          <image>
             <Image url="@img/detail4.png" />
          </image>
@@ -64,25 +64,16 @@
          </image>
       </ImageView>
       <Button id="enter" fx:id="enter" layoutX="80.0" layoutY="370.0" mnemonicParsing="false" onAction="#enter" prefHeight="48.0" prefWidth="139.0" styleClass="style.css" stylesheets="@style.css" text="Entrar" />
-      <Button id="closed" layoutX="814.0" layoutY="35.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/close.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <TextField id="login" fx:id="user" layoutX="70.0" layoutY="245.0" prefHeight="25.0" prefWidth="177.0" promptText="usuário" styleClass="style.css" stylesheets="@style.css" />
       <TextField id="password" fx:id="password" layoutX="70.0" layoutY="282.0" prefHeight="25.0" prefWidth="177.0" promptText="senha" styleClass="style.css" stylesheets="@style.css" />
-      <Label id="text-1" layoutX="35.0" layoutY="200.0" prefHeight="20.0" prefWidth="100.0" stylesheets="@style.css" text="Para acessar o sistema" />
+      <Label id="text-1" layoutX="35.0" layoutY="190.0" prefHeight="20.0" prefWidth="100.0" stylesheets="@style.css" text="Para acessar o sistema" />
       <ImageView fitHeight="129.0" fitWidth="380.0" layoutX="473.0" layoutY="89.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/Seja.png" />
          </image>
       </ImageView>
-      <Label id="text-2" layoutX="36.0" layoutY="210.0" prefHeight="20.0" prefWidth="100.0" stylesheets="@style.css" text="digite login e senha." />
-      <ImageView fitHeight="200.0" fitWidth="195.0" layoutX="557.0" layoutY="-4.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="-75.0">
+      <Label id="text-2" layoutX="36.0" layoutY="204.0" prefHeight="20.0" prefWidth="100.0" stylesheets="@style.css" text="digite login e senha." />
+      <ImageView fitHeight="200.0" fitWidth="195.0" layoutX="695.0" layoutY="-6.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="-85.0">
          <image>
             <Image url="@img/detail3.png" />
          </image>
@@ -97,5 +88,14 @@
             <Image url="@img/gG.png" />
          </image>
       </ImageView>
+      <Button id="closed" layoutX="814.0" layoutY="35.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
