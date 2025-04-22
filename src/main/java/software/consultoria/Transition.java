@@ -1,6 +1,8 @@
 package software.consultoria;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -33,6 +35,36 @@ public class Transition {
         fadeIn.play();
     }
 
+    public void animarMenu(boolean menuAberto, double larguraMenu, Node vboxLateral, Node voltar){
+        TranslateTransition transicao = new TranslateTransition(Duration.millis(300),vboxLateral);
+        TranslateTransition transicaoSair = new TranslateTransition(Duration.millis(300),voltar);
+        if (menuAberto) {
+            transicao.setToX(-larguraMenu + 100);
+            transicaoSair.setToX(-80);
+        }
+        else {
+            transicao.setToX(0);
+            transicaoSair.setToX(0);
+        }
+        transicao.play();
+        transicaoSair.play();
+    }
+    public void animarComponentes(boolean openPosition, double destanciaBotao,double distanciaImg, double distanciaUser, Node botao, Node[] imagens,Node userName){
+        TranslateTransition transitionBotao = new TranslateTransition(Duration.millis(300),botao);
+        TranslateTransition transitionUser = new TranslateTransition(Duration.millis(300),userName);
+
+        transitionBotao.setToX(openPosition ? 0 : destanciaBotao);
+        transitionUser.setToX(openPosition ? 0 : distanciaUser);
+        transitionBotao.play();
+        transitionUser.play();
+
+        for (Node img: imagens){
+            TranslateTransition transitionImg = new TranslateTransition(Duration.millis(300),img);
+            transitionImg.setToX(openPosition ? 0 : distanciaImg);
+            transitionImg.play();
+        }
+
+    }
 
 
 }

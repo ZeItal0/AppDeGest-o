@@ -8,6 +8,7 @@ import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -454,9 +455,6 @@ public class MainController {
     }
 
 
-
-
-
     public void cadastrarvenda(ActionEvent actionEvent) {
         main.carregarCena("/RegistrarVendas.fxml");
     }
@@ -468,56 +466,11 @@ public class MainController {
 
     //Metodo para fazer o efeito retratil do menu principal//
     public void Open(ActionEvent actionEvent) {
-        TranslateTransition transicao = new TranslateTransition(Duration.millis(300),vboxLateral);
-        TranslateTransition transicaoSair = new TranslateTransition(Duration.millis(300),voltar);
-        if (menuAberto) {
-            transicao.setToX(-larguraMenu + 100);
-            transicaoSair.setToX(-80);
-        }
-        else {
-            transicao.setToX(0);
-            transicaoSair.setToX(0);
-        }
-        transicao.play();
-        transicaoSair.play();
+        transition.animarMenu(menuAberto,larguraMenu,vboxLateral,voltar);
         menuAberto = !menuAberto;
 
-        TranslateTransition transicaobutton = new TranslateTransition(Duration.millis(300),Open);
-        TranslateTransition transicaoimg1 = new TranslateTransition(Duration.millis(300),img1);
-        TranslateTransition transicaoimg2 = new TranslateTransition(Duration.millis(300),img2);
-        TranslateTransition transicaoimg3 = new TranslateTransition(Duration.millis(300),img3);
-        TranslateTransition transicaoimg4 = new TranslateTransition(Duration.millis(300),img4);
-        TranslateTransition transicaoimg5 = new TranslateTransition(Duration.millis(300),img5);
-        TranslateTransition transicaoimg6 = new TranslateTransition(Duration.millis(300),img6);
-        TranslateTransition transicaoUser = new TranslateTransition(Duration.millis(300),userName);
-        if (!OpenPosition){
-            transicaobutton.setToX(distancia);
-            transicaoimg1.setToX(distanciaImg);
-            transicaoimg2.setToX(distanciaImg);
-            transicaoimg3.setToX(distanciaImg);
-            transicaoimg4.setToX(distanciaImg);
-            transicaoimg5.setToX(distanciaImg);
-            transicaoimg6.setToX(distanciaImg);
-            transicaoUser.setToX(distanciaUser);
-        }
-        else {
-            transicaobutton.setToX(0);
-            transicaoimg1.setToX(0);
-            transicaoimg2.setToX(0);
-            transicaoimg3.setToX(0);
-            transicaoimg4.setToX(0);
-            transicaoimg5.setToX(0);
-            transicaoimg6.setToX(0);
-            transicaoUser.setToX(0);
-        }
-        transicaobutton.play();
-        transicaoimg1.play();
-        transicaoimg2.play();
-        transicaoimg3.play();
-        transicaoimg4.play();
-        transicaoimg5.play();
-        transicaoimg6.play();
-        transicaoUser.play();
+        Node[] imagens = {img1,img2,img3,img4,img5,img6};
+        transition.animarComponentes(OpenPosition,distancia,distanciaImg,distanciaUser,Open,imagens,userName);
         OpenPosition = !OpenPosition;
     }
 }

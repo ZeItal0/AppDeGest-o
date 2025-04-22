@@ -36,19 +36,9 @@
             <Image url="@img/diamond2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="459.0" fitWidth="533.0" layoutX="181.0" layoutY="90.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="13.0">
+      <ImageView fitHeight="640.0" fitWidth="602.0" layoutX="289.0" layoutY="-45.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/detail6.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="195.0" layoutX="268.0" layoutY="-5.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="85.0">
-         <image>
-            <Image url="@img/detail2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="459.0" fitWidth="533.0" layoutX="519.0" layoutY="91.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="-13.0">
-         <image>
-            <Image url="@img/detail4.png" />
+            <Image url="@img/2d9d1c3dc177fe8dba874dd8dc69ad95.jpg" />
          </image>
       </ImageView>
       <Label id="b1" layoutX="35.0" layoutY="245.0" prefHeight="27.0" prefWidth="25.0" stylesheets="@style.css" />
@@ -73,17 +63,12 @@
          </image>
       </ImageView>
       <Label id="text-2" layoutX="36.0" layoutY="204.0" prefHeight="20.0" prefWidth="100.0" stylesheets="@style.css" text="digite login e senha." />
-      <ImageView fitHeight="200.0" fitWidth="195.0" layoutX="695.0" layoutY="-6.0" opacity="0.3" pickOnBounds="true" preserveRatio="true" rotate="-85.0">
-         <image>
-            <Image url="@img/detail3.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="83.0" fitWidth="150.0" layoutX="516.0" layoutY="287.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/ao.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="487.0" layoutY="322.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="56.0" fitWidth="151.0" layoutX="521.0" layoutY="322.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/gG.png" />
          </image>
