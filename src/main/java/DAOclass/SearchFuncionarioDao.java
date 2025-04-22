@@ -39,6 +39,7 @@ public class SearchFuncionarioDao {
             usuario.setDataDeRegistro(rs.getDate("data_de_cadastro").toLocalDate());
 
             Endereco endereco = new Endereco();
+            endereco.setId(rs.getInt("id"));
             endereco.setRua(rs.getString("Rua"));
             endereco.setCep(rs.getString("cep"));
             usuario.setEndereco(endereco);

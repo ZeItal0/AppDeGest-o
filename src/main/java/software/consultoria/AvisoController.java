@@ -20,12 +20,16 @@ public class AvisoController {
     @FXML
     private Pane pane;
 
+    private Stage stage;
+
     private Transition transition = new Transition();
 
     private PauseTransition pause = new PauseTransition(Duration.seconds(3));
 
     @FXML
     private Label MENSAGEM;
+    private boolean confirmado = false;
+    private String mensagemDoAviso;
 
 
     @FXML
@@ -41,8 +45,6 @@ public class AvisoController {
 
     }
 
-    private String mensagemDoAviso;
-
     public void avisoMensagem(String mensagem){
         this.mensagemDoAviso = mensagem;
         if (MENSAGEM != null) {
@@ -55,5 +57,26 @@ public class AvisoController {
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+    }
+
+    public void setStage(Stage stage){
+        this.stage = stage;
+    }
+
+    public boolean isConfirmado(){
+        return confirmado;
+    }
+
+    public void trueAction(ActionEvent actionEvent) {
+        confirmado = true;
+        if (stage != null){
+            stage.close();
+        }
+    }
+    public void falseAction(ActionEvent actionEvent) {
+        confirmado = false;
+        if (stage != null){
+            stage.close();
+        }
     }
 }

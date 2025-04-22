@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="pane" prefHeight="136.0" prefWidth="148.0" style="-fx-background-color: transparent;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.AvisoController">
+<Pane fx:id="pane" prefHeight="169.0" prefWidth="182.0" style="-fx-background-color: transparent;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.AvisoController">
    <children>
-      <ImageView fitHeight="129.0" fitWidth="132.0" layoutX="13.0" layoutY="4.0" opacity="0.73" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="159.0" fitWidth="175.0" layoutX="13.0" layoutY="4.0" opacity="0.73" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/check.png" />
          </image>
+         <effect>
+            <Bloom threshold="0.22" />
+         </effect>
       </ImageView>
    </children>
 </Pane>

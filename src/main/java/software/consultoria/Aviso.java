@@ -34,6 +34,29 @@ public class Aviso {
             e.printStackTrace();
         }
     }
+    public static boolean mostrarTrueAndFalse(String mensagem,String fxpath){
+        try {
+            FXMLLoader loader = new FXMLLoader(Aviso.class.getResource(fxpath));
+            Parent root = loader.load();
+            AvisoController controller = loader.getController();
+            controller.avisoMensagem(mensagem);
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            controller.setStage(stage);
+            centerAviso(stage, scene);
+            stage.showAndWait();
+            return controller.isConfirmado();
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
     public static void centerAviso (Stage stage, Scene scene){
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screenSize = toolkit.getScreenSize();

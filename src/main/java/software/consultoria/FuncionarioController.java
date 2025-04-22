@@ -1,5 +1,6 @@
 package software.consultoria;
 
+import DAOclass.DeleteUsuarioDao;
 import DAOclass.RegisterUsuarioDao;
 import DAOclass.SearchFuncionarioDao;
 import Models.Endereco;
@@ -227,5 +228,23 @@ public class FuncionarioController {
         Node[] imagens = {img1,img2,img3,img4,img5,img6};
         transition.animarComponentes(OpenPosition,distancia,distanciaImg,distanciaUser,Open,imagens,userName);
         OpenPosition = !OpenPosition;
+    }
+
+    public void Delete(ActionEvent actionEvent) throws SQLException {
+        Usuario funcionarioSelecionado = funcionariostableList.getSelectionModel().getSelectedItem();
+        System.out.println(funcionarioSelecionado.getEndereco().getId());
+
+        if (funcionarioSelecionado != null){
+            boolean confirmar = Aviso.mostrarTrueAndFalse("Tem certeza de deletar\n","/AlertTrueFalse.fxml");
+
+            if (confirmar){
+                DeleteUsuarioDao deleteUsuarioDao = new DeleteUsuarioDao();
+                deleteUsuarioDao.deletarFuncionario(funcionarioSelecionado.getEndereco().getId());
+                Aviso.mostrarAviso("Funcionario deletado\ncom sucesso!","/Alert.fxml");
+            }
+            funcionariostableList.getItems().remove(funcionarioSelecionado);
+        }else {
+            Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");
+        }
     }
 }
