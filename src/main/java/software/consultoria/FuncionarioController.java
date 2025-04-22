@@ -1,8 +1,9 @@
 package software.consultoria;
 
 import DAOclass.DeleteUsuarioDao;
-import DAOclass.RegisterUsuarioDao;
+import javafx.scene.control.cell.TextFieldTableCell;
 import DAOclass.SearchFuncionarioDao;
+import DAOclass.UpdateUsuarioDao;
 import Models.Endereco;
 import Models.Sessao;
 import Models.Usuario;
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -27,6 +29,7 @@ import java.time.LocalDate;
 import java.util.Map;
 
 public class FuncionarioController {
+    UpdateUsuarioDao updateUsuarioDao = new UpdateUsuarioDao();
     private Main main;
     @FXML
     private TableView<Usuario> funcionariostableList;
@@ -132,7 +135,6 @@ public class FuncionarioController {
                 }
             });
         }
-
             nfuncionario.setCellValueFactory(new PropertyValueFactory<>("nome"));
             telFuncionario.setCellValueFactory(new PropertyValueFactory<>("telefone"));
 
@@ -150,6 +152,7 @@ public class FuncionarioController {
             ObservableList<Usuario> observableList = FXCollections.observableArrayList(searchFuncionarioDao.listarusuario());
             funcionariostableList.setItems(observableList);
             main = ScreenChange.getMainInstance();
+            tabelaEditavel();
 
         userName.setText(Sessao.nome);
         if (pane != null){
@@ -246,5 +249,43 @@ public class FuncionarioController {
         }else {
             Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");
         }
+    }
+
+    public void Save(ActionEvent actionEvent) throws SQLException {
+        Usuario funcionarioSelecionado = funcionariostableList.getSelectionModel().getSelectedItem();
+        if (funcionarioSelecionado != null){
+            updateUsuarioDao.atualizarFuncionario(funcionarioSelecionado.getId(),funcionarioSelecionado.getNome(),funcionarioSelecionado.getTelefone(),funcionarioSelecionado.getEndereco().getCep(),funcionarioSelecionado.getEndereco().getRua());
+            Aviso.mostrarAviso("Atualizado com\nsucesso!","/Alert.fxml");
+        }
+        else {
+            Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");
+        }
+    }
+    public void tabelaEditavel(){
+        funcionariostableList.setEditable(true);
+
+        nfuncionario.setCellFactory(TextFieldTableCell.forTableColumn());
+        nfuncionario.setOnEditCommit(event -> {
+            Usuario usuario = event.getRowValue();
+            usuario.setNome(event.getNewValue());
+        });
+
+        telFuncionario.setCellFactory(TextFieldTableCell.forTableColumn());
+        telFuncionario.setOnEditCommit(event -> {
+            Usuario usuario = event.getRowValue();
+            usuario.setTelefone(event.getNewValue());
+        });
+
+        cepFuncionario.setCellFactory(TextFieldTableCell.forTableColumn());
+        cepFuncionario.setOnEditCommit(event -> {
+            Usuario usuario = event.getRowValue();
+            usuario.getEndereco().setCep(event.getNewValue());
+        });
+        endereco.setCellFactory(TextFieldTableCell.forTableColumn());
+        endereco.setOnEditCommit(event -> {
+            Usuario usuario = event.getRowValue();
+            usuario.getEndereco().setRua(event.getNewValue());
+        });
+
     }
 }

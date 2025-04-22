@@ -270,11 +270,26 @@
     -fx-background-color: rgba(117, 117, 117, 0.5);
     -fx-border-color: rgba(117, 117, 117, 0.5);
     -fx-border-radius: 10px;
-    -fx-background-radius: 60px;
+    -fx-background-radius: 10px;
     -fx-border-width: 2px;
     -fx-font-size: 10px;
-    -fx-text-fill: black;
+    -fx-text-fill: #979393;
     -fx-font-weight: bold;
+}
+#Save{
+    -fx-background-color: rgba(117, 117, 117, 0.5);
+    -fx-border-color: rgba(117, 117, 117, 0.5);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-font-size: 10px;
+    -fx-text-fill: #979393;
+    -fx-font-weight: bold;
+}
+#Save:hover{
+    -fx-background-color: rgba(100, 216, 125, 0.6);
+    -fx-border-color: linear-gradient(to bottom,rgba(122, 187, 136, 0.6),rgba(122, 187, 136, 0.8));
+    -fx-background-size: 9px;
 }
 #Cancelar:hover{
     -fx-background-color: rgba(196, 81, 60, 0.6);

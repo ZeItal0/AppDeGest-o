@@ -63,11 +63,20 @@
                   <Image url="@icons/search.png" />
                </image>
             </ImageView>
-            <Button id="Cancelar" alignment="CENTER" layoutX="133.0" layoutY="184.0" mnemonicParsing="false" onAction="#Delete" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="APAGAR" textFill="#979393">
+            <Button id="Cancelar" alignment="CENTER" layoutX="133.0" layoutY="230.0" mnemonicParsing="false" onAction="#Delete" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="APAGAR" textFill="#979393">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/cancel.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="Save" alignment="CENTER" layoutX="133.0" layoutY="185.0" mnemonicParsing="false" onAction="#Save" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="SALVAR" textFill="#979393">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/savelist.png" />
                      </image>
                   </ImageView>
                </graphic>
