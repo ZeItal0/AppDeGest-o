@@ -241,8 +241,8 @@ public class FuncionarioController {
                 DeleteUsuarioDao deleteUsuarioDao = new DeleteUsuarioDao();
                 deleteUsuarioDao.deletarFuncionario(funcionarioSelecionado.getEndereco().getId());
                 Aviso.mostrarAviso("Funcionario deletado\ncom sucesso!","/Alert.fxml");
+                funcionariostableList.getItems().remove(funcionarioSelecionado);
             }
-            funcionariostableList.getItems().remove(funcionarioSelecionado);
         }else {
             Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");
         }

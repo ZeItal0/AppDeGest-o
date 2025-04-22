@@ -35,6 +35,9 @@ public class DatabaseConnector {
 
             String dbUrl = "jdbc:sqlite:" + destino.toString();
             Connection conn = DriverManager.getConnection(dbUrl);
+            try (var stmt = conn.createStatement()){
+                stmt.execute("PRAGMA foreign_keys = ON");
+            }
             System.out.println("Conectado ao banco externo: " + dbUrl);
             return conn;
 
