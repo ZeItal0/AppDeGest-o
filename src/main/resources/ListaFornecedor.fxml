@@ -57,6 +57,15 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
+            <Button id="Save" alignment="CENTER" layoutX="190.0" layoutY="140.0" mnemonicParsing="false" onAction="#Save" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="SALVAR" textFill="#979393">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/savelist.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">

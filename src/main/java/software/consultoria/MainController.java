@@ -353,23 +353,32 @@ public class MainController {
 
         if (nome.isEmpty() || telefone.isEmpty() || email.isEmpty() || CNPJ.isEmpty() || cep.isEmpty() || Rua.isEmpty() || Cidade.isEmpty() || Bairro.isEmpty()){
             Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
+            return;
         }
         if (NomeFornecedor.getText().length() > 30){
             Aviso.mostrarAviso("Nome deve conter\n 30 Caracteres","/Alert.fxml");
+            return;
         }else if (Telefonefornecedor.getText().length() > 14) {
             Aviso.mostrarAviso("Telefone deve conter ate\n 14 Caracteres","/Alert.fxml");
+            return;
         }else if (Email.getText().length() > 25){
             Aviso.mostrarAviso("Email deve conter ate\n 25 Caracteres","/Alert.fxml");
+            return;
         }else if (cnpj.getText().length() > 14){
             Aviso.mostrarAviso("CNPJ deve conter ate\n 14 Caracteres","/Alert.fxml");
+            return;
         }else if (CEP.getText().length() > 8){
             Aviso.mostrarAviso("CEP deve conter ate\n 8 Caracteres","/Alert.fxml");
+            return;
         }else if (rua.getText().length() > 35){
             Aviso.mostrarAviso("rua deve conter ate\n 35 Caracteres","/Alert.fxml");
+            return;
         }else if (cidade.getText().length() > 30) {
             Aviso.mostrarAviso("Cidade deve conter ate\n 30 Caracteres","/Alert.fxml");
+            return;
         }else if (bairro.getText().length() > 25) {
             Aviso.mostrarAviso("Bairro deve conter ate\n 25 Caracteres","/Alert.fxml");
+            return;
         }
         else {
             try {
@@ -403,17 +412,23 @@ public class MainController {
 
         if (nome.isEmpty() || valor.isEmpty() || observacoes.isEmpty() || situacao.isEmpty() || pagamento.isEmpty() || data == null){
             Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
+            return;
         }
         if (nomeDespesa.getText().length() > 30){
             Aviso.mostrarAviso("Numero Maximo em\nDespesa é 30!","/Alert.fxml");
+            return;
         }else if (!valor.matches("\\d+")){
             Aviso.mostrarAviso("Somente numeros\nEm Valor!","/Alert.fxml");
+            return;
         }else if (ObservacoesDespesa.getText().length() >50){
             Aviso.mostrarAviso("Numero Maximo em\nObservações é 50!","/Alert.fxml");
+            return;
         }else if (situacao.isEmpty()){
             Aviso.mostrarAviso("Selecione uma opção\nEm situação","/Alert.fxml");
+            return;
         }else if (pagamento.isEmpty()){
             Aviso.mostrarAviso("Selecione uma opção\nEm pagamento","/Alert.fxml");
+            return;
         }
         else {
             try {

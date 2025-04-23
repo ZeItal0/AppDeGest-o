@@ -1,8 +1,6 @@
 package software.consultoria;
 
-import DAOclass.RegisterFornecedorDao;
-import DAOclass.RegisterUsuarioDao;
-import DAOclass.SearchFornecedorDao;
+import DAOclass.*;
 import Models.Fornecedor;
 import Models.Produto;
 import Models.Sessao;
@@ -17,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -88,7 +87,11 @@ public class FornecedorController {
     private Button voltar;
     @FXML
     private Pane pane;
+
     private Transition transition = new Transition();
+
+    UpdateFornecedorDao updateFornecedorDao = new UpdateFornecedorDao();
+
     @FXML
     private Label userName;
     @FXML
@@ -159,6 +162,7 @@ public class FornecedorController {
         if (pane != null){
             transition.fadeInPane(pane);
         }
+        tabelaEditavel();
         Pesquisa.textProperty().addListener((observable, oldValue, newValue) ->{
             try {
                 ObservableList<Fornecedor> filtro = searchFornecedorDao.BuscarFornecedor(newValue);
@@ -223,5 +227,52 @@ public class FornecedorController {
         Node[] imagens = {img1,img2,img3,img4,img5,img6};
         transition.animarComponentes(OpenPosition,distancia,distanciaImg,distanciaUser,Open,imagens,userName);
         OpenPosition = !OpenPosition;
+    }
+
+    public void Save(ActionEvent actionEvent) throws SQLException {
+        Fornecedor fornecedorSelecionado = fornecedorTableList.getSelectionModel().getSelectedItem();
+        if (fornecedorSelecionado != null){
+            updateFornecedorDao.atualizarFornecedor(fornecedorSelecionado.getId(),fornecedorSelecionado.getNome(),fornecedorSelecionado.getTelefone(),fornecedorSelecionado.getCnpj(),fornecedorSelecionado.getEndereco().getCep(),fornecedorSelecionado.getEndereco().getRua(),fornecedorSelecionado.getEmail());
+            Aviso.mostrarAviso("Atualizado com\nsucesso!","/Alert.fxml");
+        }
+        else {
+            Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");
+        }
+    }
+
+    public void tabelaEditavel(){
+        fornecedorTableList.setEditable(true);
+
+        nFornecedor.setCellFactory(TextFieldTableCell.forTableColumn());
+        nFornecedor.setOnEditCommit( event ->{
+            Fornecedor fornecedor = event.getRowValue();
+            fornecedor.setNome(event.getNewValue());
+        });
+        telFornecedor.setCellFactory(TextFieldTableCell.forTableColumn());
+        telFornecedor.setOnEditCommit(event ->{
+            Fornecedor fornecedor = event.getRowValue();
+            fornecedor.setTelefone(event.getNewValue());
+        });
+        CNPJ.setCellFactory(TextFieldTableCell.forTableColumn());
+        CNPJ.setOnEditCommit(event -> {
+            Fornecedor fornecedor = event.getRowValue();
+            fornecedor.setCnpj(event.getNewValue());
+        });
+        cepFornecedor.setCellFactory(TextFieldTableCell.forTableColumn());
+        cepFornecedor.setOnEditCommit(event ->{
+            Fornecedor fornecedor = event.getRowValue();
+            fornecedor.getEndereco().setCep(event.getNewValue());
+        });
+        endereco.setCellFactory(TextFieldTableCell.forTableColumn());
+        endereco.setOnEditCommit(event ->{
+            Fornecedor fornecedor = event.getRowValue();
+            fornecedor.getEndereco().setRua(event.getNewValue());
+        });
+        email.setCellFactory(TextFieldTableCell.forTableColumn());
+        email.setOnEditCommit(event ->{
+            Fornecedor fornecedor = event.getRowValue();
+            fornecedor.setEmail(event.getNewValue());
+        });
+
     }
 }
