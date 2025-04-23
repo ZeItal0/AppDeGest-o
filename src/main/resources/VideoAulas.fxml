@@ -14,17 +14,17 @@
    <children>
       <Pane id="rectangle2" layoutX="3.0" layoutY="5.0" prefHeight="789.0" prefWidth="1492.0" stylesheets="@style.css">
          <children>
-            <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-173.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+            <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-173.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
                <image>
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-169.0" layoutY="709.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+            <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-169.0" layoutY="704.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
                <image>
                   <Image url="@img/details.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="381.0" fitWidth="559.0" layoutX="-178.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true" rotate="40.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+            <ImageView fitHeight="381.0" fitWidth="559.0" layoutX="-178.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true" rotate="40.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
                <image>
                   <Image url="@img/detail4.png" />
                </image>

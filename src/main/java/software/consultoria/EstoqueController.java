@@ -2,6 +2,7 @@ package software.consultoria;
 
 import DAOclass.RegisterProdutoDao;
 import DAOclass.SearchProdutoDao;
+import DAOclass.UpdateProdutosDao;
 import Models.Categoria;
 import Models.Fornecedor;
 import Models.Produto;
@@ -17,12 +18,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.util.converter.DoubleStringConverter;
+import javafx.util.converter.IntegerStringConverter;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -30,6 +35,8 @@ import java.util.Map;
 
 public class EstoqueController {
     private Main main;
+    UpdateProdutosDao updateProdutosDao = new UpdateProdutosDao();
+    ObservableList<String> categorias = FXCollections.observableArrayList("Aneis","Relogios","Perfumes","Colar","Pulseira");
     @FXML
     private ImageView img1;
     @FXML
@@ -158,6 +165,8 @@ public class EstoqueController {
 
         main = ScreenChange.getMainInstance();
 
+        tabelaEditavel();
+
         userName.setText(Sessao.nome);
         if (pane != null){
             transition.fadeInPane(pane);
@@ -230,5 +239,58 @@ public class EstoqueController {
         Node[] imagens = {img1,img2,img3,img4,img5,img6};
         transition.animarComponentes(OpenPosition,distancia,distanciaImg,distanciaUser,Open,imagens,userName);
         OpenPosition = !OpenPosition;
+    }
+
+    public void Save(ActionEvent actionEvent) throws SQLException {
+        Produto produtoSelecionado = EstoqueList.getSelectionModel().getSelectedItem();
+        System.out.println(produtoSelecionado.getId());
+        if (produtoSelecionado != null){
+            updateProdutosDao.atualizarProdduto(produtoSelecionado.getId(),produtoSelecionado.getCategoria(),produtoSelecionado.getPreco(),produtoSelecionado.getPreco_De_venda(),produtoSelecionado.getEstoque().getQuantidade(),produtoSelecionado.getDetalhes(),produtoSelecionado.getNomeProduto());
+            Aviso.mostrarAviso("Atualizado com\nsucesso!","/Alert.fxml");
+        }
+        else {
+            Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");
+        }
+    }
+
+    public void tabelaEditavel(){
+        EstoqueList.setEditable(true);
+
+        NomeProduto.setCellFactory(TextFieldTableCell.forTableColumn());
+        NomeProduto.setOnEditCommit(event ->{
+            Produto produto = event.getRowValue();
+            produto.setNomeProduto(event.getNewValue());
+        });
+
+        Categoria.setCellFactory(ComboBoxTableCell.forTableColumn(categorias));
+        Categoria.setOnEditCommit(event -> {
+            Produto produto = event.getRowValue();
+            produto.getCategoria().setTipo_produto(event.getNewValue());
+        });
+
+        ValorDeCompra.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        ValorDeCompra.setOnEditCommit( event ->{
+            Produto produto = event.getRowValue();
+            produto.setPreco(event.getNewValue());
+        });
+
+        ValorDeVenda.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        ValorDeVenda.setOnEditCommit(event ->{
+            Produto produto = event.getRowValue();
+            produto.setPreco_De_venda(event.getNewValue());
+        });
+
+        Detalhes.setCellFactory(TextFieldTableCell.forTableColumn());
+        Detalhes.setOnEditCommit(event ->{
+            Produto produto = event.getRowValue();
+            produto.setDetalhes(event.getNewValue());
+        });
+
+        quantidade.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        quantidade.setOnEditCommit(event ->{
+            Produto produto = event.getRowValue();
+            produto.getEstoque().setQuantidade(event.getNewValue());
+        });
+
     }
 }

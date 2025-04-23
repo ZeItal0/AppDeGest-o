@@ -57,6 +57,15 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
+            <Button id="Save" alignment="CENTER" layoutX="130.0" layoutY="140.0" mnemonicParsing="false" onAction="#Save" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="SALVAR" textFill="#979393">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/savelist.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
@@ -79,7 +88,7 @@
       </Button>
     <Button id="buttonfuncionario" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR PRODUTO" />
       <Button id="lista" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#estoque" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ESTOQUE" />
-      <Label id="Text" layoutX="626.0" layoutY="127.0" prefHeight="58.0" prefWidth="312.0" stylesheets="@style.css" text="Lista do Estoque" />
+      <Label id="Text" layoutX="658.0" layoutY="11.0" prefHeight="58.0" prefWidth="312.0" stylesheets="@style.css" text="Lista do Estoque" />
       <TableView id="styleview" fx:id="EstoqueList" layoutX="133.0" layoutY="189.0" prefHeight="566.0" prefWidth="1338.0" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="NomeProduto" prefWidth="261.3333435058594" style="-fx-background-color: transparent;" text="PRODUTO" />

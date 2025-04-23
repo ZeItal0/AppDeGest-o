@@ -69,6 +69,7 @@ public class SearchProdutoDao {
             produto.setDataDeCadastro(rs.getDate("data_de_cadastro").toLocalDate());
 
             Categoria categoria = new Categoria();
+            categoria.setId(rs.getInt("id"));
             categoria.setTipo_produto(rs.getString("tipo_produto"));
             produto.setCategoria(categoria);
 
@@ -107,6 +108,7 @@ public class SearchProdutoDao {
             produto.setDataDeCadastro(rs.getDate("data_de_cadastro").toLocalDate());
 
             Categoria categoria = new Categoria();
+            categoria.setId(rs.getInt("id"));
             categoria.setTipo_produto(rs.getString("tipo_produto"));
             produto.setCategoria(categoria);
 
@@ -119,7 +121,6 @@ public class SearchProdutoDao {
             produto.setEstoque(estoque);
 
             lista.add(produto);
-
         }
         rs.close();
         pstmt.close();
