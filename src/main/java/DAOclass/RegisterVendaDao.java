@@ -11,7 +11,7 @@ import java.util.List;
 
 public class RegisterVendaDao {
     DatabaseConnector dbConnector = new DatabaseConnector();
-    UpdatesDao updatesDao = new UpdatesDao();
+    UpdateProdutosDao updateProdutosDao = new UpdateProdutosDao();
     private String sqlvenda = "INSERT INTO venda (id_forma_de_pagamento, id_funcionario, id_status_venda,data_venda) VALUES (?,?,?,?)";
     private String sqlFormaDepagamento = "INSERT INTO forma_de_pagamento (tipo_de_pagamento) VALUES (?)";
     private String sqlStatus = "INSERT INTO status_venda (status_de_venda) VALUES (?)";
@@ -73,7 +73,7 @@ public class RegisterVendaDao {
             pstmtMovimentacao.setDate(4,Date.valueOf(data));
             pstmtMovimentacao.addBatch();
 
-            updatesDao.atualizarQuantidade(item.getProduto().getId(), item.getQuantidade_itens());
+            updateProdutosDao.atualizarQuantidade(item.getProduto().getId(), item.getQuantidade_itens());
         }
         pstmtItens.executeBatch();
         pstmtMovimentacao.executeBatch();

@@ -40,4 +40,16 @@ public class UpdateProdutosDao {
         conn.close();
 
     }
+    public void atualizarQuantidade(int idProduto, int novaQuantidade) {
+        try (Connection conn = dbConnector.connect();
+             PreparedStatement psmtEstoque = conn.prepareStatement("UPDATE estoque SET quantidade = quantidade - ? WHERE id_produto = ?")) {
+            ;
+            psmtEstoque.setInt(1, novaQuantidade);
+            psmtEstoque.setInt(2, idProduto);
+            psmtEstoque.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
