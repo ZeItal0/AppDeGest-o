@@ -2,6 +2,7 @@ package software.consultoria;
 
 import DAOclass.RegisterDespesaDao;
 import DAOclass.SearchDespesasDao;
+import DAOclass.UpdateDespesaDao;
 import Models.Despesas;
 import Models.Produto;
 import javafx.animation.TranslateTransition;
@@ -13,12 +14,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.util.converter.DoubleStringConverter;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -87,11 +91,18 @@ public class DespesaController {
 
     @FXML
     private Pane pane;
+
     private Transition transition = new Transition();
+
     @FXML
     private Label userName;
     @FXML
     private TextField Pesquisa;
+
+    ObservableList<String> despesaStatus = FXCollections.observableArrayList("Pago","Pendente");
+    ObservableList<String> despesaPagamento = FXCollections.observableArrayList("Pix","Dinheiro","Debito","Credito");
+
+    UpdateDespesaDao updateDespesaDao = new UpdateDespesaDao();
 
     @FXML
     public void initialize() throws SQLException {
@@ -148,6 +159,7 @@ public class DespesaController {
         DespesasList.setItems(observableList);
         main = ScreenChange.getMainInstance();
 
+        tabelaEditavel();
         if (pane != null){
             transition.fadeInPane(pane);
         }
@@ -207,9 +219,6 @@ public class DespesaController {
 
     }
 
-    public void EditarDespesas(ActionEvent actionEvent) {
-    }
-
     public void Open(ActionEvent actionEvent) {
         transition.animarMenu(menuAberto,larguraMenu,vboxLateral,voltar);
         menuAberto = !menuAberto;
@@ -218,4 +227,48 @@ public class DespesaController {
         transition.animarComponentes(OpenPosition,distancia,distanciaImg,distanciaUser,Open,imagens,userName);
         OpenPosition = !OpenPosition;
     }
+
+    public void Save(ActionEvent actionEvent) throws SQLException {
+        Despesas despesaSelecionada = DespesasList.getSelectionModel().getSelectedItem();
+        if (despesaSelecionada != null){
+            updateDespesaDao.atualizarDespesa(despesaSelecionada.getId(),despesaSelecionada.getFormaDepagamento().getId(),despesaSelecionada.getNomeDadispesa(),despesaSelecionada.getValor(),despesaSelecionada.getObservacoes(),despesaSelecionada.getStatus(),despesaSelecionada.getFormaDepagamento().getTipoDepagamento());
+            Aviso.mostrarAviso("Atualizado com\nsucesso!","/Alert.fxml");
+        }
+        else {
+            Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");
+        }
+    }
+
+    public void tabelaEditavel(){
+        DespesasList.setEditable(true);
+
+        DESPESAS.setCellFactory(TextFieldTableCell.forTableColumn());
+        DESPESAS.setOnEditCommit(event ->{
+            Despesas despesa = event.getRowValue();
+            despesa.setNomeDadispesa(event.getNewValue());
+        });
+        VALOR.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        VALOR.setOnEditCommit(event ->{
+            Despesas despesa = event.getRowValue();
+            despesa.setValor(event.getNewValue());
+        });
+        OBSERVACOES.setCellFactory(TextFieldTableCell.forTableColumn());
+        OBSERVACOES.setOnEditCommit(event ->{
+            Despesas despesa = event.getRowValue();
+            despesa.setObservacoes(event.getNewValue());
+        });
+        STATUS.setCellFactory(ComboBoxTableCell.forTableColumn(despesaStatus));
+        STATUS.setOnEditCommit(event ->{
+            Despesas despesa = event.getRowValue();
+            despesa.setStatus(event.getNewValue());
+        });
+        PAGAMENTO.setCellFactory(ComboBoxTableCell.forTableColumn(despesaPagamento));
+        PAGAMENTO.setOnEditCommit(event ->{
+            Despesas despesa = event.getRowValue();
+            despesa.getFormaDepagamento().setTipoDepagamento(event.getNewValue());
+        });
+
+    }
+
+
 }

@@ -88,7 +88,7 @@
       </Button>
     <Button id="buttonfuncionario" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR  FORNECEDOR" />
       <Button id="lista" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#listaFornecedores" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="LISTA DE FORNECEDORES" />
-      <Label id="Text" layoutX="625.0" layoutY="116.0" prefHeight="58.0" prefWidth="303.0" stylesheets="@style.css" text="Fornecedores" />
+      <Label id="Text" layoutX="658.0" layoutY="11.0" prefHeight="58.0" prefWidth="303.0" stylesheets="@style.css" text="Fornecedores" />
       <TableView id="styleview" fx:id="fornecedorTableList" layoutX="190.0" layoutY="190.0" prefHeight="581.0" prefWidth="1158.0" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="nFornecedor" prefWidth="261.0" style="-fx-background-color: transparent;" text="NOME" />

@@ -13,45 +13,48 @@ import java.sql.*;
 public class SearchProdutoDao {
     DatabaseConnector dbConnector = new DatabaseConnector();
 
-    private String sqlProdutoslist = "SELECT \n" +
-            "    p.id,\n" +
-            "    p.nome_produto,\n" +
-            "    p.preco,\n" +
-            "    p.Preco_de_Venda,\n" +
-            "    p.detalhes_produto,\n" +
-            "    p.data_de_cadastro,\n" +
-            "    \n" +
-            "    c.tipo_produto,\n" +
-            "    \n" +
-            "    f.nome,\n" +
-            "    \n" +
-            "    e.quantidade\n" +
-            "FROM produto p\n" +
-            "JOIN categoria c ON p.id_categoria = c.id\n" +
-            "JOIN produto_fornecedor pf ON p.id = pf.id_produto\n" +
-            "JOIN fornecedor f ON pf.id_fornecedor = f.id\n" +
-            "JOIN estoque e ON p.id = e.id_produto\n" +
-            "ORDER BY p.data_de_cadastro DESC\n" +
-            "LIMIT 100;";
+    private String sqlProdutoslist = """
+    SELECT 
+        p.id AS id_produto,
+        p.nome_produto,
+        p.preco,
+        p.Preco_de_Venda,
+        p.detalhes_produto,
+        p.data_de_cadastro,
+        c.id AS id_categoria,
+        c.tipo_produto,
+        f.nome AS nome_fornecedor,
+        e.quantidade
+    FROM produto p
+    JOIN categoria c ON p.id_categoria = c.id
+    JOIN produto_fornecedor pf ON p.id = pf.id_produto
+    JOIN fornecedor f ON pf.id_fornecedor = f.id
+    JOIN estoque e ON p.id = e.id_produto
+    ORDER BY p.data_de_cadastro DESC
+    LIMIT 100;
+""";
 
-    private String sqlBusca = "SELECT \n" +
-            "    p.id,\n" +
-            "    p.nome_produto,\n" +
-            "    p.preco,\n" +
-            "    p.Preco_de_Venda,\n" +
-            "    p.detalhes_produto,\n" +
-            "    p.data_de_cadastro,\n" +
-            "    c.tipo_produto,\n" +
-            "    f.nome,\n" +
-            "    e.quantidade\n" +
-            "FROM produto p\n" +
-            "JOIN categoria c ON p.id_categoria = c.id\n" +
-            "JOIN produto_fornecedor pf ON p.id = pf.id_produto\n" +
-            "JOIN fornecedor f ON pf.id_fornecedor = f.id\n" +
-            "JOIN estoque e ON p.id = e.id_produto\n" +
-            "WHERE p.nome_produto LIKE ? OR f.nome LIKE ?\n"+
-            "ORDER BY p.data_de_cadastro DESC\n" +
-            "LIMIT 100;";
+    private String sqlBusca = """
+    SELECT 
+        p.id AS id_produto,
+        p.nome_produto,
+        p.preco,
+        p.Preco_de_Venda,
+        p.detalhes_produto,
+        p.data_de_cadastro,
+        c.id AS id_categoria,
+        c.tipo_produto,
+        f.nome AS nome_fornecedor,
+        e.quantidade
+    FROM produto p
+    JOIN categoria c ON p.id_categoria = c.id
+    JOIN produto_fornecedor pf ON p.id = pf.id_produto
+    JOIN fornecedor f ON pf.id_fornecedor = f.id
+    JOIN estoque e ON p.id = e.id_produto
+    WHERE p.nome_produto LIKE ? OR f.nome LIKE ?
+    ORDER BY p.data_de_cadastro DESC
+    LIMIT 100;
+""";
 
     public ObservableList<Produto> produtoEstoqueLIST() throws SQLException {
         ObservableList<Produto> lista = FXCollections.observableArrayList();
@@ -61,7 +64,7 @@ public class SearchProdutoDao {
 
         while (rs.next()){
             Produto produto = new Produto();
-            produto.setId(rs.getInt("id"));
+            produto.setId(rs.getInt("id_produto"));
             produto.setNomeProduto(rs.getString("nome_produto"));
             produto.setPreco(rs.getDouble("preco"));
             produto.setPreco_De_venda(rs.getDouble("Preco_de_Venda"));
@@ -69,12 +72,12 @@ public class SearchProdutoDao {
             produto.setDataDeCadastro(rs.getDate("data_de_cadastro").toLocalDate());
 
             Categoria categoria = new Categoria();
-            categoria.setId(rs.getInt("id"));
+            categoria.setId(rs.getInt("id_categoria"));
             categoria.setTipo_produto(rs.getString("tipo_produto"));
             produto.setCategoria(categoria);
 
             Fornecedor fornecedor = new Fornecedor();
-            fornecedor.setNome(rs.getString("nome"));
+            fornecedor.setNome(rs.getString("nome_fornecedor"));
             produto.setFornecedor(fornecedor);
 
             Estoque estoque = new Estoque();
@@ -100,7 +103,7 @@ public class SearchProdutoDao {
         ResultSet rs = pstmt.executeQuery();
         while (rs.next()){
             Produto produto = new Produto();
-            produto.setId(rs.getInt("id"));
+            produto.setId(rs.getInt("id_produto"));
             produto.setNomeProduto(rs.getString("nome_produto"));
             produto.setPreco(rs.getDouble("preco"));
             produto.setPreco_De_venda(rs.getDouble("Preco_de_Venda"));
@@ -108,12 +111,12 @@ public class SearchProdutoDao {
             produto.setDataDeCadastro(rs.getDate("data_de_cadastro").toLocalDate());
 
             Categoria categoria = new Categoria();
-            categoria.setId(rs.getInt("id"));
+            categoria.setId(rs.getInt("id_categoria"));
             categoria.setTipo_produto(rs.getString("tipo_produto"));
             produto.setCategoria(categoria);
 
             Fornecedor fornecedor = new Fornecedor();
-            fornecedor.setNome(rs.getString("nome"));
+            fornecedor.setNome(rs.getString("nome_fornecedor"));
             produto.setFornecedor(fornecedor);
 
             Estoque estoque = new Estoque();

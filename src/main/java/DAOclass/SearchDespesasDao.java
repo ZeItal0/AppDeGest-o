@@ -11,6 +11,8 @@ import java.sql.*;
 public class SearchDespesasDao {
     DatabaseConnector dbConnector = new DatabaseConnector();
     private String sqlDespesasList = "SELECT \n" +
+            "    h.id AS id_despesa,\n" +
+            "    f.id AS id_pagamento,\n" +
             "    f.tipo_de_pagamento ,\n" +
             "    h.nome_despesa,\n" +
             "    h.data_despesa,\n" +
@@ -25,6 +27,8 @@ public class SearchDespesasDao {
             "LIMIT 100;";
 
     private String sqlBusca = "SELECT \n" +
+            "    h.id AS id_despesa,\n" +
+            "    f.id AS id_pagamento,\n" +
             "    f.tipo_de_pagamento,\n" +
             "    h.nome_despesa,\n" +
             "    h.data_despesa,\n" +
@@ -48,12 +52,14 @@ public class SearchDespesasDao {
 
         while (rs.next()){
             Despesas despesas = new Despesas();
+            despesas.setId(rs.getInt("id_despesa"));
             despesas.setNomeDadispesa(rs.getString("nome_despesa"));
             despesas.setData(rs.getDate("data_despesa").toLocalDate());
             despesas.setValor(rs.getDouble("valor_da_despesa"));
             despesas.setObservacoes(rs.getString("observacoes"));
             despesas.setStatus(rs.getString("status_da_despesa"));
             FormaDepagamento formaDepagamento = new FormaDepagamento();
+            formaDepagamento.setId(rs.getInt("id_pagamento"));
             formaDepagamento.setTipoDepagamento(rs.getString("tipo_de_pagamento"));
             despesas.setFormaDepagamento(formaDepagamento);
             lista.add(despesas);
@@ -77,12 +83,14 @@ public class SearchDespesasDao {
 
         while (rs.next()){
             Despesas despesas = new Despesas();
+            despesas.setId(rs.getInt("id_despesa"));
             despesas.setNomeDadispesa(rs.getString("nome_despesa"));
             despesas.setData(rs.getDate("data_despesa").toLocalDate());
             despesas.setValor(rs.getDouble("valor_da_despesa"));
             despesas.setObservacoes(rs.getString("observacoes"));
             despesas.setStatus(rs.getString("status_da_despesa"));
             FormaDepagamento formaDepagamento = new FormaDepagamento();
+            formaDepagamento.setId(rs.getInt("id_pagamento"));
             formaDepagamento.setTipoDepagamento(rs.getString("tipo_de_pagamento"));
             despesas.setFormaDepagamento(formaDepagamento);
             lista.add(despesas);

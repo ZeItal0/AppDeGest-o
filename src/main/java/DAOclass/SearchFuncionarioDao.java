@@ -12,18 +12,23 @@ public class SearchFuncionarioDao {
 
     DatabaseConnector dbConnector = new DatabaseConnector();
 
-    private String sqlist = "SELECT u.id, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro, " + "e.Rua, e.cep " + "FROM usuario u " + "JOIN endereco e ON u.id_endereco = e.id " + "ORDER BY u.data_de_cadastro DESC " +
-            "LIMIT 100;";
+    private String sqlist = """
+                SELECT u.id AS id_usuario, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro,
+                       e.id AS id_endereco, e.Rua, e.cep
+                FROM usuario u
+                JOIN endereco e ON u.id_endereco = e.id
+                ORDER BY u.data_de_cadastro DESC
+                LIMIT 100;
+            """;
     private String sqlBusca = """
-                SELECT u.id, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro,
-                       e.Rua, e.cep
+                SELECT u.id AS id_usuario, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro,
+                       e.id AS id_endereco, e.Rua, e.cep
                 FROM usuario u
                 JOIN endereco e ON u.id_endereco = e.id
                 WHERE u.nome LIKE ?
                 ORDER BY u.data_de_cadastro DESC
                 LIMIT 100;
             """;
-
 
     public ObservableList<Usuario> listarusuario() throws SQLException {
         ObservableList<Usuario> lista = FXCollections.observableArrayList();
@@ -32,14 +37,14 @@ public class SearchFuncionarioDao {
         ResultSet rs = stmt.executeQuery(sqlist);
         while (rs.next()){
             Usuario usuario = new Usuario();
-            usuario.setId(rs.getInt("id"));
+            usuario.setId(rs.getInt("id_usuario"));
             usuario.setNome(rs.getString("nome"));
             usuario.setTelefone(rs.getString("telefone"));
             usuario.setDataDeNascimento(rs.getDate("data_de_nascimento").toLocalDate());
             usuario.setDataDeRegistro(rs.getDate("data_de_cadastro").toLocalDate());
 
             Endereco endereco = new Endereco();
-            endereco.setId(rs.getInt("id"));
+            endereco.setId(rs.getInt("id_endereco"));
             endereco.setRua(rs.getString("Rua"));
             endereco.setCep(rs.getString("cep"));
             usuario.setEndereco(endereco);
@@ -61,13 +66,14 @@ public class SearchFuncionarioDao {
 
         while (rs.next()){
             Usuario usuario = new Usuario();
-            usuario.setId(rs.getInt("id"));
+            usuario.setId(rs.getInt("id_usuario"));
             usuario.setNome(rs.getString("nome"));
             usuario.setTelefone(rs.getString("telefone"));
             usuario.setDataDeNascimento(rs.getDate("data_de_nascimento").toLocalDate());
             usuario.setDataDeRegistro(rs.getDate("data_de_cadastro").toLocalDate());
 
             Endereco endereco = new Endereco();
+            endereco.setId(rs.getInt("id_endereco"));
             endereco.setRua(rs.getString("Rua"));
             endereco.setCep(rs.getString("cep"));
             usuario.setEndereco(endereco);
