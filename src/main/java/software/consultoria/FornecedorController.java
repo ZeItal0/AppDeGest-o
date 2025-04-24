@@ -233,7 +233,7 @@ public class FornecedorController {
         Fornecedor fornecedorSelecionado = fornecedorTableList.getSelectionModel().getSelectedItem();
         if (fornecedorSelecionado != null){
             updateFornecedorDao.atualizarFornecedor(fornecedorSelecionado.getId(),fornecedorSelecionado.getNome(),fornecedorSelecionado.getTelefone(),fornecedorSelecionado.getCnpj(),fornecedorSelecionado.getEndereco().getCep(),fornecedorSelecionado.getEndereco().getRua(),fornecedorSelecionado.getEmail());
-            Aviso.mostrarAviso("Atualizado com\nsucesso!","/Alert.fxml");
+            Aviso.mostrarAviso("Atualizado com\nsucesso!","/confirmarEditado.fxml");
         }
         else {
             Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");

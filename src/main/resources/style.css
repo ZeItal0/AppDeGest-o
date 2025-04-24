@@ -396,10 +396,20 @@
     -fx-border-color: transparent;
     -fx-border-radius: 30px;
 }
+#PaneConfirm {
+    -fx-background-color: linear-gradient(to bottom,rgba(51, 180, 0, 0.7),rgba(149, 255, 0, 0.7),rgba(149, 215, 0, 0.7));
+    -fx-background-radius: 0px;
+    -fx-border-color: transparent;
+    -fx-border-radius: 30px;
+}
 #alert{
     -fx-font-weight: bold; 
 }
 #alerttext{
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(to bottom,rgba(180, 126, 0, 0.5),rgba(255, 215, 0, 0.5),rgba(255, 215, 0, 0.5));
+}
+#alertConfirm{
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(to bottom,rgba(180, 126, 0, 0.5),rgba(255, 215, 0, 0.5),rgba(255, 215, 0, 0.5));
 }

@@ -232,7 +232,7 @@ public class DespesaController {
         Despesas despesaSelecionada = DespesasList.getSelectionModel().getSelectedItem();
         if (despesaSelecionada != null){
             updateDespesaDao.atualizarDespesa(despesaSelecionada.getId(),despesaSelecionada.getFormaDepagamento().getId(),despesaSelecionada.getNomeDadispesa(),despesaSelecionada.getValor(),despesaSelecionada.getObservacoes(),despesaSelecionada.getStatus(),despesaSelecionada.getFormaDepagamento().getTipoDepagamento());
-            Aviso.mostrarAviso("Atualizado com\nsucesso!","/Alert.fxml");
+            Aviso.mostrarAviso("Atualizado com\nsucesso!","/confirmarEditado.fxml");
         }
         else {
             Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");

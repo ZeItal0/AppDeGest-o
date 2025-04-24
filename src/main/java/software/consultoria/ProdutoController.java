@@ -215,22 +215,30 @@ public class ProdutoController {
 
         if (Nome.isEmpty() || Quantidade.isEmpty() || ValorInvestido.isEmpty() || ValorDeVenda.isEmpty() || Categoria.isEmpty() || Detalhes.isEmpty()){
             Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
+            return;
         }
         if (idfornecedor == null){
             Aviso.mostrarAviso("Selecione um vendedor!","/Alert.fxml");
+            return;
         }
         if (nomeProduto.getText().length() > 30){
             Aviso.mostrarAviso("Numero Maximo em\nNome é 30!","/Alert.fxml");
+            return;
         }else if (!quantidade.getText().matches("\\d+(\\.\\d+)?")){
             Aviso.mostrarAviso("Somente numeros\nEm quantidade!","/Alert.fxml");
+            return;
         }else if (!valorInvestido.getText().matches("\\d+(\\.\\d+)?")){
             Aviso.mostrarAviso("Somente numeros em\nValor investido!","/Alert.fxml");
+            return;
         }else if (!valorDeVenda.getText().matches("\\d+(\\.\\d+)?")){
             Aviso.mostrarAviso("Somente numeros em\nValor de venda!","/Alert.fxml");
-        }else if (categoria.getText().isEmpty()){
+            return;
+        }else if (categoria.getText().isEmpty() || categoria.getText().equals("Categoria")){
             Aviso.mostrarAviso("Selecione uma opção\nEm categoria!","/Alert.fxml");
+            return;
         }else if (detalhes.getText().length() > 50){
             Aviso.mostrarAviso("Numero Maximo em\nObservações é 50!","/Alert.fxml");
+            return;
         }
 
         else{

@@ -246,7 +246,7 @@ public class EstoqueController {
         System.out.println(produtoSelecionado.getId());
         if (produtoSelecionado != null){
             updateProdutosDao.atualizarProdduto(produtoSelecionado.getId(),produtoSelecionado.getCategoria(),produtoSelecionado.getPreco(),produtoSelecionado.getPreco_De_venda(),produtoSelecionado.getEstoque().getQuantidade(),produtoSelecionado.getDetalhes(),produtoSelecionado.getNomeProduto());
-            Aviso.mostrarAviso("Atualizado com\nsucesso!","/Alert.fxml");
+            Aviso.mostrarAviso("Atualizado com\nsucesso!","/confirmarEditado.fxml");
         }
         else {
             Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");

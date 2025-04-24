@@ -255,7 +255,7 @@ public class FuncionarioController {
         Usuario funcionarioSelecionado = funcionariostableList.getSelectionModel().getSelectedItem();
         if (funcionarioSelecionado != null){
             updateUsuarioDao.atualizarFuncionario(funcionarioSelecionado.getId(),funcionarioSelecionado.getNome(),funcionarioSelecionado.getTelefone(),funcionarioSelecionado.getEndereco().getCep(),funcionarioSelecionado.getEndereco().getRua());
-            Aviso.mostrarAviso("Atualizado com\nsucesso!","/Alert.fxml");
+            Aviso.mostrarAviso("Atualizado com\nsucesso!","/confirmarEditado.fxml");
         }
         else {
             Aviso.mostrarAviso("Selecione um item\nda lista!","/Alert.fxml");

@@ -335,7 +335,7 @@ public class VendaRegisterController {
             Aviso.mostrarAviso("Adicione um produto\n    da lista!","/Alert.fxml");
             return;
         }
-        if (FormaDepagamento.getText().isEmpty()){
+        if (FormaDepagamento.getText().isEmpty() || FormaDepagamento.getText().equals("FORMA DE PAGAMENTO")){
             Aviso.mostrarAviso("Selecione a forma\n    de Pagamento!","/Alert.fxml");
             return;
         }
