@@ -21,6 +21,7 @@ public class Main extends Application {
     //metodo start carrega a primeira cena//
     @Override
     public void start(Stage primaryStage) {
+        Aviso.mostrarAviso("","/loading.fxml");
         this.primaryStage = primaryStage;
         primaryStage.initStyle(StageStyle.UNDECORATED);
         ScreenChange.setMainInstance(this);
@@ -39,6 +40,9 @@ public class Main extends Application {
             Image cursorImage = new Image(getClass().getResourceAsStream("/cursor/goldcursor.png"));
             ImageCursor goldCursor = new ImageCursor(cursorImage);
             root.setCursor(goldCursor);
+            if (fxpath == "/menu.fxml"){
+                Aviso.mostrarAviso("","/loading.fxml");
+            }
             if (fxpath != "/login.fxml"){
                 centerScene(primaryStage,scene);
             }else{

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="paneLoad" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" prefWidth="86.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.AvisoController">
+   <children>
+      <ProgressIndicator id="meuProgress" fx:id="meuProgress" layoutX="17.0" layoutY="15.0" prefHeight="59.0" prefWidth="56.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
+         <effect>
+            <Glow level="1.0" />
+         </effect></ProgressIndicator>
+   </children>
+</Pane>

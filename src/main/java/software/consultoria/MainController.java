@@ -185,9 +185,7 @@ public class MainController {
             transition.fadeInButtonsOptions(buttonone);
             transition.fadeInButtonsOptions(buttontwo);
         }
-        if (AnchorPane!=null){
-            transition.fadeInPane(AnchorPane);
-        }
+
 
         main = ScreenChange.getMainInstance();
     }

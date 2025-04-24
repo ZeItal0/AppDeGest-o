@@ -4,6 +4,7 @@ import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import javafx.scene.control.Label;
@@ -19,12 +20,15 @@ public class AvisoController {
 
     @FXML
     private Pane pane;
+    @FXML
+    private Pane paneLoad;
 
     private Stage stage;
 
     private Transition transition = new Transition();
 
     private PauseTransition pause = new PauseTransition(Duration.seconds(3));
+    private PauseTransition pausestack = new PauseTransition(Duration.seconds(6));
 
     @FXML
     private Label MENSAGEM;
@@ -41,6 +45,13 @@ public class AvisoController {
                 stage.close();
             });
             pause.play();
+        }
+        if (paneLoad != null){
+            pausestack.setOnFinished(event ->{
+                Stage stage = (Stage) paneLoad.getScene().getWindow();
+                stage.close();
+            });
+            pausestack.play();
         }
 
     }

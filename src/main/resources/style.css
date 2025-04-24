@@ -46,17 +46,24 @@
     -fx-border-color: linear-gradient(to right, black 32.4%,  #B47E00 32.4%);
 }
 #closed {
-    -fx-border-radius:50%;
+    -fx-border-radius: 50%;
     -fx-background-color: transparent;
-    -fx-border-color: white;
     -fx-border-width: 3px;
     -fx-border-color: radial-gradient(center 90% 100%, radius 50%, black 10%, #B47E00 100%);
     -fx-font-size: 9px;
     -fx-background-radius: 60px;
+    -fx-text-fill: #B47E00;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #00000099, 4, 0.5, 2, 2);
+    -fx-padding: 6px;
+    -fx-transition: all 0.3s ease;
 }
-#closed:hover{
-    -fx-background-color: rgba(255, 0, 0, 0.5);
+
+#closed:hover {
     -fx-background-color: radial-gradient(center 50% 50%, radius 80%, rgba(255, 0, 0, 0.6) 0%, transparent 100%);
+    -fx-border-color: #B47E00;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
 #divider > .split-pane-divider {
     -fx-pref-width: 0;
@@ -125,19 +132,25 @@
     -fx-border-width: 2px;
     -fx-border-color:#B47E00;
 }
-#minimized{
-    -fx-border-radius:50%;
+#minimized {
+    -fx-border-radius: 50%;
     -fx-background-color: transparent;
-    -fx-border-color: white;
     -fx-border-width: 3px;
     -fx-border-color: radial-gradient(center 90% 100%, radius 50%, black 10%, #B47E00 100%);
     -fx-font-size: 9px;
     -fx-background-radius: 60px;
+    -fx-text-fill: #B47E00;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #00000099, 4, 0.5, 2, 2);
+    -fx-padding: 6px;
+    -fx-transition: all 0.3s ease;
 }
-#minimized:hover{
-    -fx-background-color: rgba(113, 99, 240, 0.5);
+
+#minimized:hover {
     -fx-background-color: radial-gradient(center 50% 50%, radius 80%, rgba(113, 99, 240, 0.9) 0%, transparent 100%);
-    -fx-background-radius: 60px;
+    -fx-border-color: #B47E00;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
 
 #rectangle3 {
@@ -418,5 +431,9 @@
     -fx-background-color: rgba(117, 117, 117, 0.8);
     -fx-border-color: transparent;
     -fx-text-fill: white;
+}
+
+#meuProgress {
+    -fx-accent: #b8860b;
 }
 
