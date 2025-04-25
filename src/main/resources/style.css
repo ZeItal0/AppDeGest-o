@@ -434,6 +434,13 @@
     -fx-border-color: transparent;
     -fx-text-fill: white;
 }
+#infoRelatorio {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(117, 117, 117, 0.8);
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+}
 
 #info {
     -fx-font-size: 10px;
@@ -445,5 +452,45 @@
 
 #meuProgress {
     -fx-accent: #b8860b;
+}
+
+#bar {
+    -fx-pie-label-visible: true;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.chart {
+    -fx-background-color: transparent;
+}
+
+.chart-title {
+    -fx-text-fill: #B47E00;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: #3e3e3e;
+    -fx-stroke-dash-array: 2 2;
+}
+
+.chart-bar {
+     -fx-bar-fill: #0081b4;
+}
+
+.axis {
+    -fx-tick-label-fill: white;
+    -fx-axis-line-visible: false;
+    -fx-tick-mark-visible: false;
+}
+
+.axis-label {
+    -fx-text-fill: #B47E00;
+    -fx-font-weight: bold;
 }
 

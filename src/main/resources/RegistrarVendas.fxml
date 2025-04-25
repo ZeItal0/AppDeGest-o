@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -60,6 +61,7 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
+            <DatePicker id="datepicker" fx:id="Data" layoutX="1251.0" layoutY="293.0" prefHeight="31.0" prefWidth="158.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
@@ -255,5 +257,6 @@
             <Image url="@icons/search.png" />
          </image>
       </ImageView>
+      <Button id="listadefuncionarios" layoutX="621.0" layoutY="11.0" mnemonicParsing="false" onAction="#Relatorio" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="RELATÓRIO" />
    </children>
 </AnchorPane>

@@ -328,6 +328,8 @@ public class VendaRegisterController {
         main.carregarCena("/RegistrarVendas.fxml");
     }
 
+    @FXML
+    private DatePicker Data;
     //chama a classe dao para registrar a venda no banco//
     public void FINALIZAR(ActionEvent actionEvent) throws SQLException {
 
@@ -345,7 +347,7 @@ public class VendaRegisterController {
         }
 
         try {
-            registerVendaDao.salvarVenda(listaParaVenda,FormaDepagamento.getText(),LocalDate.now(), String.valueOf(entradasEsaidas.saida), String.valueOf(StatusDeVenda.Local),Sessao.id);
+            registerVendaDao.salvarVenda(listaParaVenda,FormaDepagamento.getText(),Data.getValue(), String.valueOf(entradasEsaidas.saida), String.valueOf(StatusDeVenda.Local),Sessao.id);
             Aviso.mostrarAviso("","/confirmado.fxml");
         }
         catch (Exception e){
@@ -361,5 +363,9 @@ public class VendaRegisterController {
         Node[] imagens = {img1,img2,img3,img4,img5,img6};
         transition.animarComponentes(OpenPosition,distancia,distanciaImg,distanciaUser,Open,imagens,userName);
         OpenPosition = !OpenPosition;
+    }
+
+    public void Relatorio(ActionEvent actionEvent) {
+        main.carregarCena("/relatorio.fxml");
     }
 }

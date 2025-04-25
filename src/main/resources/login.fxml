@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -55,7 +56,7 @@
       </ImageView>
       <Button id="enter" fx:id="enter" layoutX="80.0" layoutY="370.0" mnemonicParsing="false" onAction="#enter" prefHeight="48.0" prefWidth="139.0" styleClass="style.css" stylesheets="@style.css" text="Entrar" />
       <TextField id="login" fx:id="user" layoutX="70.0" layoutY="245.0" prefHeight="25.0" prefWidth="177.0" promptText="usuário" styleClass="style.css" stylesheets="@style.css" />
-      <TextField id="password" fx:id="password" layoutX="70.0" layoutY="282.0" prefHeight="25.0" prefWidth="177.0" promptText="senha" styleClass="style.css" stylesheets="@style.css" />
+      <PasswordField id="password" fx:id="password" layoutX="70.0" layoutY="282.0" prefHeight="27.0" prefWidth="177.0" promptText="senha" styleClass="style.css" stylesheets="@style.css" />
       <Label id="text-1" layoutX="35.0" layoutY="190.0" prefHeight="20.0" prefWidth="100.0" stylesheets="@style.css" text="Para acessar o sistema" />
       <ImageView fitHeight="129.0" fitWidth="380.0" layoutX="473.0" layoutY="89.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -232,4 +232,8 @@ public class HistoricoVendasController {
         transition.animarComponentes(OpenPosition,distancia,distanciaImg,distanciaUser,Open,imagens,userName);
         OpenPosition = !OpenPosition;
     }
+
+    public void Relatorio(ActionEvent actionEvent) {
+        main.carregarCena("/relatorio.fxml");
+    }
 }

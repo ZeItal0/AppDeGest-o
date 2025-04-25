@@ -115,6 +115,8 @@ public class MainController {
     private Button buttonone;
     @FXML
     private Button buttontwo;
+    @FXML
+    private Button buttonthree;
 
 
     @FXML
@@ -129,7 +131,7 @@ public class MainController {
     @FXML
     private TextField user;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
     private Label userName;
 
@@ -184,6 +186,7 @@ public class MainController {
         if(buttonone!=null){
             transition.fadeInButtonsOptions(buttonone);
             transition.fadeInButtonsOptions(buttontwo);
+            transition.fadeInButtonsOptions(buttonthree);
         }
 
 
@@ -494,5 +497,9 @@ public class MainController {
         Node[] imagens = {img1,img2,img3,img4,img5,img6};
         transition.animarComponentes(OpenPosition,distancia,distanciaImg,distanciaUser,Open,imagens,userName);
         OpenPosition = !OpenPosition;
+    }
+
+    public void Relatorio(ActionEvent actionEvent) {
+        main.carregarCena("/relatorio.fxml");
     }
 }

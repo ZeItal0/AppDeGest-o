@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.HistoricoVendasController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.RelatorioController">
    <children>
       <Pane id="rectangle2" layoutX="3.0" layoutY="5.0" prefHeight="789.0" prefWidth="1492.0" stylesheets="@style.css">
          <children>
@@ -57,6 +59,15 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
+            <BarChart fx:id="BarMeses" layoutX="356.0" layoutY="131.0" legendVisible="false" prefHeight="400.0" prefWidth="771.0">
+              <xAxis>
+                <CategoryAxis id="bar" fx:id="categoryX" prefHeight="1.0" prefWidth="558.0" side="BOTTOM" stylesheets="@style.css" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="numberY" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <DatePicker id="datepicker" fx:id="Data" layoutX="389.0" layoutY="92.0" onAction="#gerarRelatorio" prefHeight="31.0" prefWidth="158.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
@@ -78,19 +89,33 @@
          </graphic>
       </Button>
     <Button id="buttonfuncionario" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarvenda" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="REGISTRAR VENDA" />
-      <Button id="lista" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#historicoDevendas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="HISTORICO DE VENDAS" />
-      <TableView id="styleview" fx:id="listaDeVenda" layoutX="181.0" layoutY="127.0" prefHeight="645.0" prefWidth="1163.0" stylesheets="@style.css">
-         <columns>
-            <TableColumn fx:id="FUNCIONARIO" prefWidth="312.6666564941406" style="-fx-background-color: transparent;" text="FUNCIONÁRIO" />
-            <TableColumn fx:id="NOMELIST" minWidth="0.0" prefWidth="337.33331298828125" style="-fx-background-color: transparent;" text="PRODUTO" />
-            <TableColumn fx:id="PAGAMENTO" minWidth="0.0" prefWidth="111.6666259765625" style="-fx-background-color: transparent;" text="PAGAMENTO" />
-            <TableColumn fx:id="STATUS" prefWidth="97.6666259765625" style="-fx-background-color: transparent;" text="STATUS" />
-            <TableColumn fx:id="DATA" prefWidth="116.6666259765625" style="-fx-background-color: transparent;" text="DATA DA VENDA" />
-            <TableColumn fx:id="QUANTIDADELIST" prefWidth="102.66656494140625" style="-fx-background-color: transparent;" text="QUANTIDADE" />
-            <TableColumn fx:id="VALORLIST" prefWidth="79.333251953125" style="-fx-background-color: transparent;" text="VALOR" />
-         </columns>
-      </TableView>
+      <Button id="listadefuncionarios" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#historicoDevendas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="HISTORICO DE VENDAS" />
+      <Button id="cadastro" layoutX="621.0" layoutY="11.0" mnemonicParsing="false" onAction="#Relatorio" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="RELATÓRIO" />
       <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />
+      <Label id="infoTOTAL" alignment="CENTER" layoutX="393.0" layoutY="575.0" prefHeight="47.0" prefWidth="122.0" stylesheets="@style.css" text="VALOR INVESTIDO">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label id="infoTOTAL" alignment="CENTER" layoutX="393.0" layoutY="629.0" prefHeight="47.0" prefWidth="122.0" stylesheets="@style.css" text="VENDAS">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label id="infoTOTAL" fx:id="investido" layoutX="515.0" layoutY="575.0" prefHeight="47.0" prefWidth="81.0" stylesheets="@style.css" />
+      <Label id="infoTOTAL" fx:id="vendas" layoutX="515.0" layoutY="629.0" prefHeight="47.0" prefWidth="81.0" stylesheets="@style.css" />
+      <Label id="infoTOTAL" alignment="CENTER" layoutX="393.0" layoutY="684.0" prefHeight="47.0" prefWidth="122.0" stylesheets="@style.css" text="DEPESAS">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label id="infoTOTAL" fx:id="depesas" layoutX="515.0" layoutY="684.0" prefHeight="47.0" prefWidth="81.0" stylesheets="@style.css" />
+      <Label id="infoRelatorio" alignment="CENTER" layoutX="600.0" layoutY="575.0" prefHeight="156.0" prefWidth="122.0" stylesheets="@style.css" text="TOTAL">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label id="infoRelatorio" fx:id="TOTAL" layoutX="722.0" layoutY="575.0" prefHeight="156.0" prefWidth="145.0" stylesheets="@style.css" />
       <VBox id="menu" fx:id="vboxLateral" prefHeight="801.0" prefWidth="415.0" stylesheets="@style.css">
          <children>
             <Button id="buttonOptions" fx:id="Open" mnemonicParsing="false" onAction="#Open" stylesheets="@style.css">
@@ -196,12 +221,5 @@
             <Image url="@icons/user1.png" />
          </image>
       </ImageView>
-      <TextField id="pesquisa" fx:id="Pesquisa" alignment="TOP_LEFT" layoutX="1063.0" layoutY="84.0" prefHeight="35.0" prefWidth="280.0" promptText="Pesquisa" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="29.0" fitWidth="43.0" layoutX="1308.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/search.png" />
-         </image>
-      </ImageView>
-      <Button id="listadefuncionarios" layoutX="621.0" layoutY="11.0" mnemonicParsing="false" onAction="#Relatorio" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="RELATÓRIO" />
    </children>
 </AnchorPane>
