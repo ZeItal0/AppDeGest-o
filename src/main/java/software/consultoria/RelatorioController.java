@@ -1,6 +1,7 @@
 package software.consultoria;
 
 import DAOclass.RelatorioMensalDao;
+import Models.RelatorioDeDespesas;
 import Models.RelatorioDoMes;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -83,6 +84,19 @@ public class RelatorioController {
     private CategoryAxis categoryX;
     @FXML
     private NumberAxis numberY;
+
+    @FXML
+    private Label ValorObtido;
+    @FXML
+    private Label Quantidade;
+    @FXML
+    private Label despesasDomes;
+    @FXML
+    private Label investido;
+    @FXML
+    private Label LUCROBRUTO;
+    @FXML
+    private Label MEDIA;
 
 
     public void initialize(){
@@ -198,13 +212,48 @@ public class RelatorioController {
         int ano = dataSelecionada.getYear();
         List<RelatorioDoMes> relatorioDoMes = relatorioMensalDao.buscarRelatorio(ano);
 
+
         BarMeses.getData().clear();
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 //        series.setName("Ano " + ano);
 
-        for (RelatorioDoMes relatorio : relatorioDoMes){
+        for (RelatorioDoMes relatorio : relatorioDoMes) {
             String Mes = converterNumero(relatorio.getMes());
-            series.getData().add(new XYChart.Data<>(Mes, relatorio.getTotal()));
+            XYChart.Data<String, Number> data = new XYChart.Data<>(Mes, relatorio.getQuantidade());
+            series.getData().add(data);
+
+            data.nodeProperty().addListener((obs, oldNode, newNode) -> {
+                if (newNode != null) {
+                    newNode.setOnMouseClicked(event -> {
+                        ValorObtido.setText(String.format("%.2f R$", relatorio.getTotal()));
+                        Quantidade.setText(Integer.toString(relatorio.getQuantidade()));
+
+                        Double RelatorioDespesas = relatorioMensalDao.buscarRelatorioDespesa(ano,relatorio.getMes());
+                        if (RelatorioDespesas != null){
+                            despesasDomes.setText(String.format("%.2f R$", RelatorioDespesas));
+                        }else {
+                            despesasDomes.setText("0.00 R$");
+                        }
+
+                        Double RelatorioInvestimento = relatorioMensalDao.buscarRelatorioInvestimento(ano,relatorio.getMes());
+                        if (RelatorioInvestimento != null){
+                            investido.setText(String.format("%.2f R$", RelatorioInvestimento));
+                        }else {
+                            investido.setText("0.00 R$");
+                        }
+
+                        if (RelatorioDespesas != null && RelatorioInvestimento != null){
+                            Double ResultadoBruto = relatorio.getTotal() - (RelatorioDespesas + RelatorioInvestimento);
+                            LUCROBRUTO.setText(String.valueOf(String.format("%.2f R$",ResultadoBruto)));
+
+                            Double MediaDelucro = ResultadoBruto/ relatorio.getQuantidade();
+                            MEDIA.setText(String.valueOf(String.format("%.2f R$", MediaDelucro)));
+
+                        }
+
+                    });
+                }
+            });
         }
         BarMeses.getData().add(series);
 

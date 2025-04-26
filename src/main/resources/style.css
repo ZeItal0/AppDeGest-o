@@ -442,6 +442,14 @@
     -fx-text-fill: white;
 }
 
+#inforelatorio{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+}
+
 #info {
     -fx-font-size: 10px;
     -fx-font-weight: bold;
@@ -480,7 +488,7 @@
 }
 
 .chart-bar {
-     -fx-bar-fill: #0081b4;
+    -fx-bar-fill: #0081b4;
 }
 
 .axis {
