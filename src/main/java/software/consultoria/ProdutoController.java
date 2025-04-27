@@ -218,7 +218,7 @@ public class ProdutoController {
             return;
         }
         if (idfornecedor == null){
-            Aviso.mostrarAviso("Selecione um vendedor!","/Alert.fxml");
+            Aviso.mostrarAviso("Selecione um Fornecedor!","/Alert.fxml");
             return;
         }
         if (nomeProduto.getText().length() > 30){
