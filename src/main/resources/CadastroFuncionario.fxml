@@ -58,6 +58,9 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
+            <Label layoutX="342.0" layoutY="157.0" prefHeight="29.0" prefWidth="142.0" text="INFORMAÇÕES PESSOAIS" textFill="WHITE" />
+            <Label layoutX="342.0" layoutY="407.0" prefHeight="29.0" prefWidth="142.0" text="LOCALIZAÇÃO" textFill="WHITE" />
+            <Label layoutX="768.0" layoutY="157.0" prefHeight="29.0" prefWidth="142.0" text="DADOS DE LOGIN" textFill="WHITE" />
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
@@ -78,69 +81,84 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField id="nome" fx:id="NomeFuncionario" alignment="TOP_LEFT" layoutX="426.0" layoutY="247.0" prefHeight="35.0" prefWidth="322.0" promptText="Nome" styleClass="style.css" stylesheets="@style.css" />
-      <TextField id="nome" fx:id="rua" alignment="TOP_LEFT" layoutX="427.0" layoutY="408.0" prefHeight="35.0" prefWidth="322.0" promptText="Rua" styleClass="style.css" stylesheets="@style.css" />
-      <TextField id="nome" fx:id="TelefoneFuncionario" alignment="TOP_LEFT" layoutX="426.0" layoutY="302.0" prefHeight="35.0" prefWidth="322.0" promptText="Telefone" styleClass="style.css" stylesheets="@style.css" />
-      <DatePicker id="datepicker" fx:id="Data" layoutX="425.0" layoutY="359.0" prefHeight="31.0" prefWidth="158.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
-      <TextField id="nome" fx:id="CEP" alignment="TOP_LEFT" layoutX="623.0" layoutY="355.0" prefHeight="35.0" prefWidth="124.0" promptText="CEP" styleClass="style.css" stylesheets="@style.css" />
-      <Button id="cadastrarFuncionario" layoutX="863.0" layoutY="470.0" mnemonicParsing="false" onAction="#CadastrarFuncionario" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="      CADASTRAR" />
-      <Label id="Text" layoutX="685.0" layoutY="125.0" prefHeight="58.0" prefWidth="190.0" stylesheets="@style.css" text="Cadastro" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="430.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/id-card.png" />
-         </image>
-      </ImageView>
-      <MenuButton id="cargos" fx:id="Cargo" layoutX="856.0" layoutY="356.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="90.0" stylesheets="@style.css" text="Cargo" textFill="WHITE">
-        <items>
-          <MenuItem fx:id="vendedor" mnemonicParsing="false" onAction="#selecionarVendedor" text="Vendedor" />
-          <MenuItem fx:id="Gerente" mnemonicParsing="false" onAction="#selecionarGerente" text="Gerente" />
-            <MenuItem fx:id="Chefe" mnemonicParsing="false" onAction="#selecionarChefe" text="Chefe" />
-        </items>
-      </MenuButton>
-      <ImageView fitHeight="38.0" fitWidth="35.0" layoutX="429.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/adress.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="430.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/telephone-call2%201.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="628.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/zip-code.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="50.0" layoutX="877.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/registeruser.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="cidade" alignment="TOP_LEFT" layoutX="428.0" layoutY="463.0" prefHeight="35.0" prefWidth="322.0" promptText="Cidade" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="432.0" layoutY="467.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/city.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="bairro" alignment="TOP_LEFT" layoutX="428.0" layoutY="517.0" prefHeight="35.0" prefWidth="322.0" promptText="Bairro" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="432.0" layoutY="521.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/houses.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="Usuario" alignment="TOP_LEFT" layoutX="856.0" layoutY="247.0" prefHeight="35.0" prefWidth="229.0" promptText="Usuário" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="860.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/nameuser.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="Senha" alignment="TOP_LEFT" layoutX="855.0" layoutY="303.0" prefHeight="35.0" prefWidth="229.0" promptText="Senha" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="851.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/password.png" />
-         </image>
-      </ImageView>
+      <Pane id="rectangle2" layoutX="770.0" layoutY="186.0" prefHeight="484.0" prefWidth="415.0" stylesheets="@style.css">
+         <children>
+            <Button id="cadastrarFuncionario" layoutX="100.0" layoutY="409.0" mnemonicParsing="false" onAction="#CadastrarFuncionario" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="CADASTRAR">
+               <graphic>
+                  <ImageView fitHeight="44.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/registeruser.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField id="nome" fx:id="Usuario" alignment="TOP_LEFT" layoutX="21.0" layoutY="36.0" prefHeight="35.0" prefWidth="229.0" promptText="Usuário" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="27.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/nameuser.png" />
+               </image>
+            </ImageView>
+            <TextField id="nome" fx:id="Senha" alignment="TOP_LEFT" layoutX="22.0" layoutY="90.0" prefHeight="35.0" prefWidth="229.0" promptText="Senha" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="19.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/password.png" />
+               </image>
+            </ImageView>
+            <MenuButton id="cargos" fx:id="Cargo" layoutX="298.0" layoutY="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="90.0" stylesheets="@style.css" text="Cargo" textFill="WHITE">
+              <items>
+                <MenuItem fx:id="vendedor" mnemonicParsing="false" onAction="#selecionarVendedor" text="Vendedor" />
+                <MenuItem fx:id="Gerente" mnemonicParsing="false" onAction="#selecionarGerente" text="Gerente" />
+                  <MenuItem fx:id="Chefe" mnemonicParsing="false" onAction="#selecionarChefe" text="Chefe" />
+              </items>
+            </MenuButton>
+         </children>
+      </Pane>
+      <Pane id="rectangle2" layoutX="342.0" layoutY="436.0" prefHeight="232.0" prefWidth="415.0" stylesheets="@style.css">
+         <children>
+            <TextField id="nome" fx:id="CEP" alignment="TOP_LEFT" layoutX="23.0" layoutY="186.0" prefHeight="35.0" prefWidth="124.0" promptText="CEP" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="28.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/zip-code.png" />
+               </image>
+            </ImageView>
+            <TextField id="nome" fx:id="bairro" alignment="TOP_LEFT" layoutX="23.0" layoutY="134.0" prefHeight="35.0" prefWidth="322.0" promptText="Bairro" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="26.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/houses.png" />
+               </image>
+            </ImageView>
+            <TextField id="nome" fx:id="rua" alignment="TOP_LEFT" layoutX="21.0" layoutY="26.0" prefHeight="35.0" prefWidth="322.0" promptText="Rua" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="38.0" fitWidth="35.0" layoutX="23.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/adress.png" />
+               </image>
+            </ImageView>
+            <TextField id="nome" fx:id="cidade" alignment="TOP_LEFT" layoutX="22.0" layoutY="80.0" prefHeight="35.0" prefWidth="322.0" promptText="Cidade" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="27.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/city.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane id="rectangle2" layoutX="342.0" layoutY="186.0" prefHeight="206.0" prefWidth="415.0" stylesheets="@style.css">
+         <children>
+            <DatePicker id="datepicker" fx:id="Data" layoutX="20.0" layoutY="144.0" prefHeight="31.0" prefWidth="158.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
+            <TextField id="nome" fx:id="NomeFuncionario" alignment="TOP_LEFT" layoutX="21.0" layoutY="36.0" prefHeight="35.0" prefWidth="322.0" promptText="Nome" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="23.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/id-card.png" />
+               </image>
+            </ImageView>
+            <TextField id="nome" fx:id="TelefoneFuncionario" alignment="TOP_LEFT" layoutX="22.0" layoutY="90.0" prefHeight="35.0" prefWidth="322.0" promptText="Telefone" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="25.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/telephone-call2%201.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label id="Text" layoutX="338.0" layoutY="86.0" prefHeight="44.0" prefWidth="187.0" stylesheets="@style.css" text="Cadastro" />
       <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />
     <Button id="cadastro" fx:id="buttonone" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRO DE FUCIONÁRIO" />
       <Button id="listadefuncionarios" fx:id="buttontwo" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#listaDefuncionarios" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="LISTA DE  FUNCIONÁRIOS" />

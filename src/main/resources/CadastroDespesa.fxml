@@ -19,6 +19,7 @@
    <children>
       <Pane id="rectangle2" layoutX="3.0" layoutY="5.0" prefHeight="789.0" prefWidth="1492.0" stylesheets="@style.css">
          <children>
+            <Label layoutX="273.0" layoutY="162.0" prefHeight="29.0" prefWidth="142.0" text="DADOS DA DESPESA" textFill="WHITE" />
             <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-173.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
                <image>
                   <Image url="@img/details5.png" />
@@ -59,6 +60,53 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
+            <Label id="Text" layoutX="273.0" layoutY="86.0" prefHeight="58.0" prefWidth="393.0" stylesheets="@style.css" text="Cadastro de Despesa" />
+         </children>
+      </Pane>
+      <Pane id="rectangle2" layoutX="273.0" layoutY="193.0" prefHeight="458.0" prefWidth="842.0" stylesheets="@style.css">
+         <children>
+            <Button id="cadastrarFuncionario" layoutX="309.0" layoutY="363.0" mnemonicParsing="false" onAction="#SalvarDespesa" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="SALVAR">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextArea id="TextArea" fx:id="ObservacoesDespesa" layoutX="414.0" layoutY="64.0" prefHeight="249.0" prefWidth="392.0" promptText="Observações" stylesheets="@style.css" />
+            <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="414.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/information.png" />
+               </image>
+            </ImageView>
+            <TextField id="nome" fx:id="nomeDespesa" alignment="TOP_LEFT" layoutX="50.0" layoutY="64.0" prefHeight="35.0" prefWidth="323.0" promptText="Nome da Despesa" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="53.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/money-transaction.png" />
+               </image>
+            </ImageView>
+            <TextField id="nome" fx:id="ValorDespesa" alignment="TOP_LEFT" layoutX="51.0" layoutY="116.0" prefHeight="35.0" prefWidth="148.0" promptText="Valor" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="30.0" fitWidth="24.0" layoutX="56.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/coin.png" />
+               </image>
+            </ImageView>
+            <DatePicker id="datepicker" fx:id="Data" layoutX="211.0" layoutY="115.0" prefHeight="37.0" prefWidth="162.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
+            <MenuButton id="cargos" fx:id="Situacao" layoutX="51.0" layoutY="166.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" stylesheets="@style.css" text="Situação" textFill="WHITE">
+               <items>
+                  <MenuItem fx:id="vendedor" mnemonicParsing="false" onAction="#selecionarPago" text="Pago" />
+                  <MenuItem fx:id="Gerente" mnemonicParsing="false" onAction="#selecionarPedente" text="Pendente" />
+               </items>
+            </MenuButton>
+            <MenuButton id="cargos" fx:id="FormaDepagamento" layoutX="210.0" layoutY="167.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="162.0" stylesheets="@style.css" text="Forma de Pagamento" textFill="WHITE">
+               <items>
+                  <MenuItem fx:id="pix" mnemonicParsing="false" onAction="#Pix" text="Pix" />
+                  <MenuItem fx:id="dinheiro" mnemonicParsing="false" onAction="#Dinheiro" text="Dinheiro" />
+                  <MenuItem fx:id="credito" mnemonicParsing="false" onAction="#Credito" text="Credito" />
+                  <MenuItem fx:id="debito" mnemonicParsing="false" onAction="#Debito" text="Debito" />
+               </items>
+            </MenuButton>
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="11.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
@@ -81,46 +129,6 @@
       </Button>
     <Button id="cadastro" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarDespesa" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ENTRADA DE DESPESAS" />
       <Button id="listadefuncionarios" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#listaDedespesas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CONSULTA DE DESPESAS" />
-      <TextField id="nome" fx:id="nomeDespesa" alignment="TOP_LEFT" layoutX="338.0" layoutY="256.0" prefHeight="35.0" prefWidth="323.0" promptText="Nome da Despesa" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="339.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/money-transaction.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="ValorDespesa" alignment="TOP_LEFT" layoutX="338.0" layoutY="308.0" prefHeight="35.0" prefWidth="148.0" promptText="Valor" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="24.0" layoutX="341.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/coin.png" />
-         </image>
-      </ImageView>
-      <DatePicker id="datepicker" fx:id="Data" layoutX="499.0" layoutY="307.0" prefHeight="37.0" prefWidth="162.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
-      <Label id="Text" layoutX="561.0" layoutY="141.0" prefHeight="58.0" prefWidth="393.0" stylesheets="@style.css" text="Cadastro de Despesa" />
-      <TextArea id="TextArea" fx:id="ObservacoesDespesa" layoutX="713.0" layoutY="256.0" prefHeight="249.0" prefWidth="392.0" promptText="Observações" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="723.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/information.png" />
-         </image>
-      </ImageView>
-      <MenuButton id="cargos" fx:id="Situacao" layoutX="338.0" layoutY="356.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="148.0" stylesheets="@style.css" text="Situação" textFill="WHITE">
-         <items>
-            <MenuItem fx:id="vendedor" mnemonicParsing="false" onAction="#selecionarPago" text="Pago" />
-            <MenuItem fx:id="Gerente" mnemonicParsing="false" onAction="#selecionarPedente" text="Pendente" />
-         </items>
-      </MenuButton>
-      <Button id="cadastrarFuncionario" layoutX="648.0" layoutY="594.0" mnemonicParsing="false" onAction="#SalvarDespesa" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="    SALVAR" />
-      <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="673.0" layoutY="605.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/save.png" />
-         </image>
-      </ImageView>
-      <MenuButton id="cargos" fx:id="FormaDepagamento" layoutX="498.0" layoutY="357.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="162.0" stylesheets="@style.css" text="Forma de Pagamento" textFill="WHITE">
-         <items>
-            <MenuItem fx:id="pix" mnemonicParsing="false" onAction="#Pix" text="Pix" />
-            <MenuItem fx:id="dinheiro" mnemonicParsing="false" onAction="#Dinheiro" text="Dinheiro" />
-            <MenuItem fx:id="credito" mnemonicParsing="false" onAction="#Credito" text="Credito" />
-            <MenuItem fx:id="debito" mnemonicParsing="false" onAction="#Debito" text="Debito" />
-         </items>
-      </MenuButton>
       <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />
       <VBox id="menu" fx:id="vboxLateral" prefHeight="801.0" prefWidth="415.0" stylesheets="@style.css">
          <children>

@@ -235,11 +235,8 @@ public class FuncionarioController {
 
     public void Delete(ActionEvent actionEvent) throws SQLException {
         Usuario funcionarioSelecionado = funcionariostableList.getSelectionModel().getSelectedItem();
-        System.out.println(funcionarioSelecionado.getEndereco().getId());
-
         if (funcionarioSelecionado != null){
             boolean confirmar = Aviso.mostrarTrueAndFalse("Tem certeza de deletar\n","/AlertTrueFalse.fxml");
-
             if (confirmar){
                 DeleteUsuarioDao deleteUsuarioDao = new DeleteUsuarioDao();
                 deleteUsuarioDao.deletarFuncionario(funcionarioSelecionado.getEndereco().getId());

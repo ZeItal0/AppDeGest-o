@@ -60,6 +60,70 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
+            <Label id="Text" layoutX="273.0" layoutY="86.0" prefHeight="58.0" prefWidth="394.0" stylesheets="@style.css" text="Cadastro de Produto" />
+            <Label layoutX="279.0" layoutY="152.0" prefHeight="29.0" prefWidth="182.0" text="FORNECEDORES CADASTRADOS" textFill="WHITE" />
+            <Label layoutX="582.0" layoutY="152.0" prefHeight="29.0" prefWidth="142.0" text="DADOS DO PRODUTO" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane id="rectangle2" layoutX="582.0" layoutY="183.0" prefHeight="497.0" prefWidth="403.0" stylesheets="@style.css">
+         <children>
+            <TextField id="nome" fx:id="valorInvestido" alignment="TOP_LEFT" layoutX="25.0" layoutY="138.0" prefHeight="35.0" prefWidth="160.0" promptText="Valor investido" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="29.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/coin.png" />
+               </image>
+            </ImageView>
+            <TextField id="nome" fx:id="nomeProduto" alignment="TOP_LEFT" layoutX="25.0" layoutY="23.0" prefHeight="35.0" prefWidth="348.0" promptText="Nome do produto" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/nomeproduto.png" />
+               </image>
+            </ImageView>
+            <TextField id="nome" fx:id="quantidade" alignment="TOP_LEFT" layoutX="25.0" layoutY="81.0" prefHeight="35.0" prefWidth="160.0" promptText="Quantidade" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="26.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/quantity.png" />
+               </image>
+            </ImageView>
+            <MenuButton id="cargos" fx:id="categoria" layoutX="210.0" layoutY="81.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="163.0" stylesheets="@style.css" text="Categoria" textFill="WHITE">
+               <items>
+                  <MenuItem fx:id="anel" mnemonicParsing="false" onAction="#selecionaranel" text="Anel" />
+                  <MenuItem fx:id="colar" mnemonicParsing="false" onAction="#selecionarcolar" text="Colar" />
+                  <MenuItem fx:id="brinco" mnemonicParsing="false" onAction="#selecionarBrinco" text="Brinco" />
+                  <MenuItem fx:id="relogio" mnemonicParsing="false" onAction="#selecionarRelogio" text="Relogio" />
+                  <MenuItem fx:id="perfume" mnemonicParsing="false" onAction="#selecionarperfume" text="Perfume" />
+               </items>
+            </MenuButton>
+            <TextField id="nome" fx:id="valorDeVenda" alignment="TOP_LEFT" layoutX="213.0" layoutY="138.0" prefHeight="35.0" prefWidth="160.0" promptText="Valor de venda" styleClass="style.css" stylesheets="@style.css" />
+            <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="216.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/coin.png" />
+               </image>
+            </ImageView>
+            <TextArea id="TextArea" fx:id="detalhes" layoutX="24.0" layoutY="192.0" prefHeight="170.0" prefWidth="348.0" promptText="Observações" stylesheets="@style.css" />
+            <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="24.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/information.png" />
+               </image>
+            </ImageView>
+            <Button id="cadastrarFuncionario" layoutX="93.0" layoutY="411.0" mnemonicParsing="false" onAction="#Cadastrar_Produto_fornecedor" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="CADASTRAR">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Pane id="rectangle2" layoutX="278.0" layoutY="182.0" prefHeight="497.0" prefWidth="280.0" stylesheets="@style.css">
+         <children>
+            <TableView id="styleview" fx:id="FornecedorProdutoList" layoutX="10.0" layoutY="13.0" prefHeight="474.0" prefWidth="261.0" stylesheets="@style.css">
+              <columns>
+                <TableColumn fx:id="fornecedorList" prefWidth="258.33331298828125" text="Fornecedores" />
+              </columns>
+            </TableView>
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
@@ -82,57 +146,6 @@
       </Button>
     <Button id="cadastro" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR PRODUTO" />
       <Button id="listadefuncionarios" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#estoque" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ESTOQUE" />
-      <Label id="Text" layoutX="603.0" layoutY="130.0" prefHeight="58.0" prefWidth="394.0" stylesheets="@style.css" text="Cadastro de Produto" />
-      <TextField id="nome" fx:id="nomeProduto" alignment="TOP_LEFT" layoutX="394.0" layoutY="261.0" prefHeight="35.0" prefWidth="323.0" promptText="Nome do produto" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="398.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/nomeproduto.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="quantidade" alignment="TOP_LEFT" layoutX="394.0" layoutY="323.0" prefHeight="35.0" prefWidth="160.0" promptText="Quantidade" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="398.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/quantity.png" />
-         </image>
-      </ImageView>
-      <TextField id="nome" fx:id="valorInvestido" alignment="TOP_LEFT" layoutX="395.0" layoutY="383.0" prefHeight="35.0" prefWidth="160.0" promptText="Valor investido" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="401.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/coin.png" />
-         </image>
-      </ImageView>
-      <Button id="cadastrarFuncionario" layoutX="880.0" layoutY="666.0" mnemonicParsing="false" onAction="#Cadastrar_Produto_fornecedor" prefHeight="62.0" prefWidth="203.0" stylesheets="@style.css" text="      CADASTRAR" />
-      <ImageView fitHeight="38.0" fitWidth="50.0" layoutX="896.0" layoutY="676.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/save.png" />
-         </image>
-      </ImageView>
-      <TableView id="styleview" fx:id="FornecedorProdutoList" layoutX="879.0" layoutY="260.0" prefHeight="337.0" prefWidth="203.0" stylesheets="@style.css">
-        <columns>
-          <TableColumn fx:id="fornecedorList" prefWidth="201.0" text="Fornecedores" />
-        </columns>
-      </TableView>
-      <MenuButton id="cargos" fx:id="categoria" layoutX="576.0" layoutY="323.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="146.0" stylesheets="@style.css" text="Categoria" textFill="WHITE">
-         <items>
-            <MenuItem fx:id="anel" mnemonicParsing="false" onAction="#selecionaranel" text="Anel" />
-            <MenuItem fx:id="colar" mnemonicParsing="false" onAction="#selecionarcolar" text="Colar" />
-            <MenuItem fx:id="brinco" mnemonicParsing="false" onAction="#selecionarBrinco" text="Brinco" />
-            <MenuItem fx:id="relogio" mnemonicParsing="false" onAction="#selecionarRelogio" text="Relogio" />
-            <MenuItem fx:id="perfume" mnemonicParsing="false" onAction="#selecionarperfume" text="Perfume" />
-         </items>
-      </MenuButton>
-      <TextField id="nome" fx:id="valorDeVenda" alignment="TOP_LEFT" layoutX="577.0" layoutY="384.0" prefHeight="35.0" prefWidth="160.0" promptText="Valor de venda" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="583.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/coin.png" />
-         </image>
-      </ImageView>
-      <TextArea id="TextArea" fx:id="detalhes" layoutX="391.0" layoutY="447.0" prefHeight="170.0" prefWidth="348.0" promptText="Observações" stylesheets="@style.css" />
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="401.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/information.png" />
-         </image>
-      </ImageView>
       <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />
       <VBox id="menu" fx:id="vboxLateral" prefHeight="801.0" prefWidth="415.0" stylesheets="@style.css">
          <children>

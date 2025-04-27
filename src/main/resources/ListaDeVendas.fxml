@@ -59,6 +59,7 @@
             </ImageView>
          </children>
       </Pane>
+      <Label id="Text" layoutX="273.0" layoutY="86.0" prefHeight="58.0" prefWidth="513.0" stylesheets="@style.css" text="Funcionários Cadastrados" />
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
          <graphic>
             <ImageView fx:id="closed" fitHeight="20.0" fitWidth="20.0" onDragDetected="#closed" pickOnBounds="true" preserveRatio="true">
@@ -79,15 +80,15 @@
       </Button>
     <Button id="buttonfuncionario" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarvenda" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="REGISTRAR VENDA" />
       <Button id="lista" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#historicoDevendas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="HISTORICO DE VENDAS" />
-      <TableView id="styleview" fx:id="listaDeVenda" layoutX="181.0" layoutY="127.0" prefHeight="645.0" prefWidth="1163.0" stylesheets="@style.css">
+      <TableView id="styleview" fx:id="listaDeVenda" layoutX="275.0" layoutY="189.0" prefHeight="589.0" prefWidth="1204.0" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="FUNCIONARIO" prefWidth="312.6666564941406" style="-fx-background-color: transparent;" text="FUNCIONÁRIO" />
             <TableColumn fx:id="NOMELIST" minWidth="0.0" prefWidth="337.33331298828125" style="-fx-background-color: transparent;" text="PRODUTO" />
             <TableColumn fx:id="PAGAMENTO" minWidth="0.0" prefWidth="111.6666259765625" style="-fx-background-color: transparent;" text="PAGAMENTO" />
             <TableColumn fx:id="STATUS" prefWidth="97.6666259765625" style="-fx-background-color: transparent;" text="STATUS" />
             <TableColumn fx:id="DATA" prefWidth="116.6666259765625" style="-fx-background-color: transparent;" text="DATA DA VENDA" />
-            <TableColumn fx:id="QUANTIDADELIST" prefWidth="102.66656494140625" style="-fx-background-color: transparent;" text="QUANTIDADE" />
-            <TableColumn fx:id="VALORLIST" prefWidth="79.333251953125" style="-fx-background-color: transparent;" text="VALOR" />
+            <TableColumn fx:id="QUANTIDADELIST" prefWidth="93.0" style="-fx-background-color: transparent;" text="QUANTIDADE" />
+            <TableColumn fx:id="VALORLIST" prefWidth="131.0" style="-fx-background-color: transparent;" text="VALOR" />
          </columns>
       </TableView>
       <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />
@@ -196,8 +197,8 @@
             <Image url="@icons/user1.png" />
          </image>
       </ImageView>
-      <TextField id="pesquisa" fx:id="Pesquisa" alignment="TOP_LEFT" layoutX="1063.0" layoutY="84.0" prefHeight="35.0" prefWidth="280.0" promptText="Pesquisa" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="29.0" fitWidth="43.0" layoutX="1308.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+      <TextField id="pesquisa" fx:id="Pesquisa" alignment="TOP_LEFT" layoutX="1195.0" layoutY="144.0" prefHeight="35.0" prefWidth="280.0" promptText="Pesquisa" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="29.0" fitWidth="43.0" layoutX="1440.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/search.png" />
          </image>

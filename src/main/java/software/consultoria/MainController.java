@@ -257,10 +257,6 @@ public class MainController {
         main.carregarCena("/ListaFuncionario.fxml");
     }
 
-    public void Editarfuncionario(ActionEvent actionEvent) {
-        main.carregarCena("/EditarFuncionario.fxml");
-    }
-
     public void CadastrarFuncionario(ActionEvent actionEvent) {
 
         String nome = NomeFuncionario.getText();

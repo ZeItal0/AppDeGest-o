@@ -57,7 +57,7 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
-            <Button id="Save" alignment="CENTER" layoutX="130.0" layoutY="140.0" mnemonicParsing="false" onAction="#Save" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="SALVAR" textFill="#979393">
+            <Button id="Save" alignment="CENTER" layoutX="1353.0" layoutY="139.0" mnemonicParsing="false" onAction="#Save" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="SALVAR" textFill="#979393">
                <graphic>
                   <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -66,6 +66,7 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Label id="Text" layoutX="273.0" layoutY="86.0" prefHeight="58.0" prefWidth="312.0" stylesheets="@style.css" text="Lista do Estoque" />
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
@@ -88,8 +89,7 @@
       </Button>
     <Button id="buttonfuncionario" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR PRODUTO" />
       <Button id="lista" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#estoque" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ESTOQUE" />
-      <Label id="Text" layoutX="658.0" layoutY="11.0" prefHeight="58.0" prefWidth="312.0" stylesheets="@style.css" text="Lista do Estoque" />
-      <TableView id="styleview" fx:id="EstoqueList" layoutX="133.0" layoutY="189.0" prefHeight="566.0" prefWidth="1338.0" stylesheets="@style.css">
+      <TableView id="styleview" fx:id="EstoqueList" layoutX="143.0" layoutY="189.0" prefHeight="589.0" prefWidth="1338.0" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="NomeProduto" prefWidth="261.3333435058594" style="-fx-background-color: transparent;" text="PRODUTO" />
             <TableColumn fx:id="ValorDeCompra" prefWidth="124.66665649414062" style="-fx-background-color: transparent;" text="VALOR DE COMPRA" />
@@ -207,8 +207,8 @@
             <Image url="@icons/user1.png" />
          </image>
       </ImageView>
-      <TextField id="pesquisa" fx:id="Pesquisa" alignment="TOP_LEFT" layoutX="1186.0" layoutY="138.0" prefHeight="35.0" prefWidth="280.0" promptText="Pesquisa" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="29.0" fitWidth="43.0" layoutX="1431.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+      <TextField id="pesquisa" fx:id="Pesquisa" alignment="TOP_LEFT" layoutX="1067.0" layoutY="144.0" prefHeight="35.0" prefWidth="280.0" promptText="Pesquisa" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="29.0" fitWidth="43.0" layoutX="1312.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/search.png" />
          </image>
