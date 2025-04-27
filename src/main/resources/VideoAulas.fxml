@@ -9,12 +9,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.MainController">
    <children>
       <Pane id="rectangle2" layoutX="3.0" layoutY="5.0" prefHeight="789.0" prefWidth="1492.0" stylesheets="@style.css">
          <children>
-            <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-173.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+            <ImageView fitHeight="265.0" fitWidth="461.0" layoutX="-173.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
                <image>
                   <Image url="@img/details5.png" />
                </image>
@@ -29,17 +30,7 @@
                   <Image url="@img/detail4.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="106.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" rotate="118.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-               <image>
-                  <Image url="@img/detail3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="770.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" rotate="240.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
-               <image>
-                  <Image url="@img/detail2.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="1057.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
+            <ImageView fitHeight="265.0" fitWidth="280.0" layoutX="1057.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-opacity: 20%;" x="179.0" y="-174.0">
                <image>
                   <Image url="@img/details.png" />
                </image>
@@ -54,6 +45,7 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
+            <MediaView fitHeight="150.0" fitWidth="200.0" layoutX="499.0" layoutY="144.0" />
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
