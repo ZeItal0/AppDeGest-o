@@ -26,6 +26,7 @@
         <element id="library" level="project" name="Gradle: org.openjfx:javafx-base:win:23.0.1" />
         <element id="library" level="project" name="Gradle: org.openjfx:javafx-base:23.0.1" />
         <element id="library" level="project" name="Gradle: org.controlsfx:controlsfx:11.2.1" />
+        <element id="library" level="project" name="Gradle: org.openjfx:javafx-media:win:23.0.1" />
       </element>
     </root>
   </artifact>

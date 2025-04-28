@@ -1,6 +1,7 @@
 module software.consultoria {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
     requires org.controlsfx.controls;
     requires java.sql;
     requires org.xerial.sqlitejdbc;

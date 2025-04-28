@@ -3,6 +3,7 @@ package software.consultoria;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -22,13 +23,19 @@ public class AvisoController {
     private Pane pane;
     @FXML
     private Pane paneLoad;
+    @FXML
+    private ImageView movSet;
+
+    @FXML
+    private Pane paneSeta;
 
     private Stage stage;
 
     private Transition transition = new Transition();
 
-    private PauseTransition pause = new PauseTransition(Duration.seconds(3));
+    private PauseTransition pause = new PauseTransition(Duration.seconds(1));
     private PauseTransition pausestack = new PauseTransition(Duration.seconds(6));
+    private PauseTransition pauseSeta = new PauseTransition(Duration.seconds(1));
 
     @FXML
     private Label MENSAGEM;
@@ -52,6 +59,15 @@ public class AvisoController {
                 stage.close();
             });
             pausestack.play();
+        }
+        if (paneSeta != null){ //<- aqui faz um fade transition e tambem um pause para surgir
+            transition.fadeInPane(paneSeta);
+            transition.animarSeta(movSet);
+            pauseSeta.setOnFinished(event ->{
+                Stage stage = (Stage) paneSeta.getScene().getWindow();
+                stage.close();
+            });
+            pauseSeta.play();
         }
 
     }

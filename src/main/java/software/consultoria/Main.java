@@ -44,32 +44,14 @@ public class Main extends Application {
                 Aviso.mostrarAviso("","/loading.fxml");
             }
             if (fxpath != "/login.fxml"){
-                centerScene(primaryStage,scene);
+                new centralizarCenas().centerScene(primaryStage,scene);
             }else{
-                logincenter(primaryStage);
+                new centralizarCenas().logincenter(primaryStage);
             }
             primaryStage.setScene(scene);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    //metodo para centralizar a cena //
-    public void centerScene (Stage stage, Scene scene){
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension screenSize = toolkit.getScreenSize();
-        double centroX = screenSize.getWidth()/2;
-        double centroY = screenSize.getHeight()/2;
-        stage.setX(centroX-740);
-        stage.setY(centroY-430);
-    }
-    public void logincenter (Stage stage){
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension screenSize = toolkit.getScreenSize();
-        double centroX = screenSize.getWidth()/2;
-        double centroY = screenSize.getHeight()/2;
-        stage.setX(centroX-420);
-        stage.setY(centroY-250);
     }
 }

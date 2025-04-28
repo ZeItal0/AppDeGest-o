@@ -1,10 +1,13 @@
 package software.consultoria;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.control.Button;
 
@@ -64,6 +67,15 @@ public class Transition {
             transitionImg.play();
         }
 
+    }
+    public void animarSeta (ImageView imageView) {
+        TranslateTransition transitionSeta = new TranslateTransition();
+        transitionSeta.setNode(imageView);
+        transitionSeta.setDuration(Duration.seconds(1));
+        transitionSeta.setFromY(0);
+        transitionSeta.setToY(260);
+        transitionSeta.setInterpolator(Interpolator.EASE_OUT);
+        transitionSeta.play();
     }
 
 

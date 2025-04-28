@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="paneSeta" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: transparent;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.consultoria.AvisoController">
+   <children>
+      <ImageView fx:id="movSet" fitHeight="59.0" fitWidth="52.0" layoutX="286.0" layoutY="166.0" opacity="0.73" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@icons/down-arrow.png" />
+         </image>
+         <effect>
+            <Bloom threshold="0.22" />
+         </effect>
+      </ImageView>
+   </children>
+</Pane>

@@ -180,6 +180,7 @@ public class VendaRegisterController {
                         selecionado.getEstoque().setQuantidade(quantidade - 1);
                         produtosList.refresh();
                         ListaDeVenda(selecionado);
+                        Aviso.mostrarAviso("","/Seta.fxml");
                     }
                 }
             }
