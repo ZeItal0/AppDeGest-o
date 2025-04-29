@@ -49,7 +49,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Label id="Text" layoutX="273.0" layoutY="86.0" prefHeight="58.0" prefWidth="513.0" stylesheets="@style.css" text="Funcionários Cadastrados" />
+      <Label id="Text" layoutX="273.0" layoutY="86.0" prefHeight="58.0" prefWidth="513.0" stylesheets="@style.css" text="Ultimas Vendas" />
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
          <graphic>
             <ImageView fx:id="closed" fitHeight="20.0" fitWidth="20.0" onDragDetected="#closed" pickOnBounds="true" preserveRatio="true">

@@ -23,85 +23,37 @@ import java.time.LocalDate;
 import java.util.Map;
 
 public class MainController {
+
     RegisterUsuarioDao registerUsuarioDao = new RegisterUsuarioDao();
-
     SearchUsuarioDao searchUsuarioDao = new SearchUsuarioDao();
-
     RegisterFornecedorDao registerFornecedorDao = new RegisterFornecedorDao();
-
     RegisterDespesaDao registerDespesaDao = new RegisterDespesaDao();
-
+    private Transition transition = new Transition();
 
     private Main main;
-    @FXML
-    private TextField NomeFuncionario;
-    @FXML
-    private TextField TelefoneFuncionario;
-    @FXML
-    private TextField CEP;
-    @FXML
-    private TextField rua;
-    @FXML
-    private TextField cidade;
-    @FXML
-    private TextField bairro;
-    @FXML
-    private DatePicker Data;
-    @FXML
-    private TextField Usuario;
-    @FXML
-    private TextField Senha;
-    @FXML
-    private MenuButton Cargo;
-
-    @FXML
-    private ImageView img1;
-    @FXML
-    private ImageView img2;
-    @FXML
-    private ImageView img3;
-    @FXML
-    private ImageView img4;
-    @FXML
-    private ImageView img5;
-    @FXML
-    private ImageView img6;
-
-    @FXML
-    private VBox vboxLateral;
-    @FXML
-    private Button Open;
-
     private boolean menuAberto = true;
     private boolean OpenPosition = false;
-
     private double larguraMenu = 415;
     private double distancia = 165;
     private double distanciaImg = 250;
     private double distanciaUser = 180;
 
     @FXML
-    private Button funcionario;
+    private VBox vboxLateral;
     @FXML
-    private Button venda;
+    private Button funcionario,venda,produtos,fornecedores,despesas,videos,voltar,Open;
     @FXML
-    private Button produtos;
+    private ImageView img1,img2,img3,img4,img5,img6;
+
     @FXML
-    private Button fornecedores;
+    private TextField NomeFuncionario,TelefoneFuncionario,CEP,rua,cidade,bairro,Usuario,Senha;
     @FXML
-    private Button despesas;
+    private DatePicker Data;
     @FXML
-    private Button videos;
+    private MenuButton Cargo;
+
     @FXML
-    private Button voltar;
-    @FXML
-    private TextField NomeFornecedor;
-    @FXML
-    private TextField Telefonefornecedor;
-    @FXML
-    private TextField Email;
-    @FXML
-    private TextField cnpj;
+    private TextField NomeFornecedor,Telefonefornecedor,Email,cnpj;
 
     @FXML
     private TextField nomeDespesa;
@@ -115,21 +67,12 @@ public class MainController {
     private TextArea ObservacoesDespesa;
 
     @FXML
-    private Button buttonone;
-    @FXML
-    private Button buttontwo;
-    @FXML
-    private Button buttonthree;
-
+    private Button buttonone,buttontwo,buttonthree;
 
     @FXML
-    private Pane pane;
-    @FXML
-    private Pane paneSuperior;
+    private Pane pane,paneSuperior;
     @FXML
     private AnchorPane AnchorPane;
-
-    private Transition transition = new Transition();
 
     @FXML
     private TextField user;
@@ -141,21 +84,10 @@ public class MainController {
     @FXML
     public void initialize() {
         if(funcionario!=null){
-
-            larguraMenu = vboxLateral.getPrefWidth();
+           ImageView[] imagens = {img1,img2,img3,img4,img5,img6};
             menuAberto = false;
-            vboxLateral.setTranslateX(-larguraMenu + 100);
-            Open.setTranslateX(distancia);
-            voltar.setTranslateX(-80);
-            img1.setTranslateX(distanciaImg);
-            img2.setTranslateX(distanciaImg);
-            img3.setTranslateX(distanciaImg);
-            img4.setTranslateX(distanciaImg);
-            img5.setTranslateX(distanciaImg);
-            img6.setTranslateX(distanciaImg);
-            userName.setTranslateX(distanciaUser);
+           Transition.posicaoMenu(vboxLateral,Open,voltar,imagens,userName,distancia,distanciaImg,distanciaUser,larguraMenu);
             OpenPosition = true;
-
             Map<Button, ImageView> hoverMap = Map.of(
                     funcionario, img1,
                     venda, img2,
@@ -164,17 +96,7 @@ public class MainController {
                     despesas, img5,
                     videos, img6
             );
-            hoverMap.forEach((botao, imagem) -> {
-                if (botao != null && imagem != null) {
-                    botao.setOnMouseEntered(e -> {
-                        if (!imagem.getStyleClass().contains("hover-img")) {
-                            imagem.getStyleClass().add("hover-img");
-                        }
-                        transition.fadeInButton(imagem);
-                    });
-                    botao.setOnMouseExited(e -> imagem.getStyleClass().remove("hover-img"));
-                }
-            });
+            MenuTransition.AplicarHover(hoverMap, transition);
         }
 
         if (userName != null){

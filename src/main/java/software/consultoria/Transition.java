@@ -5,8 +5,10 @@ import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.control.Button;
@@ -52,6 +54,19 @@ public class Transition {
         transicao.play();
         transicaoSair.play();
     }
+    public static void posicaoMenu(VBox vboxlateral, Button Open, Button voltar, ImageView[] imagens, Label userName, double distancia, double distanciaImg, double distanciaUser, double larguraMenu){
+        larguraMenu = vboxlateral.getPrefWidth();
+        vboxlateral.setTranslateX(-larguraMenu + 100);
+        Open.setTranslateX(distancia);
+        voltar.setTranslateX(-80);
+
+        for (ImageView img : imagens){
+            img.setTranslateX(distanciaImg);
+        }
+        userName.setTranslateX(distanciaUser);
+    }
+
+
     public void animarComponentes(boolean openPosition, double destanciaBotao,double distanciaImg, double distanciaUser, Node botao, Node[] imagens,Node userName){
         TranslateTransition transitionBotao = new TranslateTransition(Duration.millis(300),botao);
         TranslateTransition transitionUser = new TranslateTransition(Duration.millis(300),userName);
@@ -66,7 +81,6 @@ public class Transition {
             transitionImg.setToX(openPosition ? 0 : distanciaImg);
             transitionImg.play();
         }
-
     }
     public void animarSeta (ImageView imageView) {
         TranslateTransition transitionSeta = new TranslateTransition();
@@ -77,6 +91,5 @@ public class Transition {
         transitionSeta.setInterpolator(Interpolator.EASE_OUT);
         transitionSeta.play();
     }
-
 
 }

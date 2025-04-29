@@ -99,22 +99,12 @@ public class ProdutoController {
 
     @FXML
     public void initialize() throws SQLException {
+
         if(funcionario!=null){
-
-            larguraMenu = vboxLateral.getPrefWidth();
+            ImageView[] imagens = {img1,img2,img3,img4,img5,img6};
             menuAberto = false;
-            vboxLateral.setTranslateX(-larguraMenu + 100);
-            Open.setTranslateX(distancia);
-            voltar.setTranslateX(-80);
-            img1.setTranslateX(distanciaImg);
-            img2.setTranslateX(distanciaImg);
-            img3.setTranslateX(distanciaImg);
-            img4.setTranslateX(distanciaImg);
-            img5.setTranslateX(distanciaImg);
-            img6.setTranslateX(distanciaImg);
-            userName.setTranslateX(distanciaUser);
+            Transition.posicaoMenu(vboxLateral,Open,voltar,imagens,userName,distancia,distanciaImg,distanciaUser,larguraMenu);
             OpenPosition = true;
-
             Map<Button, ImageView> hoverMap = Map.of(
                     funcionario, img1,
                     venda, img2,
@@ -123,18 +113,9 @@ public class ProdutoController {
                     despesas, img5,
                     videos, img6
             );
-            hoverMap.forEach((botao, imagem) -> {
-                if (botao != null && imagem != null) {
-                    botao.setOnMouseEntered(e -> {
-                        if (!imagem.getStyleClass().contains("hover-img")) {
-                            imagem.getStyleClass().add("hover-img");
-                        }
-                        transition.fadeInButton(imagem);
-                    });
-                    botao.setOnMouseExited(e -> imagem.getStyleClass().remove("hover-img"));
-                }
-            });
+            MenuTransition.AplicarHover(hoverMap, transition);
         }
+
         fornecedorList.setCellValueFactory(new PropertyValueFactory<>("nome"));
         RegisterProdutoDao registerProdutoDao = new RegisterProdutoDao();
         ObservableList<Fornecedor> observableList = FXCollections.observableArrayList(registerProdutoDao.fornecedorLIST());

@@ -22,79 +22,33 @@ public class VideosController {
 
     private Main main;
     private Transition transition = new Transition();
-
-    @FXML
-    private VBox vboxLateral;
-    @FXML
-    private Button Open;
-
+    private MediaPlayer mediaPlayer;
     private boolean menuAberto = true;
     private boolean OpenPosition = false;
-
     private double larguraMenu = 415;
     private double distancia = 165;
     private double distanciaImg = 250;
     private double distanciaUser = 180;
 
     @FXML
-    private ImageView img1;
+    private VBox vboxLateral;
     @FXML
-    private ImageView img2;
+    private ImageView img1,img2,img3,img4,img5,img6;
     @FXML
-    private ImageView img3;
+    private Button funcionario,venda,produtos,fornecedores,despesas,videos,voltar,Open;
     @FXML
-    private ImageView img4;
-    @FXML
-    private ImageView img5;
-    @FXML
-    private ImageView img6;
-
-    @FXML
-    private Button funcionario;
-    @FXML
-    private Button venda;
-    @FXML
-    private Button produtos;
-    @FXML
-    private Button fornecedores;
-    @FXML
-    private Button despesas;
-    @FXML
-    private Button videos;
-
-    @FXML
-    private Button voltar;
-
+    private Slider barraDeprogresso,Volume;
     @FXML
     private Label userName;
-
     @FXML
     private MediaView Video1;
 
-    private MediaPlayer mediaPlayer;
-
-    @FXML
-    private Slider barraDeprogresso;
-    @FXML
-    private Slider Volume;
-
     public void initialize(){
         if(funcionario!=null){
-
-            larguraMenu = vboxLateral.getPrefWidth();
+            ImageView[] imagens = {img1,img2,img3,img4,img5,img6};
             menuAberto = false;
-            vboxLateral.setTranslateX(-larguraMenu + 100);
-            Open.setTranslateX(distancia);
-            voltar.setTranslateX(-80);
-            img1.setTranslateX(distanciaImg);
-            img2.setTranslateX(distanciaImg);
-            img3.setTranslateX(distanciaImg);
-            img4.setTranslateX(distanciaImg);
-            img5.setTranslateX(distanciaImg);
-            img6.setTranslateX(distanciaImg);
-            userName.setTranslateX(distanciaUser);
+            Transition.posicaoMenu(vboxLateral,Open,voltar,imagens,userName,distancia,distanciaImg,distanciaUser,larguraMenu);
             OpenPosition = true;
-
             Map<Button, ImageView> hoverMap = Map.of(
                     funcionario, img1,
                     venda, img2,
@@ -103,24 +57,14 @@ public class VideosController {
                     despesas, img5,
                     videos, img6
             );
-            hoverMap.forEach((botao, imagem) -> {
-                if (botao != null && imagem != null) {
-                    botao.setOnMouseEntered(e -> {
-                        if (!imagem.getStyleClass().contains("hover-img")) {
-                            imagem.getStyleClass().add("hover-img");
-                        }
-                        transition.fadeInButton(imagem);
-                    });
-                    botao.setOnMouseExited(e -> imagem.getStyleClass().remove("hover-img"));
-                }
-            });
+            MenuTransition.AplicarHover(hoverMap, transition);
         }
         main = ScreenChange.getMainInstance();
     }
 
 
     public void CadastroFornecedor(ActionEvent actionEvent) {
-        trocarVideo("/videos/VALORANT   2025-04-27 01-58-31.mp4");
+        trocarVideo("/videos/video.mp4");
     }
 
     public void CadastroProduto(ActionEvent actionEvent) {
