@@ -3,6 +3,7 @@ package software.consultoria;
 import DAOclass.RegisterDespesaDao;
 import DAOclass.RegisterFornecedorDao;
 import DAOclass.RegisterUsuarioDao;
+import DAOclass.SearchUsuarioDao;
 import Models.Sessao;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -23,6 +24,8 @@ import java.util.Map;
 
 public class MainController {
     RegisterUsuarioDao registerUsuarioDao = new RegisterUsuarioDao();
+
+    SearchUsuarioDao searchUsuarioDao = new SearchUsuarioDao();
 
     RegisterFornecedorDao registerFornecedorDao = new RegisterFornecedorDao();
 
@@ -196,13 +199,13 @@ public class MainController {
     // codigos para encerrar minimizar e entrar no app//
 
     public void enter(ActionEvent actionEvent) throws SQLException {
-        if(registerUsuarioDao.verificarlogin(user.getText(),password.getText()) == true){
+        if(searchUsuarioDao.verificarlogin(user.getText(),password.getText()) == true){
             main.carregarCena("/menu.fxml");
         }
         if (user.getText().isEmpty() || password.getText().isEmpty()){
             Aviso.mostrarAviso("Digite o Usuario\nDigite a Senha!","/Alert.fxml");
         }
-        if (registerUsuarioDao.verificarlogin(user.getText(),password.getText()) == false && !user.getText().isEmpty() && !password.getText().isEmpty()){
+        if (searchUsuarioDao.verificarlogin(user.getText(),password.getText()) == false && !user.getText().isEmpty() && !password.getText().isEmpty()){
             Aviso.mostrarAviso("Usuario não Registrado!","/Alert.fxml");
         }
         if (user.getText().length() > 8 || password.getText().length() > 16){
@@ -257,7 +260,7 @@ public class MainController {
         main.carregarCena("/ListaFuncionario.fxml");
     }
 
-    public void CadastrarFuncionario(ActionEvent actionEvent) {
+    public void CadastrarFuncionario(ActionEvent actionEvent) throws SQLException {
 
         String nome = NomeFuncionario.getText();
         String telefone = TelefoneFuncionario.getText();
@@ -300,8 +303,10 @@ public class MainController {
         } else if (Senha.getText().length() > 16){
             Aviso.mostrarAviso("Senha deve conter ate\n 16 Caracteres","/Alert.fxml");
             return;
-        }
-        else {
+        } else if (searchUsuarioDao.VerificarUsuario(Usuario.getText()) == true) {
+            Aviso.mostrarAviso("Usuario já está\n em uso!","/Alert.fxml");
+            return;
+        } else {
             try {
                 registerUsuarioDao.salvarusuario(nome,telefone,cep,Rua,Cidade,Bairro,User,senha,ButtonMenu,DataNas,DataReg);
                 Aviso.mostrarAviso("","/confirmado.fxml");
@@ -444,10 +449,7 @@ public class MainController {
         Situacao.setText("Pago");
     }
 
-    public void selecionarPedente(ActionEvent actionEvent) {
-        Situacao.setText("Pendente");
-
-    }
+    public void selecionarPedente(ActionEvent actionEvent) {Situacao.setText("Pendente"); }
 
     public void Pix(ActionEvent actionEvent) {
         FormaDepagamento.setText("Pix");
@@ -466,7 +468,7 @@ public class MainController {
     }
 
 
-    // parte para ser implementada //
+    // Codigos para botoes da area de produto e venda//
     public void cadastrarProduto(ActionEvent actionEvent) {
         main.carregarCena("/CadastroProduto.fxml");
     }
@@ -475,13 +477,16 @@ public class MainController {
         main.carregarCena("/Estoque.fxml");
     }
 
-
     public void cadastrarvenda(ActionEvent actionEvent) {
         main.carregarCena("/RegistrarVendas.fxml");
     }
 
     public void historicoDevendas(ActionEvent actionEvent) {
         main.carregarCena("/ListaDeVendas.fxml");
+    }
+
+    public void Relatorio(ActionEvent actionEvent) {
+        main.carregarCena("/relatorio.fxml");
     }
 
 
@@ -495,7 +500,4 @@ public class MainController {
         OpenPosition = !OpenPosition;
     }
 
-    public void Relatorio(ActionEvent actionEvent) {
-        main.carregarCena("/relatorio.fxml");
-    }
 }

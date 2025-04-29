@@ -62,35 +62,4 @@ public class RegisterUsuarioDao {
         conn.close();
     }
 
-    public boolean verificarlogin (String login, String senha) throws SQLException {
-
-        ResultSet rs = null;
-        Connection conn = null;
-        PreparedStatement stmtlogin = null;
-
-        try {
-            conn = dbConnector.connect();
-            stmtlogin = conn.prepareStatement(sqllogin);
-            stmtlogin.setString(1,login);
-            stmtlogin.setString(2,senha);
-            rs = stmtlogin.executeQuery();
-
-            if (rs.next()){
-                Sessao.nome = rs.getString("nome");
-                Sessao.id = rs.getInt("id");
-                return true;
-            }
-            else {
-                return false;
-            }
-
-        }finally {
-            if (rs != null) rs.close();
-            if (stmtlogin != null) stmtlogin.close();
-            if (conn != null) conn.close();
-
-        }
-
-    }
-
 }
