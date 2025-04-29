@@ -509,4 +509,49 @@
     -fx-text-fill: #B47E00;
     -fx-font-weight: bold;
 }
+#ButtonVideo{
+    -fx-background-color: transparent;
+    -fx-font-size: 18px;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    
+}
+#VideosList{
+    -fx-border-color:#B47E00;
+    -fx-border-width: 2px;
+}
+#ButtonVideo:hover{
+    -fx-text-fill: rgb(142, 192, 236);
+    -fx-background-color: linear-gradient(to right, #B47E00 30%, black 100%);
+}
+#ButtonPlay{
+    -fx-background-color:#B47E00;
+}
+#ButtonPlay:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
 
+.slider {
+    -fx-pref-height: 10px;
+}
+
+.slider .track {
+    -fx-background-color: #444444;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5px;
+}
+
+.slider .filled-track {
+    -fx-background-color: #B47E00;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5px;
+}
+
+.slider .thumb {
+    -fx-background-color: #B47E00;
+    -fx-background-radius: 50%;
+    -fx-pref-width: 15px;
+    -fx-pref-height: 15px;
+    -fx-effect: dropshadow(gaussian, #00000088, 4, 0.5, 0, 0);
+}
