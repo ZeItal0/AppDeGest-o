@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.awt.*;
 import java.sql.Connection;
+import java.time.LocalDateTime;
 
 
 public class Main extends Application {
@@ -21,13 +22,12 @@ public class Main extends Application {
     //metodo start carrega a primeira cena//
     @Override
     public void start(Stage primaryStage) {
+        System.out.println("Sistema iniciado em: "+  LocalDateTime.now());
         Aviso.mostrarAviso("","/loading.fxml");
         this.primaryStage = primaryStage;
         primaryStage.initStyle(StageStyle.UNDECORATED);
         ScreenChange.setMainInstance(this);
         carregarCena("/login.fxml");
-        DatabaseConnector dbConnector = new DatabaseConnector();
-        Connection conn = dbConnector.connect();
         primaryStage.show();
     }
 

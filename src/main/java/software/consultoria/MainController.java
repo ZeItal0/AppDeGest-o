@@ -36,14 +36,14 @@ public class MainController {
     private double larguraMenu = 415;
     private double distancia = 165;
     private double distanciaImg = 250;
-    private double distanciaUser = 180;
+    private double distanciaUser = 200;
 
     @FXML
     private VBox vboxLateral;
     @FXML
     private Button funcionario,venda,produtos,fornecedores,despesas,videos,voltar,Open;
     @FXML
-    private ImageView img1,img2,img3,img4,img5,img6;
+    private ImageView img1,img2,img3,img4,img5,img6,img8;
 
     @FXML
     private TextField NomeFuncionario,TelefoneFuncionario,CEP,rua,cidade,bairro,Usuario,Senha;
@@ -54,15 +54,10 @@ public class MainController {
 
     @FXML
     private TextField NomeFornecedor,Telefonefornecedor,Email,cnpj;
-
     @FXML
-    private TextField nomeDespesa;
+    private TextField nomeDespesa,ValorDespesa;
     @FXML
-    private TextField ValorDespesa;
-    @FXML
-    private MenuButton Situacao;
-    @FXML
-    private MenuButton FormaDepagamento;
+    private MenuButton Situacao,FormaDepagamento;
     @FXML
     private TextArea ObservacoesDespesa;
 
@@ -73,7 +68,6 @@ public class MainController {
     private Pane pane,paneSuperior;
     @FXML
     private AnchorPane AnchorPane;
-
     @FXML
     private TextField user;
     @FXML
@@ -96,6 +90,7 @@ public class MainController {
                     despesas, img5,
                     videos, img6
             );
+            MenuTransition.AplicarHoverDiamante(Open,img8,transition);
             MenuTransition.AplicarHover(hoverMap, transition);
         }
 
@@ -127,7 +122,7 @@ public class MainController {
         if (user.getText().isEmpty() || password.getText().isEmpty()){
             Aviso.mostrarAviso("Digite o Usuario\nDigite a Senha!","/Alert.fxml");
         }
-        if (searchUsuarioDao.verificarlogin(user.getText(),password.getText()) == false && !user.getText().isEmpty() && !password.getText().isEmpty()){
+        if (searchUsuarioDao.verificarlogin(user.getText(),password.getText()) == false){
             Aviso.mostrarAviso("Usuario não Registrado!","/Alert.fxml");
         }
         if (user.getText().length() > 8 || password.getText().length() > 16){

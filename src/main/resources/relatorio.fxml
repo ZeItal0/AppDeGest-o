@@ -49,7 +49,7 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
-            <BarChart fx:id="BarMeses" layoutX="356.0" layoutY="131.0" legendVisible="false" prefHeight="400.0" prefWidth="771.0">
+            <BarChart fx:id="BarMeses" layoutX="246.0" layoutY="128.0" legendVisible="false" prefHeight="368.0" prefWidth="803.0">
               <xAxis>
                 <CategoryAxis id="bar" fx:id="categoryX" prefHeight="1.0" prefWidth="558.0" side="BOTTOM" stylesheets="@style.css" />
               </xAxis>
@@ -57,7 +57,7 @@
                 <NumberAxis fx:id="numberY" side="LEFT" />
               </yAxis>
             </BarChart>
-            <DatePicker id="datepicker" fx:id="Data" layoutX="413.0" layoutY="92.0" onAction="#gerarRelatorio" prefHeight="31.0" prefWidth="158.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
+            <DatePicker id="datepicker" fx:id="Data" layoutX="283.0" layoutY="105.0" onAction="#gerarRelatorio" prefHeight="31.0" prefWidth="158.0" promptText="dd/MM/YYYY" style="-fx-background-color: transparent;" stylesheets="@style.css" />
          </children>
       </Pane>
       <Button id="closed" layoutX="1451.0" layoutY="10.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
@@ -82,49 +82,67 @@
       <Button id="listadefuncionarios" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#historicoDevendas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="HISTORICO DE VENDAS" />
       <Button id="cadastro" layoutX="621.0" layoutY="11.0" mnemonicParsing="false" onAction="#Relatorio" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="RELATÓRIO" />
       <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />
-      <Label id="infoTOTAL" alignment="CENTER" layoutX="417.0" layoutY="696.0" prefHeight="35.0" prefWidth="122.0" stylesheets="@style.css" text="VALOR INVESTIDO">
+      <Label id="infoTOTAL" fx:id="investido" layoutX="282.0" layoutY="625.0" prefHeight="108.0" prefWidth="245.0" stylesheets="@style.css">
+         <padding>
+            <Insets left="12.0" />
+         </padding></Label>
+      <Label id="titulos" alignment="CENTER" layoutX="294.0" layoutY="625.0" prefHeight="35.0" prefWidth="122.0" stylesheets="@style.css" text="VALOR INVESTIDO">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label id="infoTOTAL" alignment="CENTER" layoutX="417.0" layoutY="616.0" prefHeight="35.0" prefWidth="122.0" stylesheets="@style.css" text="QUANTIDADE">
+      <Label id="infoTOTAL" fx:id="Quantidade" alignment="BASELINE_LEFT" layoutX="282.0" layoutY="506.0" prefHeight="108.0" prefWidth="245.0" stylesheets="@style.css">
+         <padding>
+            <Insets left="12.0" />
+         </padding></Label>
+      <Label id="titulos" alignment="CENTER" layoutX="264.0" layoutY="506.0" prefHeight="35.0" prefWidth="122.0" stylesheets="@style.css" text="VENDAS">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label id="infoTOTAL" fx:id="investido" layoutX="539.0" layoutY="696.0" prefHeight="35.0" prefWidth="81.0" stylesheets="@style.css" />
-      <Label id="infoTOTAL" fx:id="Quantidade" layoutX="539.0" layoutY="616.0" prefHeight="35.0" prefWidth="81.0" stylesheets="@style.css" />
-      <Label id="infoTOTAL" alignment="CENTER" layoutX="417.0" layoutY="656.0" prefHeight="35.0" prefWidth="122.0" stylesheets="@style.css" text="DEPESAS">
+      <Label id="infoTOTAL" fx:id="despesasDomes" layoutX="796.0" layoutY="506.0" prefHeight="108.0" prefWidth="245.0" stylesheets="@style.css">
+         <padding>
+            <Insets left="12.0" />
+         </padding></Label>
+      <Label id="titulos" alignment="CENTER" layoutX="781.0" layoutY="506.0" prefHeight="35.0" prefWidth="122.0" stylesheets="@style.css" text="DEPESAS">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label id="infoTOTAL" fx:id="despesasDomes" layoutX="539.0" layoutY="656.0" prefHeight="35.0" prefWidth="81.0" stylesheets="@style.css" />
-      <Label id="infoRelatorio" alignment="CENTER" layoutX="624.0" layoutY="575.0" prefHeight="76.0" prefWidth="122.0" stylesheets="@style.css" text="LUCRO">
+      <Label id="infoRelatorio" fx:id="LUCROBRUTO" layoutX="539.0" layoutY="625.0" prefHeight="108.0" prefWidth="245.0" stylesheets="@style.css">
+         <padding>
+            <Insets left="12.0" />
+         </padding></Label>
+      <Label id="titulos" alignment="CENTER" layoutX="525.0" layoutY="625.0" prefHeight="31.0" prefWidth="109.0" stylesheets="@style.css" text="LUCRO">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label id="infoRelatorio" fx:id="LUCROBRUTO" layoutX="746.0" layoutY="575.0" prefHeight="76.0" prefWidth="145.0" stylesheets="@style.css" />
-      <Label id="infoTOTAL" alignment="CENTER" layoutX="417.0" layoutY="575.0" prefHeight="36.0" prefWidth="122.0" stylesheets="@style.css" text="VALOR OBTIDO">
+      <Label id="infoTOTAL" fx:id="ValorObtido" layoutX="539.0" layoutY="506.0" prefHeight="108.0" prefWidth="245.0" stylesheets="@style.css">
+         <padding>
+            <Insets left="12.0" />
+         </padding></Label>
+      <Label id="titulos" alignment="CENTER" layoutX="545.0" layoutY="506.0" prefHeight="36.0" prefWidth="122.0" stylesheets="@style.css" text="VALOR OBTIDO">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label id="infoTOTAL" fx:id="ValorObtido" layoutX="539.0" layoutY="575.0" prefHeight="36.0" prefWidth="81.0" stylesheets="@style.css" />
       <VBox id="menu" fx:id="vboxLateral" prefHeight="801.0" prefWidth="415.0" stylesheets="@style.css">
          <children>
-            <Button id="buttonOptions" fx:id="Open" mnemonicParsing="false" onAction="#Open" stylesheets="@style.css">
+            <Button id="buttonOptions" fx:id="Open" mnemonicParsing="false" onAction="#Open" prefHeight="136.0" prefWidth="88.0" stylesheets="@style.css">
                <graphic>
-                  <ImageView fitHeight="136.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true" x="14.0" y="-20.0">
+                  <ImageView fx:id="img8" fitHeight="121.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true" x="14.0" y="-20.0">
                      <image>
                         <Image url="@img/diamond2.png" />
                      </image>
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets bottom="52.0" right="55.0" top="15.0" />
+                  <Insets bottom="52.0" right="70.0" top="23.0" />
                </VBox.margin>
+               <padding>
+                  <Insets left="-28.0" right="-37.0" />
+               </padding>
             </Button>
             <Button id="funcionario" fx:id="funcionario" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#funcionario" prefHeight="54.0" prefWidth="314.0" stylesheets="@style.css" text="Funcionário">
                <graphic>
@@ -200,7 +218,7 @@
             </Label>
             <Button id="sair" fx:id="voltar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#voltar" prefHeight="41.0" prefWidth="81.0" stylesheets="@style.css" text="Sair">
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="img7" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/logout.png" />
                      </image>
@@ -217,17 +235,14 @@
             <Image url="@icons/user1.png" />
          </image>
       </ImageView>
-      <Label id="infoRelatorio" alignment="CENTER" layoutX="624.0" layoutY="656.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="76.0" prefWidth="122.0" stylesheets="@style.css">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label id="infoRelatorio" fx:id="MEDIA" layoutX="746.0" layoutY="656.0" prefHeight="76.0" prefWidth="145.0" stylesheets="@style.css" />
-      <Label id="inforelatorio" layoutX="651.0" layoutY="673.0" prefHeight="21.0" prefWidth="70.0" stylesheets="@style.css" text="MÉDIA" textFill="WHITE">
+      <Label id="infoRelatorio" fx:id="MEDIA" layoutX="796.0" layoutY="625.0" prefHeight="108.0" prefWidth="245.0" stylesheets="@style.css">
+         <padding>
+            <Insets left="12.0" />
+         </padding></Label>
+      <Label id="titulos" layoutX="807.0" layoutY="625.0" prefHeight="31.0" prefWidth="191.0" stylesheets="@style.css" text="MÉDIA POR VENDA" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label id="inforelatorio" layoutX="630.0" layoutY="696.0" stylesheets="@style.css" text="POR VENDA" />
    </children>
 </AnchorPane>

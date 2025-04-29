@@ -139,17 +139,20 @@
       <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />
       <VBox id="menu" fx:id="vboxLateral" prefHeight="801.0" prefWidth="415.0" stylesheets="@style.css">
          <children>
-            <Button id="buttonOptions" fx:id="Open" mnemonicParsing="false" onAction="#Open" stylesheets="@style.css">
+            <Button id="buttonOptions" fx:id="Open" mnemonicParsing="false" onAction="#Open" prefHeight="136.0" prefWidth="88.0" stylesheets="@style.css">
                <graphic>
-                  <ImageView fitHeight="136.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true" x="14.0" y="-20.0">
+                  <ImageView fx:id="img8" fitHeight="121.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true" x="14.0" y="-20.0">
                      <image>
                         <Image url="@img/diamond2.png" />
                      </image>
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets bottom="52.0" right="55.0" top="15.0" />
+                  <Insets bottom="52.0" right="70.0" top="23.0" />
                </VBox.margin>
+               <padding>
+                  <Insets left="-28.0" right="-37.0" />
+               </padding>
             </Button>
             <Button id="funcionario" fx:id="funcionario" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#funcionario" prefHeight="54.0" prefWidth="314.0" stylesheets="@style.css" text="Funcionário">
                <graphic>
@@ -225,7 +228,7 @@
             </Label>
             <Button id="sair" fx:id="voltar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#voltar" prefHeight="41.0" prefWidth="81.0" stylesheets="@style.css" text="Sair">
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="img7" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/logout.png" />
                      </image>

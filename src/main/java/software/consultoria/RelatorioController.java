@@ -3,6 +3,7 @@ package software.consultoria;
 import DAOclass.RelatorioMensalDao;
 import Models.RelatorioDeDespesas;
 import Models.RelatorioDoMes;
+import Models.Sessao;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +41,7 @@ public class RelatorioController {
     private double larguraMenu = 415;
     private double distancia = 165;
     private double distanciaImg = 250;
-    private double distanciaUser = 180;
+    private double distanciaUser = 200;
 
     private static final String[] MESES_PT = {"Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"};
 
@@ -49,17 +50,8 @@ public class RelatorioController {
     @FXML
     private DatePicker Data;
     @FXML
-    private ImageView img1;
-    @FXML
-    private ImageView img2;
-    @FXML
-    private ImageView img3;
-    @FXML
-    private ImageView img4;
-    @FXML
-    private ImageView img5;
-    @FXML
-    private ImageView img6;
+    private ImageView img1,img2,img3,img4,img5,img6,img8;
+
     private Transition transition = new Transition();
     RelatorioMensalDao relatorioMensalDao = new RelatorioMensalDao();
     @FXML
@@ -117,7 +109,12 @@ public class RelatorioController {
                     despesas, img5,
                     videos, img6
             );
+            MenuTransition.AplicarHoverDiamante(Open,img8,transition);
             MenuTransition.AplicarHover(hoverMap, transition);
+        }
+
+        if (userName != null){
+            userName.setText(Sessao.nome);
         }
 
         main = ScreenChange.getMainInstance();

@@ -37,18 +37,9 @@ public class EstoqueController {
     private Main main;
     UpdateProdutosDao updateProdutosDao = new UpdateProdutosDao();
     ObservableList<String> categorias = FXCollections.observableArrayList("Aneis","Relogios","Perfumes","Colar","Pulseira");
+
     @FXML
-    private ImageView img1;
-    @FXML
-    private ImageView img2;
-    @FXML
-    private ImageView img3;
-    @FXML
-    private ImageView img4;
-    @FXML
-    private ImageView img5;
-    @FXML
-    private ImageView img6;
+    private ImageView img1,img2,img3,img4,img5,img6,img8;
 
     @FXML
     private VBox vboxLateral;
@@ -61,7 +52,7 @@ public class EstoqueController {
     private double larguraMenu = 415;
     private double distancia = 165;
     private double distanciaImg = 250;
-    private double distanciaUser = 180;
+    private double distanciaUser = 200;
 
 
     @FXML
@@ -121,6 +112,7 @@ public class EstoqueController {
                     despesas, img5,
                     videos, img6
             );
+            MenuTransition.AplicarHoverDiamante(Open,img8,transition);
             MenuTransition.AplicarHover(hoverMap, transition);
         }
 

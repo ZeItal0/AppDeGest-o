@@ -32,7 +32,7 @@
             </ImageView>
          </children>
       </Pane>
-      <ImageView fitHeight="129.0" fitWidth="194.0" layoutX="-28.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="110.0" fitWidth="121.0" layoutX="11.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/diamond2.png" />
          </image>
@@ -74,7 +74,7 @@
             <Image url="@img/gG.png" />
          </image>
       </ImageView>
-      <Button id="closed" layoutX="814.0" layoutY="35.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
+      <Button id="closed" layoutX="824.0" layoutY="18.0" mnemonicParsing="false" onAction="#closed" prefHeight="38.0" prefWidth="38.0" styleClass="style.css" stylesheets="@style.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

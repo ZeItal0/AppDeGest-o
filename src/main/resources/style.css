@@ -107,6 +107,9 @@
 .hover-img {
     -fx-effect: innershadow(gaussian, #B47E00, 12, 2, 0, 0);
 }
+.hover-button-img {
+    -fx-effect: innershadow(gaussian, #FFC338, 12, 2, 0, 0);
+}
 #Novavenda:hover{
      -fx-background-color: linear-gradient(to right, black 30%, #B47E00 100%);
      
@@ -436,6 +439,13 @@
     
 }
 #infoTOTAL {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(117, 117, 117, 0.8);
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+}
+#TOTAL{
     -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-background-color: rgba(117, 117, 117, 0.8);
@@ -465,7 +475,11 @@
     -fx-border-color: transparent;
     -fx-text-fill: white;
 }
-
+#titulos{
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
 #meuProgress {
     -fx-accent: #b8860b;
 }

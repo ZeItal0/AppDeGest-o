@@ -1,5 +1,6 @@
 package software.consultoria;
 
+import Models.Sessao;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,12 +29,12 @@ public class VideosController {
     private double larguraMenu = 415;
     private double distancia = 165;
     private double distanciaImg = 250;
-    private double distanciaUser = 180;
+    private double distanciaUser = 200;
 
     @FXML
     private VBox vboxLateral;
     @FXML
-    private ImageView img1,img2,img3,img4,img5,img6;
+    private ImageView img1,img2,img3,img4,img5,img6,img8;
     @FXML
     private Button funcionario,venda,produtos,fornecedores,despesas,videos,voltar,Open;
     @FXML
@@ -57,7 +58,11 @@ public class VideosController {
                     despesas, img5,
                     videos, img6
             );
+            MenuTransition.AplicarHoverDiamante(Open,img8,transition);
             MenuTransition.AplicarHover(hoverMap, transition);
+        }
+        if (userName != null){
+            userName.setText(Sessao.nome);
         }
         main = ScreenChange.getMainInstance();
     }

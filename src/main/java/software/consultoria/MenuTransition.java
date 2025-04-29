@@ -24,5 +24,15 @@ public class MenuTransition {
             }
         });
     }
+    public static void AplicarHoverDiamante(Button button,ImageView imageView, Transition transition){
+        if (button != null && imageView != null){
+            button.setOnMouseEntered(e ->{
+                if (!imageView.getStyleClass().contains("hover-button-img")){
+                    imageView.getStyleClass().add("hover-button-img");
+                }
+            });
+            button.setOnMouseExited(e -> imageView.getStyleClass().remove("hover-button-img"));
+        }
+    }
 
 }
