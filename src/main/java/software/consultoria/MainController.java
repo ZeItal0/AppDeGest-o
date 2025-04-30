@@ -142,19 +142,19 @@ public class MainController {
 
     //opcoes do menu principal para carregar cenas//
     public void venda(ActionEvent actionEvent) {
-        main.carregarCena("/VendaOptions.fxml");
+        main.carregarCena("/RegistrarVendas.fxml");
     }
 
     public void produtos(ActionEvent actionEvent) {
-        main.carregarCena("/produtosOptions.fxml");
+        main.carregarCena("/CadastroProduto.fxml");
     }
 
     public void fornecedores(ActionEvent actionEvent) {
-        main.carregarCena("/fornecedoresOptions.fxml");
+        main.carregarCena("/CadastroFornecedor.fxml");
     }
 
     public void despesas(ActionEvent actionEvent) {
-        main.carregarCena("/DespesasOptions.fxml");
+        main.carregarCena("/CadastroDespesa.fxml");
     }
 
     public void videos(ActionEvent actionEvent) {
@@ -166,11 +166,11 @@ public class MainController {
 
     //area de cadastro de funcionario e listagem e carregar cenas//
     public void funcionario(ActionEvent actionEvent) {
-        main.carregarCena("/funcionariosOptions.fxml");
+        main.carregarCena("/CadastroFuncionario.fxml");
     }
 
     public void cadastrar(ActionEvent actionEvent) {
-        main.carregarCena("/CadastroFuncionario.fxml");
+        main.carregarCena("/CadastroFuncionario.fxml");//-sai
     }
 
     public void listaDefuncionarios(ActionEvent actionEvent){

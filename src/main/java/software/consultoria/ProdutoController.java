@@ -142,28 +142,28 @@ public class ProdutoController {
 
     //opcoes do menu principal//
     public void funcionario(ActionEvent actionEvent) {
-        main.carregarCena("/funcionariosOptions.fxml");
+        main.carregarCena("/CadastroFuncionario.fxml");
     }
 
     public void venda(ActionEvent actionEvent) {
-        main.carregarCena("/VendaOptions.fxml");
+        main.carregarCena("/RegistrarVendas.fxml");
     }
 
     public void produtos(ActionEvent actionEvent) {
+        main.carregarCena("/CadastroProduto.fxml");
     }
 
     public void fornecedores(ActionEvent actionEvent) {
-        main.carregarCena("/fornecedoresOptions.fxml");
+        main.carregarCena("/CadastroFornecedor.fxml");
     }
 
     public void despesas(ActionEvent actionEvent) {
-        main.carregarCena("/DespesasOptions.fxml");
+        main.carregarCena("/CadastroDespesa.fxml");
     }
 
     public void videos(ActionEvent actionEvent) {
         main.carregarCena("/VideoAulas.fxml");
     }
-
 
 // area para cadastro de produto, listagem e carregar cenas//
     public void cadastrarProduto(ActionEvent actionEvent) {
@@ -174,8 +174,6 @@ public class ProdutoController {
         main.carregarCena("/Estoque.fxml");
     }
 
-    public void Editarproduto(ActionEvent actionEvent) {
-    }
 
     public void Cadastrar_Produto_fornecedor(ActionEvent actionEvent) {
         String Nome = nomeProduto.getText();
