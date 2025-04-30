@@ -336,10 +336,10 @@ public class MainController {
         if (nomeDespesa.getText().length() > 30){
             Aviso.mostrarAviso("Numero Maximo em\nDespesa é 30!","/Alert.fxml");
             return;
-        }else if (!valor.matches("\\d+")){
+        }else if (!valor.matches(".*\\d.*")){
             Aviso.mostrarAviso("Somente numeros\nEm Valor!","/Alert.fxml");
             return;
-        }else if (ObservacoesDespesa.getText().length() >50){
+        }else if (ObservacoesDespesa.getText().length() >80){
             Aviso.mostrarAviso("Numero Maximo em\nObservações é 50!","/Alert.fxml");
             return;
         }else if (situacao.isEmpty()){

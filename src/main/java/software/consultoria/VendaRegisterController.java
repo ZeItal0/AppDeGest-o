@@ -312,7 +312,7 @@ public class VendaRegisterController {
             Aviso.mostrarAviso("Selecione a forma\n    de Pagamento!","/Alert.fxml");
             return;
         }
-        if (!DESCONTOPRODUTO.getText().matches("\\d+") && !DESCONTOPRODUTO.getText().isEmpty()){
+        if (!DESCONTOPRODUTO.getText().matches(".*\\d.*") && !DESCONTOPRODUTO.getText().isEmpty()){
             Aviso.mostrarAviso("Somente Numeros\n    em Desconto","/Alert.fxml");
             return;
         }
