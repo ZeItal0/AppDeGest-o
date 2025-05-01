@@ -17,6 +17,7 @@ public class SearchFornecedorDao {
     private String sqBusca = "SELECT u.id, u.nome, u.email, u.telefone, u.cnpj_cpf, u.data_de_cadastro, " + "e.Rua, e.cep " + "FROM fornecedor u " + "JOIN endereco e ON u.id_endereco = e.id " + "WHERE u.nome LIKE ? OR u.email LIKE ? OR u.telefone LIKE ? OR u.cnpj_cpf LIKE ? "+"ORDER BY \n" +
             "    u.data_de_cadastro DESC\n" +
             "LIMIT 100";
+    private String sqlCnpj = "SELECT COUNT(*) FROM fornecedor WHERE cnpj_cpf = ?";
 
     public ObservableList<Fornecedor> listarFornecedor() throws SQLException {
         ObservableList<Fornecedor> lista = FXCollections.observableArrayList();
@@ -73,5 +74,22 @@ public class SearchFornecedorDao {
         pstmt.close();
         conn.close();
         return lista;
+    }
+    public boolean Verificarcnpj(String cnpj) throws SQLException {
+        Connection conn = dbConnector.connect();
+
+        PreparedStatement pstmtVerificar = conn.prepareStatement(sqlCnpj);
+        pstmtVerificar.setString(1,cnpj);
+        ResultSet rs = pstmtVerificar.executeQuery();
+
+        boolean ext = false;
+        if (rs.next()){
+            ext = rs.getInt(1) > 0;
+        }
+        rs.close();
+        pstmtVerificar.close();
+        conn.close();
+        return ext;
+
     }
 }

@@ -183,38 +183,15 @@ public class ProdutoController {
         String Categoria = categoria.getText();
         String Detalhes = detalhes.getText();
 
-        if (Nome.isEmpty() || Quantidade.isEmpty() || ValorInvestido.isEmpty() || ValorDeVenda.isEmpty() || Categoria.isEmpty() || Detalhes.isEmpty()){
-            Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
-            return;
-        }
-        if (idfornecedor == null){
-            Aviso.mostrarAviso("Selecione um Fornecedor!","/Alert.fxml");
-            return;
-        }
-        if (nomeProduto.getText().length() > 30){
-            Aviso.mostrarAviso("Numero Maximo em\nNome é 30!","/Alert.fxml");
-            return;
-        }else if (!quantidade.getText().matches("\\d+(\\.\\d+)?")){
-            Aviso.mostrarAviso("Somente numeros\nEm quantidade!","/Alert.fxml");
-            return;
-        }else if (!valorInvestido.getText().matches("\\d+(\\.\\d+)?")){
-            Aviso.mostrarAviso("Somente numeros em\nValor investido!","/Alert.fxml");
-            return;
-        }else if (!valorDeVenda.getText().matches("\\d+(\\.\\d+)?")){
-            Aviso.mostrarAviso("Somente numeros em\nValor de venda!","/Alert.fxml");
-            return;
-        }else if (categoria.getText().isEmpty() || categoria.getText().equals("Categoria")){
-            Aviso.mostrarAviso("Selecione uma opção\nEm categoria!","/Alert.fxml");
-            return;
-        }else if (detalhes.getText().length() > 50){
-            Aviso.mostrarAviso("Numero Maximo em\nObservações é 50!","/Alert.fxml");
-            return;
-        }
-
-        else{
+        if (Validacoes.validarProduto(Nome,Quantidade,ValorInvestido,ValorDeVenda,Categoria,Detalhes,idfornecedor)){
             try {
                 registerProdutoDao.salvarProduto(Nome,Integer.parseInt(Quantidade),Double.parseDouble(ValorInvestido),Double.parseDouble(ValorDeVenda),Categoria,Detalhes,String.valueOf(entradasEsaidas.entrada), LocalDate.now(),idfornecedor);
                 Aviso.mostrarAviso("","/confirmado.fxml");
+                nomeProduto.clear();
+                quantidade.clear();
+                valorDeVenda.clear();
+                valorInvestido.clear();
+                detalhes.clear();
             }
             catch (Exception e){
                 e.printStackTrace();

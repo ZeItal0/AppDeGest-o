@@ -1,11 +1,7 @@
 package software.consultoria;
 
-import DAOclass.RegisterDespesaDao;
-import DAOclass.RegisterFornecedorDao;
-import DAOclass.RegisterUsuarioDao;
-import DAOclass.SearchUsuarioDao;
+import DAOclass.*;
 import Models.Sessao;
-import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.util.Duration;
+
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Map;
@@ -29,6 +25,7 @@ public class MainController {
     RegisterFornecedorDao registerFornecedorDao = new RegisterFornecedorDao();
     RegisterDespesaDao registerDespesaDao = new RegisterDespesaDao();
     private Transition transition = new Transition();
+    SearchFornecedorDao searchFornecedorDao = new SearchFornecedorDao();
 
     private Main main;
     private boolean menuAberto = true;
@@ -116,17 +113,39 @@ public class MainController {
     // codigos para encerrar minimizar e entrar no app//
 
     public void enter(ActionEvent actionEvent) throws SQLException {
+
+        if (user.getText().length() > 8){
+            Aviso.mostrarAviso("Usuario deve \nconter 8 Caracteres","/Alert.fxml");
+            return;
+        }else if (password.getText().length() > 16){
+            Aviso.mostrarAviso("Senha deve \nconter 16 Caracteres","/Alert.fxml");
+            return;
+        }else if (user.getText().length() < 4){
+            Aviso.mostrarAviso("Usuario deve conter de 4\n ate 8 Caracteres","/Alert.fxml");
+            return;
+        }else if (password.getText().length() < 6){
+            Aviso.mostrarAviso("Senha deve conter de 6\n ate 16 Caracteres","/Alert.fxml");
+            return;
+        }else if (!user.getText().matches("[a-zA-Z0-9]+")) {
+            Aviso.mostrarAviso("Usuario deve conter\n Letras e Números","/Alert.fxml");
+            return;
+        }else if (!password.getText().matches("(?=.*[a-zA-Z])(?=.*\\d).+")){
+            Aviso.mostrarAviso("Senha deve contrer\n Letras e Números", "/Alert.fxml");
+            return;
+        }else if (user.getText().contains(" ") || password.getText().contains(" ")) {
+            Aviso.mostrarAviso("Usuario e senha não\n Podem conter espaços","/Alert.fxml");
+            return;
+        }
         if(searchUsuarioDao.verificarlogin(user.getText(),password.getText()) == true){
             main.carregarCena("/menu.fxml");
         }
         if (user.getText().isEmpty() || password.getText().isEmpty()){
             Aviso.mostrarAviso("Digite o Usuario\nDigite a Senha!","/Alert.fxml");
+            return;
         }
         if (searchUsuarioDao.verificarlogin(user.getText(),password.getText()) == false){
             Aviso.mostrarAviso("Usuario não Registrado!","/Alert.fxml");
-        }
-        if (user.getText().length() > 8 || password.getText().length() > 16){
-            Aviso.mostrarAviso("Usuario e Senha Devem \nconter 8 Caracteres","/Alert.fxml");
+            return;
         }
     }
 
@@ -191,42 +210,22 @@ public class MainController {
         LocalDate DataNas = Data.getValue();
         LocalDate DataReg = LocalDate.now();
 
-        if (nome.isEmpty() || telefone.isEmpty() || cep.isEmpty() || Rua.isEmpty() || Cidade.isEmpty() || Bairro.isEmpty() || User.isEmpty() || senha.isEmpty() || ButtonMenu.isEmpty() || DataNas == null){
-            Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
-            return;
-        }
-        
-        if (NomeFuncionario.getText().length() > 30){
-            Aviso.mostrarAviso("Nome deve conter\n 30 Caracteres","/Alert.fxml");
-            return;
-        }else if ( TelefoneFuncionario.getText().length() > 14){
-            Aviso.mostrarAviso("Telefone deve conter ate\n 14 Caracteres","/Alert.fxml");
-            return;
-        }else if (CEP.getText().length() > 8) {
-            Aviso.mostrarAviso("Cep deve conter ate\n 8 Caracteres","/Alert.fxml");
-            return;
-        }else if (rua.getText().length() > 35){
-            Aviso.mostrarAviso("rua deve conter ate\n 35 Caracteres","/Alert.fxml");
-            return;
-        }else if (cidade.getText().length() > 30) {
-            Aviso.mostrarAviso("Cidade deve conter ate\n 30 Caracteres","/Alert.fxml");
-            return;
-        }else if (bairro.getText().length() > 25) {
-            Aviso.mostrarAviso("Bairro deve conter ate\n 25 Caracteres","/Alert.fxml");
-            return;
-        }else if (Usuario.getText().length() > 8) {
-            Aviso.mostrarAviso("Usuario deve conter ate\n 8 Caracteres","/Alert.fxml");
-            return;
-        } else if (Senha.getText().length() > 16){
-            Aviso.mostrarAviso("Senha deve conter ate\n 16 Caracteres","/Alert.fxml");
-            return;
-        } else if (searchUsuarioDao.VerificarUsuario(Usuario.getText()) == true) {
+        if (searchUsuarioDao.VerificarUsuario(Usuario.getText()) == true) {
             Aviso.mostrarAviso("Usuario já está\n em uso!","/Alert.fxml");
             return;
-        } else {
+        }
+        if (Validacoes.validarFuncionario(nome,telefone,cep,Rua,Cidade,Bairro,User,senha,ButtonMenu,DataNas)){
             try {
                 registerUsuarioDao.salvarusuario(nome,telefone,cep,Rua,Cidade,Bairro,User,senha,ButtonMenu,DataNas,DataReg);
                 Aviso.mostrarAviso("","/confirmado.fxml");
+                NomeFuncionario.clear();
+                TelefoneFuncionario.clear();
+                CEP.clear();
+                rua.clear();
+                cidade.clear();
+                bairro.clear();
+                Usuario.clear();
+                Senha.clear();
             }
             catch (Exception e){
                 e.printStackTrace();
@@ -259,7 +258,7 @@ public class MainController {
         main.carregarCena("/ListaFornecedor.fxml");
     }
 
-    public void confirmarFornecedor(ActionEvent actionEvent) {
+    public void confirmarFornecedor(ActionEvent actionEvent) throws SQLException {
         String nome = NomeFornecedor.getText();
         String telefone = Telefonefornecedor.getText();
         String email = Email.getText();
@@ -270,39 +269,22 @@ public class MainController {
         String Bairro = bairro.getText();
         LocalDate DataReg = LocalDate.now();
 
-        if (nome.isEmpty() || telefone.isEmpty() || email.isEmpty() || CNPJ.isEmpty() || cep.isEmpty() || Rua.isEmpty() || Cidade.isEmpty() || Bairro.isEmpty()){
-            Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
+        if (searchFornecedorDao.Verificarcnpj(CNPJ) == true) {
+            Aviso.mostrarAviso("CNPJ já está\n em uso!","/Alert.fxml");
             return;
         }
-        if (NomeFornecedor.getText().length() > 30){
-            Aviso.mostrarAviso("Nome deve conter\n 30 Caracteres","/Alert.fxml");
-            return;
-        }else if (Telefonefornecedor.getText().length() > 14) {
-            Aviso.mostrarAviso("Telefone deve conter ate\n 14 Caracteres","/Alert.fxml");
-            return;
-        }else if (Email.getText().length() > 25){
-            Aviso.mostrarAviso("Email deve conter ate\n 25 Caracteres","/Alert.fxml");
-            return;
-        }else if (cnpj.getText().length() > 14){
-            Aviso.mostrarAviso("CNPJ deve conter ate\n 14 Caracteres","/Alert.fxml");
-            return;
-        }else if (CEP.getText().length() > 8){
-            Aviso.mostrarAviso("CEP deve conter ate\n 8 Caracteres","/Alert.fxml");
-            return;
-        }else if (rua.getText().length() > 35){
-            Aviso.mostrarAviso("rua deve conter ate\n 35 Caracteres","/Alert.fxml");
-            return;
-        }else if (cidade.getText().length() > 30) {
-            Aviso.mostrarAviso("Cidade deve conter ate\n 30 Caracteres","/Alert.fxml");
-            return;
-        }else if (bairro.getText().length() > 25) {
-            Aviso.mostrarAviso("Bairro deve conter ate\n 25 Caracteres","/Alert.fxml");
-            return;
-        }
-        else {
+        if (Validacoes.validarFornecedor(nome,telefone,email,CNPJ,cep,Rua,Cidade,Bairro)){
             try {
                 registerFornecedorDao.salvarFornecedor(nome,telefone,email,CNPJ,cep,Rua,Cidade,Bairro,DataReg);
                 Aviso.mostrarAviso("","/confirmado.fxml");
+                NomeFornecedor.clear();
+                Telefonefornecedor.clear();
+                Email.clear();
+                cnpj.clear();
+                CEP.clear();
+                rua.clear();
+                cidade.clear();
+                bairro.clear();
             }
             catch (Exception e){
                 e.printStackTrace();
@@ -329,38 +311,19 @@ public class MainController {
         String pagamento = FormaDepagamento.getText();
         LocalDate data = Data.getValue();
 
-        if (nome.isEmpty() || valor.isEmpty() || observacoes.isEmpty() || situacao.isEmpty() || pagamento.isEmpty() || data == null){
-            Aviso.mostrarAviso("Preencha todos campos!","/Alert.fxml");
-            return;
-        }
-        if (nomeDespesa.getText().length() > 30){
-            Aviso.mostrarAviso("Numero Maximo em\nDespesa é 30!","/Alert.fxml");
-            return;
-        }else if (!valor.matches(".*\\d.*")){
-            Aviso.mostrarAviso("Somente numeros\nEm Valor!","/Alert.fxml");
-            return;
-        }else if (ObservacoesDespesa.getText().length() >80){
-            Aviso.mostrarAviso("Numero Maximo em\nObservações é 50!","/Alert.fxml");
-            return;
-        }else if (situacao.isEmpty()){
-            Aviso.mostrarAviso("Selecione uma opção\nEm situação","/Alert.fxml");
-            return;
-        }else if (pagamento.isEmpty()){
-            Aviso.mostrarAviso("Selecione uma opção\nEm pagamento","/Alert.fxml");
-            return;
-        }
-        else {
+        if (Validacoes.validarDespesas(nome,valor,observacoes,situacao,pagamento,data)){
             try {
                 registerDespesaDao.salvardespesa(nome,Double.parseDouble(valor),observacoes,situacao,pagamento,data);
                 Aviso.mostrarAviso("","/confirmado.fxml");
+                nomeDespesa.clear();
+                ValorDespesa.clear();
+                ObservacoesDespesa.clear();
             }
             catch (Exception e) {
                 e.printStackTrace();
                 Aviso.mostrarAviso("Erro Registrar Despesa","/Alert.fxml");
             }
         }
-
-
     }
     public void selecionarPago(ActionEvent actionEvent) {
         Situacao.setText("Pago");
