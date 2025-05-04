@@ -79,7 +79,7 @@
       </Button>
     <Button id="buttonfuncionario" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CADASTRAR  FORNECEDOR" />
       <Button id="lista" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#listaFornecedores" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="LISTA DE FORNECEDORES" />
-      <TableView id="styleview" fx:id="fornecedorTableList" layoutX="321.0" layoutY="189.0" prefHeight="581.0" prefWidth="1158.0" stylesheets="@style.css">
+      <TableView id="styleview" fx:id="fornecedorTableList" layoutX="232.0" layoutY="189.0" prefHeight="587.0" prefWidth="1248.0" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="nFornecedor" prefWidth="261.0" style="-fx-background-color: transparent;" text="NOME" />
             <TableColumn fx:id="telFornecedor" prefWidth="116.0" style="-fx-background-color: transparent;" text="TELEFONE" />
@@ -87,7 +87,9 @@
             <TableColumn fx:id="cepFornecedor" prefWidth="56.0" style="-fx-background-color: transparent;" text="CEP" />
             <TableColumn fx:id="CNPJ" minWidth="0.0" prefWidth="75.0" style="-fx-background-color: transparent;" text="CNPJ" />
             <TableColumn fx:id="dataDecadastro" minWidth="0.0" prefWidth="139.0" style="-fx-background-color: transparent;" text="Data de Cadastro" />
-            <TableColumn fx:id="endereco" prefWidth="354.0" style="-fx-background-color: transparent;" text="ENDEREÇO" />
+            <TableColumn fx:id="endereco" prefWidth="139.0" style="-fx-background-color: transparent;" text="RUA" />
+            <TableColumn fx:id="cidade" prefWidth="139.0" style="-fx-background-color: transparent;" text="CIDADE" />
+            <TableColumn fx:id="bairro" prefWidth="166.0" style="-fx-background-color: transparent;" text="BAIRRO" />
          </columns>
       </TableView>
       <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />

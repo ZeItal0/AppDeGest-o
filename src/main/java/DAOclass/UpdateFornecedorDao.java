@@ -9,9 +9,9 @@ import java.sql.SQLException;
 public class UpdateFornecedorDao {
     DatabaseConnector dbConnector = new DatabaseConnector();
     private String sqlUpdateFornecedor = "UPDATE fornecedor SET nome = ?, email = ?, telefone = ?, cnpj_cpf = ? WHERE id = ?";
-    private String sqlUpdateEndereco = "UPDATE endereco SET Rua = ?, cep = ? WHERE id = (SELECT id_endereco FROM fornecedor WHERE id = ?)";
+    private String sqlUpdateEndereco = "UPDATE endereco SET Rua = ?, cidade = ?, bairro = ?, cep = ? WHERE id = (SELECT id_endereco FROM fornecedor WHERE id = ?)";
 
-    public void atualizarFornecedor(int id, String nome, String telefone, String cnpj, String cep, String rua, String email) throws SQLException {
+    public void atualizarFornecedor(int id, String nome, String telefone, String cnpj, String cep, String rua, String email,String cidade,String bairro) throws SQLException {
         Connection conn = dbConnector.connect();
 
         PreparedStatement pstmtFornecedor = conn.prepareStatement(sqlUpdateFornecedor);
@@ -24,8 +24,10 @@ public class UpdateFornecedorDao {
 
         PreparedStatement pstmtEndereco = conn.prepareStatement(sqlUpdateEndereco);
         pstmtEndereco.setString(1,rua);
-        pstmtEndereco.setString(2,cep);
-        pstmtEndereco.setInt(3,id);
+        pstmtEndereco.setString(2,cidade);
+        pstmtEndereco.setString(3,bairro);
+        pstmtEndereco.setString(4,cep);
+        pstmtEndereco.setInt(5,id);
         pstmtEndereco.executeUpdate();
 
         pstmtFornecedor.close();

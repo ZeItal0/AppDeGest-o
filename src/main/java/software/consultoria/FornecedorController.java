@@ -43,6 +43,10 @@ public class FornecedorController {
     @FXML
     private TableColumn<Fornecedor, String> endereco;
     @FXML
+    private TableColumn<Fornecedor, String> cidade;
+    @FXML
+    private TableColumn<Fornecedor, String> bairro;
+    @FXML
     private TableColumn<Fornecedor, LocalDate> dataDecadastro;
 
     @FXML
@@ -119,6 +123,12 @@ public class FornecedorController {
 
         endereco.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getEndereco().getRua())
+        );
+        cidade.setCellValueFactory( cellData ->
+                new SimpleStringProperty(cellData.getValue().getEndereco().getCidade())
+        );
+        bairro.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getEndereco().getBairro())
         );
 
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -202,7 +212,7 @@ public class FornecedorController {
     public void Save(ActionEvent actionEvent) throws SQLException {
         Fornecedor fornecedorSelecionado = fornecedorTableList.getSelectionModel().getSelectedItem();
         if (fornecedorSelecionado != null){
-            updateFornecedorDao.atualizarFornecedor(fornecedorSelecionado.getId(),fornecedorSelecionado.getNome(),fornecedorSelecionado.getTelefone(),fornecedorSelecionado.getCnpj(),fornecedorSelecionado.getEndereco().getCep(),fornecedorSelecionado.getEndereco().getRua(),fornecedorSelecionado.getEmail());
+            updateFornecedorDao.atualizarFornecedor(fornecedorSelecionado.getId(),fornecedorSelecionado.getNome(),fornecedorSelecionado.getTelefone(),fornecedorSelecionado.getCnpj(),fornecedorSelecionado.getEndereco().getCep(),fornecedorSelecionado.getEndereco().getRua(),fornecedorSelecionado.getEmail(),fornecedorSelecionado.getEndereco().getCidade(),fornecedorSelecionado.getEndereco().getBairro());
             Aviso.mostrarAviso("Atualizado com\nsucesso!","/confirmarEditado.fxml");
         }
         else {
@@ -242,6 +252,16 @@ public class FornecedorController {
         email.setOnEditCommit(event ->{
             Fornecedor fornecedor = event.getRowValue();
             fornecedor.setEmail(event.getNewValue());
+        });
+        cidade.setCellFactory(TextFieldTableCell.forTableColumn());
+        cidade.setOnEditCommit( event -> {
+            Fornecedor fornecedor = event.getRowValue();
+            fornecedor.getEndereco().setCidade(event.getNewValue());
+        });
+        bairro.setCellFactory(TextFieldTableCell.forTableColumn());
+        bairro.setOnEditCommit( event -> {
+            Fornecedor fornecedor = event.getRowValue();
+            fornecedor.getEndereco().setBairro(event.getNewValue());
         });
 
     }
