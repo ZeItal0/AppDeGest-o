@@ -42,6 +42,10 @@ public class FuncionarioController {
     @FXML
     private TableColumn<Usuario, String> endereco;
     @FXML
+    private TableColumn<Usuario, String> cidade;
+    @FXML
+    private TableColumn<Usuario, String> bairro;
+    @FXML
     private TableColumn<Usuario, LocalDate> dataNascimento;
     @FXML
     private TableColumn<Usuario, LocalDate> dataDecadastro;
@@ -116,6 +120,12 @@ public class FuncionarioController {
                 endereco.setCellValueFactory(cellData ->
                         new SimpleStringProperty(cellData.getValue().getEndereco().getRua())
                 );
+                cidade.setCellValueFactory( cellData ->
+                        new SimpleStringProperty(cellData.getValue().getEndereco().getCidade())
+                );
+                bairro.setCellValueFactory(cellData ->
+                        new SimpleStringProperty(cellData.getValue().getEndereco().getBairro())
+                );
 
             dataNascimento.setCellValueFactory(new PropertyValueFactory<>("dataDeNascimento"));
             dataDecadastro.setCellValueFactory(new PropertyValueFactory<>("DataDeRegistro"));
@@ -131,7 +141,6 @@ public class FuncionarioController {
         }
 
         Pesquisa.textProperty().addListener((observable, oldValue, newValue) ->{
-
             try {
                 ObservableList<Usuario> filtro = searchFuncionarioDao.buscaPorNome(newValue);
                 funcionariostableList.setItems(filtro);
@@ -218,7 +227,7 @@ public class FuncionarioController {
     public void Save(ActionEvent actionEvent) throws SQLException {
         Usuario funcionarioSelecionado = funcionariostableList.getSelectionModel().getSelectedItem();
         if (funcionarioSelecionado != null){
-            updateUsuarioDao.atualizarFuncionario(funcionarioSelecionado.getId(),funcionarioSelecionado.getNome(),funcionarioSelecionado.getTelefone(),funcionarioSelecionado.getEndereco().getCep(),funcionarioSelecionado.getEndereco().getRua());
+            updateUsuarioDao.atualizarFuncionario(funcionarioSelecionado.getId(),funcionarioSelecionado.getNome(),funcionarioSelecionado.getTelefone(),funcionarioSelecionado.getEndereco().getCep(),funcionarioSelecionado.getEndereco().getRua(),funcionarioSelecionado.getEndereco().getCidade(),funcionarioSelecionado.getEndereco().getBairro());
             Aviso.mostrarAviso("Atualizado com\nsucesso!","/confirmarEditado.fxml");
         }
         else {
@@ -250,6 +259,15 @@ public class FuncionarioController {
             Usuario usuario = event.getRowValue();
             usuario.getEndereco().setRua(event.getNewValue());
         });
-
+        cidade.setCellFactory(TextFieldTableCell.forTableColumn());
+        cidade.setOnEditCommit( event -> {
+            Usuario usuario = event.getRowValue();
+            usuario.getEndereco().setCidade(event.getNewValue());
+        });
+        bairro.setCellFactory(TextFieldTableCell.forTableColumn());
+        bairro.setOnEditCommit( event -> {
+            Usuario usuario = event.getRowValue();
+            usuario.getEndereco().setBairro(event.getNewValue());
+        });
     }
 }

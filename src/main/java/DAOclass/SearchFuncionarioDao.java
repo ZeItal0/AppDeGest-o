@@ -14,7 +14,7 @@ public class SearchFuncionarioDao {
 
     private String sqlist = """
                 SELECT u.id AS id_usuario, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro,
-                       e.id AS id_endereco, e.Rua, e.cep
+                       e.id AS id_endereco, e.Rua, e.cep, e.cidade, e.bairro
                 FROM usuario u
                 JOIN endereco e ON u.id_endereco = e.id
                 ORDER BY u.data_de_cadastro DESC
@@ -22,10 +22,10 @@ public class SearchFuncionarioDao {
             """;
     private String sqlBusca = """
                 SELECT u.id AS id_usuario, u.nome, u.telefone, u.data_de_nascimento, u.data_de_cadastro,
-                       e.id AS id_endereco, e.Rua, e.cep
+                        e.id AS id_endereco, e.Rua, e.cep, e.cidade, e.bairro
                 FROM usuario u
                 JOIN endereco e ON u.id_endereco = e.id
-                WHERE u.nome LIKE ?
+                WHERE u.nome LIKE ? OR u.telefone LIKE ? OR e.Rua LIKE ? OR e.cep LIKE ? OR e.cidade LIKE ? OR e.bairro LIKE ?
                 ORDER BY u.data_de_cadastro DESC
                 LIMIT 100;
             """;
@@ -47,6 +47,8 @@ public class SearchFuncionarioDao {
             endereco.setId(rs.getInt("id_endereco"));
             endereco.setRua(rs.getString("Rua"));
             endereco.setCep(rs.getString("cep"));
+            endereco.setCidade(rs.getString("cidade"));
+            endereco.setBairro(rs.getString("bairro"));
             usuario.setEndereco(endereco);
             lista.add(usuario);
 
@@ -62,6 +64,11 @@ public class SearchFuncionarioDao {
         Connection conn = dbConnector.connect();
         PreparedStatement pstmt = conn.prepareStatement(sqlBusca);
         pstmt.setString(1,"%"+nome+"%");
+        pstmt.setString(2,"%"+nome+"%");
+        pstmt.setString(3,"%"+nome+"%");
+        pstmt.setString(4,"%"+nome+"%");
+        pstmt.setString(5,"%"+nome+"%");
+        pstmt.setString(6,"%"+nome+"%");
         ResultSet rs = pstmt.executeQuery();
 
         while (rs.next()){
@@ -76,6 +83,8 @@ public class SearchFuncionarioDao {
             endereco.setId(rs.getInt("id_endereco"));
             endereco.setRua(rs.getString("Rua"));
             endereco.setCep(rs.getString("cep"));
+            endereco.setCidade(rs.getString("cidade"));
+            endereco.setBairro(rs.getString("bairro"));
             usuario.setEndereco(endereco);
             lista.add(usuario);
 

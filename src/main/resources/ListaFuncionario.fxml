@@ -92,14 +92,16 @@
             </ImageView>
          </graphic>
       </Button>
-      <TableView id="styleview" fx:id="funcionariostableList" layoutX="275.0" layoutY="189.0" prefHeight="589.0" prefWidth="1204.0" stylesheets="@style.css">
+      <TableView id="styleview" fx:id="funcionariostableList" layoutX="126.0" layoutY="189.0" prefHeight="589.0" prefWidth="1351.0" stylesheets="@style.css">
         <columns>
           <TableColumn fx:id="nfuncionario" prefWidth="345.0" style="-fx-background-color: transparent;" text="NOME" />
           <TableColumn fx:id="telFuncionario" prefWidth="128.3333740234375" style="-fx-background-color: transparent;" text="TELEFONE" />
             <TableColumn fx:id="cepFuncionario" prefWidth="119.33331298828125" style="-fx-background-color: transparent;" text="CEP" />
-            <TableColumn fx:id="endereco" prefWidth="364.6666259765625" style="-fx-background-color: transparent;" text="ENDEREÇO" />
-            <TableColumn fx:id="dataNascimento" prefWidth="125.6666259765625" style="-fx-background-color: transparent;" text="Data de Nascimento" />
-            <TableColumn fx:id="dataDecadastro" prefWidth="117.0" style="-fx-background-color: transparent;" text="Data de Cadastro" />
+            <TableColumn fx:id="endereco" prefWidth="181.6666259765625" style="-fx-background-color: transparent;" text="RUA" />
+            <TableColumn fx:id="bairro" prefWidth="211.333251953125" style="-fx-background-color: transparent;" text="BAIRRO" />
+            <TableColumn fx:id="cidade" prefWidth="127.3336181640625" style="-fx-background-color: transparent;" text="CIDADE" />
+            <TableColumn fx:id="dataNascimento" prefWidth="124.999755859375" style="-fx-background-color: transparent;" text="Data de Nascimento" />
+            <TableColumn fx:id="dataDecadastro" prefWidth="111.3336181640625" style="-fx-background-color: transparent;" text="Data de Cadastro" />
         </columns>
       </TableView>
       <Pane id="setpane" fx:id="paneSuperior" layoutX="1.0" layoutY="11.0" prefHeight="62.0" prefWidth="113.0" stylesheets="@style.css" />
