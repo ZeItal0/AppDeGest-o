@@ -69,23 +69,23 @@ public class VideosController {
 
 
     public void CadastroFornecedor(ActionEvent actionEvent) {
-        trocarVideo("/videos/video.mp4");
+        trocarVideo("/videos/aula1.mp4");
     }
 
     public void CadastroProduto(ActionEvent actionEvent) {
-        trocarVideo("/videos/video.mp4");
+        trocarVideo("/videos/aula2.mp4");
     }
 
     public void CadastroFuncionario(ActionEvent actionEvent) {
-        trocarVideo("/videos/video.mp4");
+        trocarVideo("/videos/aula3.mp4");
     }
 
     public void CadastroDespesas(ActionEvent actionEvent) {
-        trocarVideo("/videos/video.mp4");
+        trocarVideo("/videos/aula4.mp4");
     }
 
     public void CadastroVenda(ActionEvent actionEvent) {
-        trocarVideo("/videos/video.mp4");
+        trocarVideo("/videos/aula5.mp4");
     }
 
     public void ListagemErelatorio(ActionEvent actionEvent) {

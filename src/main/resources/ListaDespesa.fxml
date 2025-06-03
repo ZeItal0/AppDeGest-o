@@ -47,7 +47,7 @@
                   <Image url="@img/details5.png" />
                </image>
             </ImageView>
-            <Button id="Save" alignment="CENTER" layoutX="1353.0" layoutY="139.0" mnemonicParsing="false" onAction="#Save" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="SALVAR" textFill="#979393">
+            <Button id="Save" alignment="CENTER" layoutX="1188.0" layoutY="103.0" mnemonicParsing="false" onAction="#Save" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="SALVAR" textFill="#979393">
                <graphic>
                   <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -79,7 +79,7 @@
       </Button>
     <Button id="buttonfuncionario" layoutX="103.0" layoutY="11.0" mnemonicParsing="false" onAction="#cadastrarDespesa" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="ENTRADA DE DESPESAS" />
       <Button id="lista" layoutX="362.0" layoutY="11.0" mnemonicParsing="false" onAction="#listaDedespesas" prefHeight="62.0" prefWidth="271.0" stylesheets="@style.css" text="CONSULTA DE DESPESAS" />
-      <TableView id="styleview" fx:id="DespesasList" layoutX="270.0" layoutY="189.0" prefHeight="589.0" prefWidth="1207.0" stylesheets="@style.css">
+      <TableView id="styleview" fx:id="DespesasList" layoutX="114.0" layoutY="149.0" prefHeight="589.0" prefWidth="1207.0" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="DESPESAS" prefWidth="191.0" style="-fx-background-color: transparent;" text="DESPESAS" />
             <TableColumn fx:id="DATADADESPESA" prefWidth="120.0" style="-fx-background-color: transparent;" text="DATA DA DESPESA" />
@@ -198,8 +198,8 @@
             <Image url="@icons/user1.png" />
          </image>
       </ImageView>
-      <TextField id="pesquisa" fx:id="Pesquisa" alignment="TOP_LEFT" layoutX="1067.0" layoutY="144.0" prefHeight="35.0" prefWidth="280.0" promptText="Pesquisa" styleClass="style.css" stylesheets="@style.css" />
-      <ImageView fitHeight="29.0" fitWidth="43.0" layoutX="1312.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+      <TextField id="pesquisa" fx:id="Pesquisa" alignment="TOP_LEFT" layoutX="769.0" layoutY="107.0" prefHeight="35.0" prefWidth="415.0" promptText="Pesquisa" styleClass="style.css" stylesheets="@style.css" />
+      <ImageView fitHeight="29.0" fitWidth="43.0" layoutX="1149.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/search.png" />
          </image>

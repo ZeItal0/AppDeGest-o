@@ -74,58 +74,49 @@
             </ImageView>
          </children>
       </Pane>
-      <VBox id="VideosList" layoutX="1174.0" layoutY="82.0" prefHeight="701.0" prefWidth="314.0" spacing="6.0" stylesheets="@style.css">
+      <VBox id="VideosList" layoutX="1174.0" layoutY="82.0" prefHeight="524.0" prefWidth="314.0" spacing="6.0" stylesheets="@style.css">
          <children>
-            <Button id="ButtonVideo" fx:id="aula1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroFornecedor" prefHeight="111.0" prefWidth="292.0" stylesheets="@style.css" text="AULA1-Cadastro de Fornecedor" textAlignment="CENTER" wrapText="true">
+            <Button id="ButtonVideo" fx:id="aula1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroFornecedor" prefHeight="97.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 1-Area de Funcionarios" textAlignment="CENTER" wrapText="true">
                <graphic>
-                  <ImageView id="img" fx:id="img112" fitHeight="94.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="img" fx:id="img112" fitHeight="62.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/2d9d1c3dc177fe8dba874dd8dc69ad95.jpg" />
+                        <Image url="@img/aula1.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button id="ButtonVideo" fx:id="aula2" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroProduto" prefHeight="111.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 2-Cadastro de Produto" textAlignment="CENTER" wrapText="true">
+            <Button id="ButtonVideo" fx:id="aula2" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroProduto" prefHeight="99.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 2-Area de Vendas" textAlignment="CENTER" wrapText="true">
                <graphic>
-                  <ImageView id="img" fx:id="img11" fitHeight="94.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="img" fx:id="img11" fitHeight="62.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/2d9d1c3dc177fe8dba874dd8dc69ad95.jpg" />
+                        <Image url="@img/aula2.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button id="ButtonVideo" fx:id="aula3" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroFuncionario" prefHeight="111.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 3-Cadastro de Funcionario" textAlignment="CENTER" wrapText="true">
+            <Button id="ButtonVideo" fx:id="aula3" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroFuncionario" prefHeight="111.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 3- Cadastro de Produtos" textAlignment="CENTER" wrapText="true">
                <graphic>
-                  <ImageView id="img" fx:id="img111" fitHeight="94.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="img" fx:id="img111" fitHeight="63.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/2d9d1c3dc177fe8dba874dd8dc69ad95.jpg" />
+                        <Image url="@img/aula3.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button id="ButtonVideo" fx:id="aula4" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroDespesas" prefHeight="111.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 4-Cadastro de Despesas" textAlignment="CENTER" wrapText="true">
+            <Button id="ButtonVideo" fx:id="aula4" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroDespesas" prefHeight="111.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 4- Area de Fornecedores" textAlignment="CENTER" wrapText="true">
                <graphic>
-                  <ImageView id="img" fx:id="img113" fitHeight="94.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="img" fx:id="img113" fitHeight="70.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/2d9d1c3dc177fe8dba874dd8dc69ad95.jpg" />
+                        <Image url="@img/aula4.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button id="ButtonVideo" fx:id="aula5" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroVenda" prefHeight="111.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 5- Realizando Vendas" textAlignment="CENTER" wrapText="true">
+            <Button id="ButtonVideo" fx:id="aula5" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#CadastroVenda" prefHeight="111.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 5- Registro de Despesas" textAlignment="CENTER" wrapText="true">
                <graphic>
-                  <ImageView id="img" fx:id="img1121" fitHeight="94.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="img" fx:id="img1121" fitHeight="69.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/2d9d1c3dc177fe8dba874dd8dc69ad95.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button id="ButtonVideo" fx:id="aula6" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#ListagemErelatorio" prefHeight="111.0" prefWidth="292.0" stylesheets="@style.css" text="AULA 6-Listagem e Relatorio" textAlignment="CENTER" wrapText="true">
-               <graphic>
-                  <ImageView id="img" fx:id="img1122" fitHeight="94.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/2d9d1c3dc177fe8dba874dd8dc69ad95.jpg" />
+                        <Image url="@img/aula5.png" />
                      </image>
                   </ImageView>
                </graphic>

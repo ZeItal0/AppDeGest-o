@@ -97,14 +97,6 @@ public class MainController {
         if (pane != null){
             transition.fadeInPane(pane);
         }
-        if (paneSuperior != null){
-            transition.fadeInPane(paneSuperior);
-        }
-        if(buttonone!=null){
-            transition.fadeInButtonsOptions(buttonone);
-            transition.fadeInButtonsOptions(buttontwo);
-            transition.fadeInButtonsOptions(buttonthree);
-        }
 
 
         main = ScreenChange.getMainInstance();
@@ -113,7 +105,7 @@ public class MainController {
     // codigos para encerrar minimizar e entrar no app//
 
     public void enter(ActionEvent actionEvent) throws SQLException {
-
+        main.carregarCena("/menu.fxml");
         if (user.getText().length() > 8){
             Aviso.mostrarAviso("Usuario deve \nconter 8 Caracteres","/Alert.fxml");
             return;
